@@ -12,7 +12,7 @@ class Programs extends React.Component {
             <div>
                 {this.props.programs.map(program => {
                     return (
-                        <ProgramTable key={program.id} program = {program}/>
+                        <ProgramTable program = {program}/>
                     )
                 })}
         

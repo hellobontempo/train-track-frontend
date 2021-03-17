@@ -13,15 +13,15 @@ class ProgramTable extends React.Component{
     for (let weekNumber = 1; weekNumber < totalWeeks + 1; weekNumber++){
         nextWeek = weekNumber * 7 ;
         let weeklyExercises = this.props.program.exercises.slice(startDay, nextWeek);
+        let programExercises = this.props.program.program_exercises.slice(startDay, nextWeek);
         startDay += 7;
-        programWeeks.push(<Week weekNumber={weekNumber} exercises={weeklyExercises}/>)
+        programWeeks.push(<Week weekNumber={weekNumber} exercises={weeklyExercises} programExercises={programExercises}/>)
       }
      return programWeeks
 
   }
 
   render (){
-    console.log(this.week())
        return (
         <Table striped bordered hover className="tableDiv">
         <thead>
@@ -38,12 +38,11 @@ class ProgramTable extends React.Component{
         </thead>
         <tbody>
           {this.week().map(week => {
-            return (
-            <tr>{week}</tr>)
+            return (      
+              <tr>{week}</tr>
+          )
           })}
-          <tr>
-            <td>RACE DAY</td>
-          </tr>
+     
         </tbody>
       </Table>
       )}

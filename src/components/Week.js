@@ -1,10 +1,19 @@
 
 
 const Week = props => {
+
+  console.log("week", props)
+
     return (
-        props.exercises.map(exercise => {
+        props.programExercises.map(programEx => {
+          let exercise = props.exercises.find( e => e.id === programEx.exercise_id)
             return (
-              <td>{exercise.name}</td>
+              <td> 
+                <div>
+                  {exercise.name}<br></br>
+                  {programEx.miles === null ? `` : `${programEx.miles} miles`}
+                </div>
+               </td>
             )
           })
     )
