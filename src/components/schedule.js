@@ -1,7 +1,7 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table';
 
-export default const Schedule = () => {
+export const Schedule = () => {
        return (
         <Table striped bordered hover className="tableDiv">
         <thead>
