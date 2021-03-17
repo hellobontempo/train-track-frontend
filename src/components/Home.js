@@ -3,14 +3,30 @@ import { Link, Route } from 'react-router-dom'
 
 class Home extends React.Component {
 
+    state = {
+        raceDate: "",
+        restDayOne: "",
+        restDayTwo: ""
+    }
+
+    handleOnSubmit = (event) => {
+        event.preventDefault()
+        this.setState({
+            raceDate: event.target.raceDate.value,
+            restDayOne: parseInt(event.target.restDayOne.value),
+            restDayTwo: parseInt(event.target.restDayTwo.value)
+        })
+        console.log(this.state)
+    }
+
     render(){
         return(
             <div>
-                <form className="form">
+                <form onSubmit={this.handleOnSubmit} className="form">
                     <label for="date">Enter Race Date</label>
-                    <input type="date"/><br></br>
+                    <input name="raceDate" type="date"/><br></br>
                     <label for="rest-day-select">Choose Rest Days:</label>
-                    <select name="first-rest-day">
+                    <select name="restDayOne">
                         <option value="0">Sunday</option>
                         <option value="1">Monday</option>
                         <option value="2">Tuesday</option>
@@ -19,7 +35,7 @@ class Home extends React.Component {
                         <option value="5">Friday</option>
                         <option value="6">Saturday</option>
                     </select>
-                    <select name="second-rest-day">
+                    <select name="restDayTwo">
                         <option value="0">Sunday</option>
                         <option value="1">Monday</option>
                         <option value="2">Tuesday</option>
