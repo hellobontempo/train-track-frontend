@@ -1,18 +1,28 @@
-import { ProgramTable } from "./ProgramTable"
+import React from "react"
+import { connect } from "react-redux"
+import ProgramTable from "./ProgramTable"
 
-const Programs = (props) => {
+class Programs extends React.Component {
     
-    return (
-        <div>
-            {props.programs.map(program => {
-                return (
-                    <ProgramTable key={program.id} program = {program}/>
-                )
-            })}
-       
-           
-        </div>
-    )
+    render(){
+        return (
+            <div>
+                {this.props.programs.map(program => {
+                    return (
+                        <ProgramTable key={program.id} program = {program}/>
+                    )
+                })}
+        
+            
+            </div>
+        )}
 }
 
-export default Programs
+const mapStateToProps = (state) => {
+    return {
+      programs: state.programs,
+    
+    }
+  }
+
+export default connect(mapStateToProps)(Programs)

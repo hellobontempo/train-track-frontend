@@ -8,14 +8,15 @@ import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import programsReducer from './reducers/programsReducer'
 
+
 const store = createStore(programsReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
-  <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Provider>,
+    <Provider store={store}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </Provider>,
   document.getElementById('root')
 );
 

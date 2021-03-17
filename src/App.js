@@ -4,8 +4,8 @@ import React from 'react'
 import { connect } from 'react-redux';
 import {fetchPrograms} from './actions/fetchPrograms'
 import NavBar from './components/NavBar';
-
-
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Home from './components/Home'
 class App extends React.Component {
 
   componentDidMount() {
@@ -16,10 +16,14 @@ class App extends React.Component {
     return (
       <div className="App">
           <NavBar />
-          <Programs programs={this.props.programs}/>
+          <Router>
+             <Route exact path="/" component={Home} />  
+             <Route exact path="/programs" component={Programs} />  
+          </Router>
       </div>
     )}
 }
+
 
 const mapStateToProps = state => {
   return {
