@@ -1,14 +1,37 @@
 import logo from './logo.svg';
 import './App.css';
-import {Schedule} from './components/schedule';
+import {Program} from './components/Program';
+import React from 'react'
+import { connect } from 'react-redux';
+import {fetchPrograms} from './actions/fetchPrograms'
 
-function App() {
-  return (
-    <div className="App">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <Schedule/>
-    </div>
-  );
+class App extends React.Component {
+
+  componentDidMount() {
+    console.log(this.props)
+    this.props.fetchPrograms()
+  }
+
+  render(){
+    return (
+      <div className="App">
+          {/* <img src={logo} className="App-logo" alt="logo" /> */}
+          <Program/>
+      </div>
+    )}
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    programs: state.programs,
+    loading: state.loading
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchPrograms: () => dispatch(fetchPrograms())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
