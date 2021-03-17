@@ -2,7 +2,7 @@ import './App.css';
 import Programs from './components/Programs';
 import React from 'react'
 import { connect } from 'react-redux';
-import {fetchPrograms} from './actions/fetchPrograms'
+import {fetchPrograms} from './actions/actions'
 import NavBar from './components/NavBar';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './components/Home'

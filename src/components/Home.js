@@ -1,23 +1,26 @@
 import React from 'react'
 import { Link, Route } from 'react-router-dom'
-
+import { addUserProgram } from '../actions/actions'
+import { connect } from 'react-redux'
 class Home extends React.Component {
 
-    // state = {
-    //     raceDate: "",
-    //     restDayOne: "",
-    //     restDayTwo: ""
-    // }
+    state = {
+        raceDate: "",
+        restDayOne: "",
+        restDayTwo: "",
+        programId: 1
+    }
 
     handleOnSubmit = (event) => {
+
         event.preventDefault()
         this.setState({
             raceDate: event.target.raceDate.value,
             restDayOne: parseInt(event.target.restDayOne.value),
             restDayTwo: parseInt(event.target.restDayTwo.value)
-        }, console.log(this.state))
+        })
+        this.props.addUserProgram(this.state)
        
-    
     }
 
     render(){
@@ -54,4 +57,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home
+export default connect(null, { addUserProgram })(Home)
