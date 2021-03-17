@@ -1,4 +1,4 @@
-import { Program } from "./Program"
+import { ProgramTable } from "./ProgramTable"
 
 const Programs = (props) => {
     
@@ -6,7 +6,7 @@ const Programs = (props) => {
         <div>
             {props.programs.map(program => {
                 return (
-                    <Program key={program.id} program = {program}/>
+                    <ProgramTable key={program.id} program = {program}/>
                 )
             })}
        
