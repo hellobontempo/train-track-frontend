@@ -1,9 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 import Programs from './components/Programs';
 import React from 'react'
 import { connect } from 'react-redux';
 import {fetchPrograms} from './actions/fetchPrograms'
+import NavBar from './components/NavBar';
+
 
 class App extends React.Component {
 
@@ -14,6 +15,7 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
+          <NavBar />
           <Programs programs={this.props.programs}/>
       </div>
     )}
