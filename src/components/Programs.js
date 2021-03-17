@@ -4,6 +4,9 @@ import ProgramTable from "./ProgramTable"
 
 class Programs extends React.Component {
     
+    handleOnClick = (program) =>{
+        <ProgramTable key={program.id} program = {program}/>
+    }
     render(){
         return (
             <div>
@@ -20,7 +23,7 @@ class Programs extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-      programs: state.programs,
+      programs: state.programs
     
     }
   }
