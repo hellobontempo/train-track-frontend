@@ -1,9 +1,7 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table';
 
-export default class Schedule extends React.Component {
-
-    render(){
+export const Schedule = () => {
        return (
         <Table striped bordered hover className="tableDiv">
         <thead>
@@ -35,5 +33,4 @@ export default class Schedule extends React.Component {
         </tbody>
       </Table>
       )
-    }
 }
