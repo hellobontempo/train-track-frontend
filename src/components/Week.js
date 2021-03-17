@@ -13,7 +13,7 @@ const Week = props => {
                   {exercise.name}<br></br>
                   {programEx.miles === null ? `` : `${programEx.miles} miles`}
                 </div>
-               </td>
+              </td>
             )
           })
     )

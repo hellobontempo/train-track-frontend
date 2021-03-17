@@ -1,5 +1,5 @@
 
-const programsReducer = ( state = {programs:[], loading: false}, action ) => {
+const programsReducer = ( state = {programs:[], userPrograms:[], loading: false}, action ) => {
     switch (action.type) {
         case 'LOADING_PROGRAMS':
             return {
@@ -13,7 +13,11 @@ const programsReducer = ( state = {programs:[], loading: false}, action ) => {
                 programs: action.programs,
                 loading: false
             }
-    
+        case 'ADD_USER_PROGRAM':
+            return {
+                ...state,
+                userPrograms: [...state.userPrograms, action.payload]
+            }
         default:
             return state
     }
