@@ -35,20 +35,23 @@ class Home extends React.Component {
     }
     render(){
         return(
-            <div>
-                <form onSubmit={this.handleOnSubmit} className="form">
+            <div className="formDiv">
+                <form className="form-control" onSubmit={this.handleOnSubmit} className="form">
                     <label for="date">Enter Race Date</label>
                     <input 
+                    className="form-control"
                         name="start_date" 
                         type="date"
                         onChange={this.handleInputChange} /><br></br>
                     <label for="username">Your Name:</label>
                     <input 
+                    className="form-control"
                     name="username" 
                     type="text"
                     onChange={this.handleInputChange}/><br></br>
-                    <label for="rest-day-select">Choose Rest Days:</label>
+                    <label for="rest-day-one-select">Rest Day One:</label>
                     <select 
+                    className="form-control"
                     name="first_rest_day"
                     onChange={this.handleInputChange}>
                         <option value="0">Sunday</option>
@@ -59,7 +62,10 @@ class Home extends React.Component {
                         <option value="5">Friday</option>
                         <option value="6">Saturday</option>
                     </select>
-                    <select name="second_rest_day"
+                    <label for="rest-day-two-select">Rest Day Two:</label>
+                    <select 
+                    className="form-control"
+                    name="second_rest_day"
                     onChange={this.handleInputChange}>
                         <option value="0">Sunday</option>
                         <option value="1">Monday</option>
@@ -69,9 +75,11 @@ class Home extends React.Component {
                         <option value="5">Friday</option>
                         <option value="6">Saturday</option>
                     </select><br></br>
-                    <input type="submit"/>
+                    <input 
+                    className="form-control"
+                    type="submit"/>
                 </form>
-           </div>
+            </div>
         )
     }
 }

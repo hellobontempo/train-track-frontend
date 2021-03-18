@@ -24,27 +24,27 @@ class ProgramTable extends React.Component{
   render (){
        return (
         <Table striped bordered hover className="tableDiv">
-        <thead>
-          <h1>{this.props.program.title} </h1>
-          <tr>
-            <th>Sunday</th>
-            <th>Monday</th>
-            <th>Tuesday</th>
-            <th>Wednesday</th>
-            <th>Thursday</th>
-            <th>Friday</th>
-            <th>Saturday</th>
-          </tr>
-        </thead>
-        <tbody>
-          {this.week().map(week => {
-            return (      
-              <tr>{week}</tr>
-          )
-          })}
-     
-        </tbody>
-      </Table>
+          <thead>
+            {this.props.program.title}
+            <tr>
+              <th>Sunday</th>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+              <th>Saturday</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.week().map(week => {
+              return (      
+                <tr>{week}</tr>
+            )
+            })}
+      
+          </tbody>
+        </Table>
       )}
 }
 

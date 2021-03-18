@@ -5,7 +5,9 @@ export const addUserProgram = newProgram => {
     fetch(`${baseURL}/user_programs`, {
       method: 'POST',
       body: JSON.stringify(newProgram),
-      headers: { 'Content-Type': 'application/json'}
+      headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'}
     })
     .then(resp => resp.json())
     .then(newProgram => dispatch({ type: 'ADD_USER_PROGRAM', payload: newProgram }))
