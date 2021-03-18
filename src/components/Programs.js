@@ -1,12 +1,18 @@
 import React from "react"
 import { connect } from "react-redux"
 import ProgramTable from "./ProgramTable"
+import { Link } from 'react-router-dom';
 
 class Programs extends React.Component {
     
-    handleOnClick = (program) =>{
-        <ProgramTable key={program.id} program = {program}/>
+    renderPrograms = () =>{
+        const programList = Object.keys(this.props.programs).map(programID => 
+            <Link key={programID} to={`/programs/${programID}`}>{this.props.programs[programID].title}</Link>
+          )
+        return programList
+       
     }
+
     render(){
         return (
             <div>
@@ -15,8 +21,7 @@ class Programs extends React.Component {
                         <ProgramTable program = {program}/>
                     )
                 })}
-        
-            
+                {this.renderPrograms()}
             </div>
         )}
 }
