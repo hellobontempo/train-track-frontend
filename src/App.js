@@ -1,15 +1,21 @@
 import './App.css';
-import Programs from './components/Programs';
 import React from 'react'
 import { connect } from 'react-redux';
-import {fetchPrograms} from './actions/actions'
-import NavBar from './components/NavBar';
+import {fetchPrograms, fetchUserPrograms} from './actions/actions'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import Home from './components/Home'
+import ProgramsList from './components/ProgramsList';
+import ProgramsContainer from './components/ProgramsContainer';
+import NavBar from './components/NavBar';
+import ProgramTable from './components/ProgramTable';
+import Switch from 'react-bootstrap/esm/Switch';
+
 class App extends React.Component {
 
   componentDidMount() {
     this.props.fetchPrograms()
+    this.props.fetchUserPrograms()
   }
 
   render(){
@@ -17,8 +23,12 @@ class App extends React.Component {
       <div className="App">
           <NavBar />
           <Router>
-             <Route exact path="/" component={Home} />  
-             <Route exact path="/programs" component={Programs} />  
+            <Switch>
+              <Route exact path="/" component={Home} />  
+              <Route path="/programs" component={ () => <ProgramsContainer programs={this.props.programs}/>} />  
+              <Route exact path="/user_programs" component={ProgramsList} />  
+              {/* <Route path="programs/:id" component={ProgramTable} />   */}
+             </Switch>
           </Router>
       </div>
     )}
@@ -34,7 +44,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchPrograms: () => dispatch(fetchPrograms())
+    fetchPrograms: () => dispatch(fetchPrograms()),
+    fetchUserPrograms: () => dispatch(fetchUserPrograms())
   }
 }
 

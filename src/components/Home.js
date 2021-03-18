@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link, Route } from 'react-router-dom'
 import { addUserProgram } from '../actions/actions'
 import { connect } from 'react-redux'
 class Home extends React.Component {
@@ -19,13 +18,6 @@ class Home extends React.Component {
         this.setState({
             [name]: value
         })
-        console.log(this.state)
-        // this.setState({
-        //     start_date: event.target.start_date.value,
-        //     username: event.target.username.value,
-        //     first_rest_day: parseInt(event.target.first_rest_day.value),
-        //     second_rest_day: parseInt(event.target.second_rest_day.value)
-        // })
     }
 
     handleOnSubmit = event => {

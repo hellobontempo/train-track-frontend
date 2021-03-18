@@ -9,14 +9,14 @@ const programsReducer = ( state = {programs:[], userPrograms:[], loading: false}
             }
         case 'ADD_PROGRAMS':
             return {
-                ...state, 
+                ...state,
                 programs: action.programs,
                 loading: false
             }
         case 'ADD_USER_PROGRAM':
             return {
                 ...state,
-                userPrograms: [...state.userPrograms, action.payload]
+                userPrograms: [action.userPrograms]
             }
         default:
             return state

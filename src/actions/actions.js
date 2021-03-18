@@ -19,7 +19,15 @@ export function fetchPrograms() {
       dispatch({ type: 'START_ADDING_TRAINING_PROGRAMS' });
       fetch(`${baseURL}/programs`)
         .then(response => response.json())
-        // .then(trainingProgram => console.log(trainingProgram));
         .then(programs => dispatch({ type: 'ADD_PROGRAMS', programs }));
     };
-  } 
+} 
+
+export function fetchUserPrograms() {
+    return (dispatch) => {
+      dispatch({ type: 'START_ADDING_USER_PROGRAMS' });
+      fetch(`${baseURL}/user_programs`)
+        .then(response => response.json())
+        .then(userPrograms => dispatch({ type: 'ADD_USER_PROGRAM', userPrograms }));
+    };
+} 
