@@ -32,6 +32,13 @@ class Home extends React.Component {
         event.preventDefault()
         console.log("state", this.state)
         this.props.addUserProgram(this.state)
+        this.setState({
+            start_date: "",
+            username: "",
+            first_rest_day: 0,
+            second_rest_day: 0,
+            program_id: 1
+        })
     }
     render(){
         return(
