@@ -8,7 +8,6 @@ import Home from './components/Home'
 import ProgramsList from './components/ProgramsList';
 import ProgramsContainer from './components/ProgramsContainer';
 import NavBar from './components/NavBar';
-import ProgramTable from './components/ProgramTable';
 import Switch from 'react-bootstrap/esm/Switch';
 
 class App extends React.Component {
@@ -26,8 +25,6 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={Home} />  
               <Route path="/programs" component={ () => <ProgramsContainer programs={this.props.programs}/>} />  
-              <Route exact path="/user_programs" component={ProgramsList} />  
-              {/* <Route path="programs/:id" component={ProgramTable} />   */}
              </Switch>
           </Router>
       </div>

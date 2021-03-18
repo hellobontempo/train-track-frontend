@@ -13,6 +13,24 @@ body {
   width: 50%;
 }
 
+a {
+  color: #afa3b6;
+  padding: 1em 1.5em;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(252, 252, 252);
+}
+
+a:active {
+  color: rgb(175, 167, 167);
+}
+
+a:visited {
+  color: #ccc;
+}
+
 .formDiv {
   padding-top: 5%;
   margin: auto;
