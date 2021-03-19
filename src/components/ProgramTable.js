@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { Container } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
+import TableHeader from './TableHeader';
 import Week from './Week';
 
 const ProgramTable = (props) => {
@@ -29,15 +30,9 @@ const ProgramTable = (props) => {
           <h1>{props.program.title}</h1>
           <Table striped bordered hover>
             <thead>
-              <tr>
-                <th>Sunday</th>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                <th>Friday</th>
-                <th>Saturday</th>
-              </tr>
+             
+              <TableHeader/>
+
             </thead>
             <tbody>
               {week().map(week => {
