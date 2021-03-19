@@ -23,8 +23,12 @@ class App extends React.Component {
           <Router>
             <Switch>
               <Route exact path="/" component={Home} />  
-              <Route path="/programs" component={ () => <ProgramsContainer programs={this.props.programs}/>} />  
-              <Route path="/user_programs" component={ () => <ProgramsContainer userPrograms={this.props.userPrograms}/>} />  
+              <Route path="/programs" component={ () => {
+              return this.props.loading ? <h1>Loading...</h1> : <ProgramsContainer programs={this.props.programs}/>
+              }} />  
+              <Route path="/user_programs" component={ () => {
+              return this.props.loading ? <h1>Loading...</h1> : <ProgramsContainer userPrograms={this.props.userPrograms}/>
+              }} />  
              </Switch>
           </Router>
       </div>

@@ -51,7 +51,7 @@ const ProgramTable = (props) => {
 
   return (
     <Fragment>
-      { props.program ? renderTable() : <div>Loading...</div>}
+      {renderTable()}
     </Fragment>
     )
 }

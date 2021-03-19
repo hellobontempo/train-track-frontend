@@ -1,16 +1,40 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import { Container } from 'react-bootstrap';
+import { connect } from 'react-redux';
 import ProgramTable from './ProgramTable';
 
 
-const UserTable = (props) => {
-  console.log(props)
-  return (
-    <Fragment>
-     { props.userProgram ? <div>we got props!</div> : <div>nope..</div>}
-    </Fragment>
+class UserTable extends React.Component {
+  
+  findProgram(){
+    const userProgramId = this.props.userProgram.program_id
+    const program = this.props.programs.find(p => p.id === userProgramId)
+    return program
+  }
+  
+  loading(){
+    return (
+      <div>
+        <h1>{this.props.userProgram.username}'s Schedule:</h1>
+         <ProgramTable program={this.findProgram()}/>
+      </div>
     )
+  }
+  render(){
+    console.log(this.props)
+    return (
+        <Container>
+        {this.props.userProgram ? this.loading() : <h1>Loading...</h1>}
+        </Container>
+      )
+  }
 }
 
 
+const mapStateToProps = state => {
+  return {
+    programs: state.programs
+  }
+}
 
-export default UserTable
+export default connect(mapStateToProps)(UserTable)

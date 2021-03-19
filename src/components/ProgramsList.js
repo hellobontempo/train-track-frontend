@@ -24,7 +24,7 @@ class ProgramsList extends React.Component {
 const mapStateToProps = (state) => {
     return {
       programs: state.programs,
-      userPrograms: state.userPrograms
+      userPrograms: state.userPrograms //not using right now
     }
   }
 
