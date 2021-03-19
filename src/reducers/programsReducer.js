@@ -3,8 +3,7 @@ const programsReducer = ( state = {programs:[], userPrograms:[], loading: false}
     switch (action.type) {
         case 'LOADING_PROGRAMS':
             return {
-                ...state, 
-                programs: [...state.programs],
+                ...state,
                 loading: true
             }
         case 'ADD_PROGRAMS':

@@ -1,6 +1,7 @@
 import React from 'react'
 import { addUserProgram } from '../actions/actions'
 import { connect } from 'react-redux'
+
 class Home extends React.Component {
 
     state = {
@@ -21,6 +22,7 @@ class Home extends React.Component {
     }
 
     handleOnSubmit = event => {
+        console.log("props in submit", this.props)
         event.preventDefault()
         console.log("state", this.state)
         this.props.addUserProgram(this.state)
@@ -35,24 +37,27 @@ class Home extends React.Component {
     render(){
         return(
             <div className="formDiv">
-                <form className="form-control" onSubmit={this.handleOnSubmit} className="form">
+                <form className="form" onSubmit={this.handleOnSubmit}>
                     <label for="date">Enter Race Date</label>
                     <input 
                     className="form-control"
                         name="start_date" 
                         type="date"
+                        value={this.state.start_date}
                         onChange={this.handleInputChange} /><br></br>
                     <label for="username">Your Name:</label>
                     <input 
-                    className="form-control"
-                    name="username" 
-                    type="text"
-                    onChange={this.handleInputChange}/><br></br>
+                        className="form-control"
+                        name="username" 
+                        type="text"
+                        value={this.state.username}
+                        onChange={this.handleInputChange}/><br></br>
                     <label for="rest-day-one-select">Rest Day One:</label>
                     <select 
-                    className="form-control"
-                    name="first_rest_day"
-                    onChange={this.handleInputChange}>
+                        className="form-control"
+                        name="first_rest_day"
+                        value={this.state.first_rest_day}
+                        onChange={this.handleInputChange}>
                         <option value="0">Sunday</option>
                         <option value="1">Monday</option>
                         <option value="2">Tuesday</option>
@@ -63,9 +68,10 @@ class Home extends React.Component {
                     </select>
                     <label for="rest-day-two-select">Rest Day Two:</label>
                     <select 
-                    className="form-control"
-                    name="second_rest_day"
-                    onChange={this.handleInputChange}>
+                        className="form-control"
+                        name="second_rest_day"
+                        value={this.state.second_rest_day}
+                        onChange={this.handleInputChange}>
                         <option value="0">Sunday</option>
                         <option value="1">Monday</option>
                         <option value="2">Tuesday</option>
