@@ -8,8 +8,17 @@ class Home extends React.Component {
         race_date: "",
         username: "",
         first_rest_day: 0,
-        second_rest_day: 0,
-        program_id: 1
+        second_rest_day: 5,
+        program_id: 1,
+        defaultDisabled: {
+            sunday: true,
+            monday: true,
+            tuesday: false,
+            wednesday: true,
+            thursday: true,
+            friday: false,
+            saturday: true,
+        }
     }
 
     handleInputChange = (event) => {
@@ -21,8 +30,119 @@ class Home extends React.Component {
         })
     }
 
+    handleDateChange = ({target}) => {
+        const name = target.name
+        const value = parseInt(target.value)
+        switch (value) {
+            case 0:
+                this.setState({
+                    [name]: value,
+                    defaultDisabled: {
+                    sunday: true,
+                    monday: true,
+                    tuesday: false,
+                    wednesday: true,
+                    thursday: true,
+                    friday: false,
+                    saturday: true,
+                    }})
+            break;
+        
+            case 1:
+                this.setState({
+                    [name]: value,
+                    defaultDisabled: {
+                        ...this.state.defaultDisabled,
+                    sunday: true,
+                    monday: true,
+                    tuesday: true,
+                    wednesday: false,
+                    thursday: true,
+                    friday: true,
+                    saturday: false,
+                    }
+            })
+            break;
+
+            case 2:
+                this.setState({
+                    [name]: value,
+                    defaultDisabled: {
+                    sunday: true,
+                    monday: true,
+                    tuesday: true,
+                    wednesday: true,
+                    thursday: false,
+                    friday: true,
+                    saturday: true,
+                    }
+            })
+            break;
+            case 3:
+                this.setState({
+                    [name]: value,
+                    defaultDisabled: {
+                    sunday: true,
+                    monday: false,
+                    tuesday: true,
+                    wednesday: true,
+                    thursday: true,
+                    friday: false,
+                    saturday: true,
+                    }
+            })
+            break;
+            case 4:
+                this.setState({
+                    [name]: value,
+                    defaultDisabled: {
+                    sunday: true,
+                    monday: true,
+                    tuesday: false,
+                    wednesday: true,
+                    thursday: true,
+                    friday: true,
+                    saturday: true,
+                    }
+            })
+            break;
+            case 5:
+                this.setState({
+                    [name]: value,
+                    defaultDisabled: {
+                    sunday: false,
+                    monday: true,
+                    tuesday: true,
+                    wednesday: false,
+                    thursday: true,
+                    friday: true,
+                    saturday: true,
+                    }
+            })
+            break;
+            case 6:
+                this.setState({
+                    [name]: value,
+                    defaultDisabled: {
+                    sunday: true,
+                    monday: false,
+                    tuesday: true,
+                    wednesday: true,
+                    thursday: false,
+                    friday: true,
+                    saturday: true,
+                    }
+            })
+            break;
+            default:
+                this.setState({
+                    ...this.state
+            })
+        }
+        
+    }
+
     handleOnSubmit = event => {
-        console.log("props in submit", this.props)
         event.preventDefault()
         console.log("state", this.state)
         this.props.addUserProgram(this.state)
@@ -30,7 +150,7 @@ class Home extends React.Component {
             race_date: "",
             username: "",
             first_rest_day: 0,
-            second_rest_day: 0,
+            second_rest_day: 5,
             program_id: 1
         })
     }
@@ -52,12 +172,12 @@ class Home extends React.Component {
                         type="text"
                         value={this.state.username}
                         onChange={this.handleInputChange}/><br></br>
-                    <label for="rest-day-one-select">Rest Day One:</label>
+                    <label for="rest-day-one-select">Select Rest Days:</label>
                     <select 
                         className="form-control"
                         name="first_rest_day"
                         value={this.state.first_rest_day}
-                        onChange={this.handleInputChange}>
+                        onChange={this.handleDateChange}>
                         <option value="0">Sunday</option>
                         <option value="1">Monday</option>
                         <option value="2">Tuesday</option>
@@ -66,19 +186,19 @@ class Home extends React.Component {
                         <option value="5">Friday</option>
                         <option value="6">Saturday</option>
                     </select>
-                    <label for="rest-day-two-select">Rest Day Two:</label>
+                    <br></br>
                     <select 
                         className="form-control"
                         name="second_rest_day"
                         value={this.state.second_rest_day}
                         onChange={this.handleInputChange}>
-                        <option value="0">Sunday</option>
-                        <option value="1">Monday</option>
-                        <option value="2">Tuesday</option>
-                        <option value="3">Wednesday</option>
-                        <option value="4">Thursday</option>
-                        <option value="5">Friday</option>
-                        <option value="6">Saturday</option>
+                        <option disabled={this.state.defaultDisabled.sunday} value="0">Sunday</option>
+                        <option disabled={this.state.defaultDisabled.monday} value="1">Monday</option>
+                        <option disabled={this.state.defaultDisabled.tuesday} value="2">Tuesday</option>
+                        <option disabled={this.state.defaultDisabled.wednesday} value="3">Wednesday</option>
+                        <option disabled={this.state.defaultDisabled.thursday} value="4">Thursday</option>
+                        <option disabled={this.state.defaultDisabled.friday} value="5">Friday</option>
+                        <option disabled={this.state.defaultDisabled.saturday} alue="6">Saturday</option>
                     </select><br></br>
                     <input 
                     className="form-control"
