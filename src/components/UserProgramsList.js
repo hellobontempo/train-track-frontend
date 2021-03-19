@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom'
 
 const UserProgramsList = props => {
     console.log(props)
+    
+
     return (
         <div className="formDiv">
-        <h2>Custom Programs</h2><hr></hr>
+        <h2>Custom Programs</h2>
+        <hr></hr>
         {props.userPrograms.map(program => {
             return (
                 <div className="formDiv">
