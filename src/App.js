@@ -24,6 +24,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={Home} />  
               <Route path="/programs" component={ () => <ProgramsContainer programs={this.props.programs}/>} />  
+              <Route path="/user_programs" component={ () => <ProgramsContainer userPrograms={this.props.userPrograms}/>} />  
              </Switch>
           </Router>
       </div>
@@ -34,6 +35,7 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return {
     programs: state.programs,
+    userPrograms: state.userPrograms,
     loading: state.loading
   }
 }

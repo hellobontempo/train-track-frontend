@@ -4,10 +4,9 @@ import ProgramTable from './ProgramTable';
 
 const UserTable = (props) => {
   console.log(props)
-
   return (
     <Fragment>
-      <ProgramTable />
+     { props.userProgram ? <div>we got props!</div> : <div>nope..</div>}
     </Fragment>
     )
 }
