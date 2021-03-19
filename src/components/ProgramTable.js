@@ -6,6 +6,7 @@ import Week from './Week';
 
 const ProgramTable = (props) => {
   console.log(props)
+  
   function week(){
     const totalWeeks = props.program.length_in_weeks
     let startDay = 0;
@@ -22,6 +23,14 @@ const ProgramTable = (props) => {
 
   }
 
+  function header(){
+    if (props.custom){
+      return <TableHeader startDay={props.custom.start_date} firstRest={props.custom.first_rest_day} secondRest={props.custom.second_rest_day}/>
+    }else{
+      return <TableHeader/>
+    }
+  }
+
   function renderTable(){
     return (
       <div>
@@ -30,9 +39,7 @@ const ProgramTable = (props) => {
           <h1>{props.program.title}</h1>
           <Table striped bordered hover>
             <thead>
-             
-              <TableHeader/>
-
+             {header()}
             </thead>
             <tbody>
               {week().map(week => {

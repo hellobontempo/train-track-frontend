@@ -16,7 +16,7 @@ class UserTable extends React.Component {
     return (
       <div>
         <h1>{this.props.userProgram.username}'s Schedule:</h1>
-         <ProgramTable program={this.findProgram()}/>
+         <ProgramTable custom={this.props.userProgram} program={this.findProgram()}/>
       </div>
     )
   }

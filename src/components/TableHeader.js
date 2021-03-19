@@ -4,12 +4,20 @@ import { Fragment } from "react"
 const TableHeader = props => {
 
     function customheader (){
+        console.log(props)
         let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-        return (
+        if (props.startDay) {
+            let customWeek = weekDays.slice(props.firstRest).concat(weekDays.slice(props.secondRest, props.firstRest))
+            return (
             <tr>
-                {weekDays.map(day => <th>{day}</th>)} 
-            </tr>
-        )
+            {customWeek.map(day => <th>{day}</th>)} 
+            </tr>)
+        } else {
+            return (
+            <tr>
+            {weekDays.map(day => <th>{day}</th>)} 
+            </tr>)
+        }
 
     }
     return (
