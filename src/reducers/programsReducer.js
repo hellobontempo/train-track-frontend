@@ -13,7 +13,6 @@ const programsReducer = ( state = {programs:[], userPrograms:[], loading: false}
                 loading: false
             }
         case 'ADD_USER_PROGRAM':
-            console.log(action.userPrograms)
             return {
                 ...state,
                 userPrograms: action.userPrograms

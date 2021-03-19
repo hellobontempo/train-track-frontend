@@ -7,7 +7,7 @@ const TableHeader = props => {
         console.log(props)
         let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
         if (props.startDay) {
-            let customWeek = weekDays.slice(props.firstRest).concat(weekDays.slice(props.secondRest, props.firstRest))
+            let customWeek = weekDays.slice(props.firstRest).concat(weekDays.slice(0, props.firstRest))
             return (
             <tr>
             {customWeek.map(day => <th>{day}</th>)} 
