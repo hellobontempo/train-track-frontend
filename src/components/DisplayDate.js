@@ -5,7 +5,7 @@ const DisplayDate = (date) => {
     
     const dateToFormat = `${date}`
     return (
-        format(new Date(`${date}`), 'MM/dd/yyyy')
+        format(new Date(`${date}`), 'MM/d/yyyy')
     );
 
 }
