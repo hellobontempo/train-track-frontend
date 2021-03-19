@@ -172,7 +172,8 @@ class Home extends React.Component {
                         type="text"
                         value={this.state.username}
                         onChange={this.handleInputChange}/><br></br>
-                    <label for="rest-day-one-select">Select Rest Days:</label>
+                    <label for="rest-day-one-select">Select Rest Days:
+                    </label>
                     <select 
                         className="form-control"
                         name="first_rest_day"
@@ -186,6 +187,7 @@ class Home extends React.Component {
                         <option value="5">Friday</option>
                         <option value="6">Saturday</option>
                     </select>
+                    <p className="text-muted">Week will start on this day of the week.</p>
                     <br></br>
                     <select 
                         className="form-control"
