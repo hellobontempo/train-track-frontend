@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 class Home extends React.Component {
 
     state = {
-        start_date: "",
+        race_date: "",
         username: "",
         first_rest_day: 0,
         second_rest_day: 0,
@@ -27,7 +27,7 @@ class Home extends React.Component {
         console.log("state", this.state)
         this.props.addUserProgram(this.state)
         this.setState({
-            start_date: "",
+            race_date: "",
             username: "",
             first_rest_day: 0,
             second_rest_day: 0,
@@ -41,9 +41,9 @@ class Home extends React.Component {
                     <label for="date">Enter Race Date</label>
                     <input 
                     className="form-control"
-                        name="start_date" 
+                        name="race_date" 
                         type="date"
-                        value={this.state.start_date}
+                        value={this.state.race_date}
                         onChange={this.handleInputChange} /><br></br>
                     <label for="username">Your Name:</label>
                     <input 
