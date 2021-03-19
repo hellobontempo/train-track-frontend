@@ -8,9 +8,10 @@ body {
 }
 
 .tableDiv {
-  padding-top: 5%;
+  padding: 10px;
   margin: auto;
-  width: 50%;
+  padding-right: 100px;
+  width: 60%;
 }
 
 a {

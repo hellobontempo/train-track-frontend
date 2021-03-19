@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { Container } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
 import Week from './Week';
 
@@ -23,28 +24,31 @@ const ProgramTable = (props) => {
   function renderTable(){
     return (
       <div>
-        <Table striped bordered hover className="tableDiv">
-          <thead>
-            {props.program.title}
-            <tr>
-              <th>Sunday</th>
-              <th>Monday</th>
-              <th>Tuesday</th>
-              <th>Wednesday</th>
-              <th>Thursday</th>
-              <th>Friday</th>
-              <th>Saturday</th>
-            </tr>
-          </thead>
-          <tbody>
-            {week().map(week => {
-              return (      
-                <tr>{week}</tr>
-            )
-            })}
-      
-          </tbody>
-        </Table>
+        <br></br>
+        <Container>
+          <h1>{props.program.title}</h1>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Sunday</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+              </tr>
+            </thead>
+            <tbody>
+              {week().map(week => {
+                return (      
+                  <tr>{week}</tr>
+              )
+              })}
+        
+            </tbody>
+          </Table>
+          </Container>
       </div>
     )
   }
