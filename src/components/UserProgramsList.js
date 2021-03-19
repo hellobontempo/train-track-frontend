@@ -1,5 +1,6 @@
 import { Button, ButtonGroup } from "react-bootstrap"
 import { Link } from 'react-router-dom'
+import DisplayDate from "./DisplayDate"
 
 const UserProgramsList = props => {
     console.log(props)
@@ -11,11 +12,11 @@ const UserProgramsList = props => {
         <hr></hr>
         {props.userPrograms.map(program => {
             return (
-                <div className="formDiv">
-                <ButtonGroup vertical>
-                    <Button variant="dark"><Link key={program.id} to={`/user_programs/${program.id}`} > Race Date: {program.race_date} | Created by: {program.username} </Link></Button>
-                </ButtonGroup>
-                </div>
+                < >
+                <br></br>
+                <Button className="block" variant="dark"><Link key={program.id} to={`/user_programs/${program.id}`}>Race Date: {DisplayDate(program.race_date)} &#10037; Created by: {program.username} </Link></Button>
+                <br></br>
+                </>
             )
         })}
     
