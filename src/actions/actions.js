@@ -1,4 +1,3 @@
-//make url const? 
 const baseURL = 'http://localhost:3000'
 
 export const addUserProgram = newProgram => {
