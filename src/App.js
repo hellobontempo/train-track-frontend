@@ -5,7 +5,7 @@ import {fetchPrograms, fetchUserPrograms} from './actions/actions'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Home from './components/Home'
-import ProgramsContainer from './components/ProgramsContainer';
+import ProgramsContainer from './components/containers/ProgramsContainer';
 import NavBar from './components/NavBar';
 import Switch from 'react-bootstrap/esm/Switch';
 

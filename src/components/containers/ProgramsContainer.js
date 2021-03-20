@@ -1,9 +1,9 @@
 import Switch from "react-bootstrap/esm/Switch"
 import { Route } from "react-router"
-import ProgramsList from "./ProgramsList"
-import ProgramTable from "./ProgramTable"
-import UserProgramTable from "./UserProgramTable"
-import UserProgramsList from "./UserProgramsList"
+import ProgramsList from "../ProgramsList"
+import ProgramTable from "../ProgramTable"
+import UserProgramTable from "../UserProgramTable"
+import UserProgramsList from "../UserProgramsList"
 
 const ProgramsContainer = (props) => {
 console.log("programs container", props)
