@@ -1,6 +1,7 @@
 import React from 'react'
 import { addUserProgram } from '../actions/actions'
 import { connect } from 'react-redux'
+import { Form } from 'react-bootstrap'
 
 class ProgramForm extends React.Component {
 
@@ -199,8 +200,33 @@ class ProgramForm extends React.Component {
                         <option disabled={this.state.defaultDisabled.wednesday} value="3">Wednesday</option>
                         <option disabled={this.state.defaultDisabled.thursday} value="4">Thursday</option>
                         <option disabled={this.state.defaultDisabled.friday} value="5">Friday</option>
-                        <option disabled={this.state.defaultDisabled.saturday} alue="6">Saturday</option>
+                        <option disabled={this.state.defaultDisabled.saturday} value="6">Saturday</option>
                     </select><br></br>
+                    <label for="cross_train">Choose Your Preferred Cross Training Activities:</label>
+                    <input
+                        className="form-control"
+                        name="yoga"
+                        type="checkbox"
+                        value="yoga"
+                    /><label for="yoga">
+                        Yoga
+                    </label>
+                    <input 
+                        className="form-control"
+                        name="cycling"
+                        type="checkbox"
+                        value="cycling"
+                    /><label for="cycling">
+                        Cycling
+                    </label>
+                    <input 
+                        className="form-control"
+                        name="swimming"
+                        type="checkbox"
+                        value="swimming"
+                    /><label for="swimming">
+                        Swimming
+                    </label>
                     <input 
                     className="form-control"
                     type="submit"/>
