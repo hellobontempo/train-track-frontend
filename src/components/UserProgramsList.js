@@ -10,7 +10,7 @@ const UserProgramsList = props => {
             {props.userPrograms.map(program => {
             return (
                 < >
-                 <ProgramButton program={program} url={props.url} buttonText={`Race Date: ${DisplayDate(program.race_date)} | Created by: ${program.username}` }/>
+                 <ProgramButton key={`userPrograms-${program.id}`} program={program} url={props.url} buttonText={`Race Date: ${DisplayDate(program.race_date)} | Created by: ${program.username}` }/>
                 </>
             )
             })}

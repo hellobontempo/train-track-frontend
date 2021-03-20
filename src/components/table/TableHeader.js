@@ -10,12 +10,12 @@ const TableHeader = props => {
             let customWeek = weekDays.slice(props.firstRest).concat(weekDays.slice(0, props.firstRest))
             return (
             <tr>
-            {customWeek.map(day => <th>{day}</th>)} 
+            {customWeek.map(day => <th key={`custom-week-${day}`}>{day}</th>)} 
             </tr>)
         } else {
             return (
             <tr>
-            {weekDays.map(day => <th>{day}</th>)} 
+            {weekDays.map(day => <th key={`default-week-${day}`}>{day}</th>)} 
             </tr>)
         }
 

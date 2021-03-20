@@ -1,7 +1,6 @@
 
 
 const Week = props => {
-
   function weekLength(){
     if (props.exercises.length !== 7){
       props.exercises.push({id:"race", name: "RACE DAY!"})
@@ -16,7 +15,8 @@ const Week = props => {
             return (
               <td> 
                 <div>
-                  {exercise.name}<br></br>
+                  {exercise.name}
+                  <br></br>
                   {programEx.miles === null ? `` : `${programEx.miles} miles`}
                 </div>
               </td>
