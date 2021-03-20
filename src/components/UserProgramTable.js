@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import ProgramTable from './ProgramTable';
+import ProgramTable from './table/ProgramTable';
 
 
 class UserTable extends React.Component {

@@ -14,7 +14,7 @@ const UserProgramsList = props => {
             return (
                 < >
                 <br></br>
-                <Button className="block" variant="dark"><Link key={program.id} to={`/user_programs/${program.id}`}>Race Date: {DisplayDate(program.race_date)} &#10037; Created by: {program.username} </Link></Button>
+                <Button className="block" variant="dark"><Link key={program.id} to={`/user_programs/${program.id}`}>Race Date: {DisplayDate(program.race_date)} &#10070; Created by: {program.username} </Link></Button>
                 <br></br>
                 </>
             )

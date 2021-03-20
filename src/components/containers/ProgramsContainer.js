@@ -1,7 +1,7 @@
 import Switch from "react-bootstrap/esm/Switch"
 import { Route } from "react-router"
 import ProgramsList from "../ProgramsList"
-import ProgramTable from "../ProgramTable"
+import ProgramTable from "../table/ProgramTable"
 import UserProgramTable from "../UserProgramTable"
 import UserProgramsList from "../UserProgramsList"
 
