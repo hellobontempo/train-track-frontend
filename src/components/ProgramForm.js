@@ -1,7 +1,6 @@
 import React from 'react'
 import { addUserProgram } from '../actions/actions'
 import { connect } from 'react-redux'
-import { Form } from 'react-bootstrap'
 
 class ProgramForm extends React.Component {
 
@@ -11,6 +10,11 @@ class ProgramForm extends React.Component {
         first_rest_day: 0,
         second_rest_day: 5,
         program_id: 1,
+        exercises: {
+            yoga: "yoga",
+            cycling: "cycling",
+            swimming: "swimming"
+        },
         defaultDisabled: {
             sunday: true,
             monday: true,
@@ -48,7 +52,6 @@ class ProgramForm extends React.Component {
                     saturday: true,
                     }})
             break;
-        
             case 1:
                 this.setState({
                     [name]: value,
@@ -64,7 +67,6 @@ class ProgramForm extends React.Component {
                     }
             })
             break;
-
             case 2:
                 this.setState({
                     [name]: value,
@@ -203,30 +205,41 @@ class ProgramForm extends React.Component {
                         <option disabled={this.state.defaultDisabled.saturday} value="6">Saturday</option>
                     </select><br></br>
                     <label for="cross_train">Choose Your Preferred Cross Training Activities:</label>
-                    <input
-                        className="form-control"
-                        name="yoga"
-                        type="checkbox"
-                        value="yoga"
-                    /><label for="yoga">
-                        Yoga
-                    </label>
-                    <input 
-                        className="form-control"
-                        name="cycling"
-                        type="checkbox"
-                        value="cycling"
-                    /><label for="cycling">
-                        Cycling
-                    </label>
-                    <input 
-                        className="form-control"
-                        name="swimming"
-                        type="checkbox"
-                        value="swimming"
-                    /><label for="swimming">
-                        Swimming
-                    </label>
+                    <div className="form-inline">
+                        <input
+                            className="form"
+                            value={this.state.exercises.yoga}
+                            onChange={this.handleInputChange}
+                            name="yoga"
+                            type="checkbox"
+                            value="yoga"
+                        /><label for="yoga">
+                            Yoga
+                        </label>
+                    </div>
+                    <div className="form-inline">   
+                        <input 
+                            className="form"
+                            value={this.state.exercises.cycling}
+                            onChange={this.handleInputChange}
+                            name="cycling"
+                            type="checkbox"
+                        /><label for="cycling">
+                            Cycling
+                        </label>
+                    </div>
+                    <div className="form-inline">   
+                        <input 
+                            className="form"
+                            value={this.state.exercises.swimming}
+                            onChange={this.handleInputChange}
+                            name="swimming"
+                            type="checkbox"
+                            value="swimming"
+                        /><label for="swimming">
+                            Swimming
+                        </label>
+                    </div>
                     <input 
                     className="form-control"
                     type="submit"/>

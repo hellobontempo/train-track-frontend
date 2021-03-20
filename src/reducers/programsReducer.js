@@ -1,5 +1,11 @@
 
-const programsReducer = ( state = {programs:[], userPrograms:[], loadingTP: false, loadingUP: false}, action ) => {
+const programsReducer = ( state = {
+    programs:[], 
+    userPrograms:[], 
+    exericses:[],
+    loadingTP: false, 
+    loadingUP: false
+    }, action ) => {
     switch (action.type) {
         case 'LOADING_TRAINING_PROGRAMS':
             return {
@@ -27,6 +33,11 @@ const programsReducer = ( state = {programs:[], userPrograms:[], loadingTP: fals
             return {
                 ...state,
                 userPrograms: [...state.userPrograms, action.payload],
+            }
+        case 'FETCH_EXERCISES':
+            return {
+                ...state,
+                exercises: action.exercises
             }
         default:
             return state

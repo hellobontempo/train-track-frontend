@@ -17,6 +17,13 @@ export function fetchUserPrograms() {
       .then(userPrograms => dispatch({ type: 'FETCH_USER_PROGRAMS', userPrograms }));
   };
 } 
+export function fetchExercises() {
+  return (dispatch) => {
+    fetch(`${baseURL}/exercises`)
+      .then(response => response.json())
+      .then(exercises => dispatch({ type: 'FETCHEXERCISES', exercises }));
+  };
+} 
 
 export const addUserProgram = newProgram => {
   return dispatch => {

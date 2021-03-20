@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react'
 import { connect } from 'react-redux';
-import {fetchPrograms, fetchUserPrograms} from './actions/actions'
+import {fetchExercises, fetchPrograms, fetchUserPrograms} from './actions/actions'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Home from './components/Home'
@@ -14,6 +14,7 @@ class App extends React.Component {
   componentDidMount() {
     this.props.fetchPrograms()
     this.props.fetchUserPrograms()
+    this.props.fetchExercises()
   }
 
   render(){
@@ -40,6 +41,7 @@ const mapStateToProps = state => {
   return {
     programs: state.programs,
     userPrograms: state.userPrograms,
+    exercises: state.exercises,
     loadingTP: state.loadingTP,
     loadingUP: state.loadingUP
 
@@ -49,7 +51,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchPrograms: () => dispatch(fetchPrograms()),
-    fetchUserPrograms: () => dispatch(fetchUserPrograms())
+    fetchUserPrograms: () => dispatch(fetchUserPrograms()),
+    fetchExercises: () => dispatch(fetchExercises())
   }
 }
 
