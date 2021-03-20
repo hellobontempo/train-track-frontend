@@ -58,7 +58,7 @@ const ProgramTable = (props) => {
 
   return (
     <Fragment>
-      {renderTable()}
+      {props.program ? renderTable() : <h1>Loading...</h1>}
     </Fragment>
     )
 }

@@ -12,7 +12,7 @@ class UserTable extends React.Component {
     return program
   }
   
-  loading(){
+  displayTable(){
     return (
       <div>
         <h1>{this.props.userProgram.username}'s Schedule:</h1>
@@ -24,7 +24,7 @@ class UserTable extends React.Component {
     console.log(this.props)
     return (
         <Container>
-        {this.props.userProgram ? this.loading() : <h1>Loading...</h1>}
+        {this.props.userProgram ? this.displayTable() : <h1>Loading...</h1>}
         </Container>
       )
   }
