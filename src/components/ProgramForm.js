@@ -30,7 +30,7 @@ class ProgramForm extends React.Component {
         })
     }
 
-    handleDateChange = ({target}) => {
+    handleDateDropdownChange = ({target}) => {
         const name = target.name
         const value = parseInt(target.value)
         switch (value) {
@@ -177,7 +177,7 @@ class ProgramForm extends React.Component {
                         className="form-control"
                         name="first_rest_day"
                         value={this.state.first_rest_day}
-                        onChange={this.handleDateChange}>
+                        onChange={this.handleDateDropdownChange}>
                         <option value="0">Sunday</option>
                         <option value="1">Monday</option>
                         <option value="2">Tuesday</option>
