@@ -12,7 +12,6 @@ class UserTable extends React.Component {
     return program
   }
 
-
   
   displayTable(){
     return (
