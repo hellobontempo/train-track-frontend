@@ -6,9 +6,11 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Home from './components/Home'
 import ProgramsContainer from './components/containers/ProgramsContainer';
+import CustomProgramsContainer from './components/containers/CustomProgramsContainer';
+
 import NavBar from './components/NavBar';
 import Switch from 'react-bootstrap/esm/Switch';
-
+import ProgramForm from './components/ProgramForm'
 class App extends React.Component {
 
   componentDidMount() {
@@ -25,11 +27,12 @@ class App extends React.Component {
               <Route exact path="/" component={Home} />  
               <Route path="/programs" component={ () => {
               return this.props.loadingTP ? <h1>Loading...</h1> : <ProgramsContainer programs={this.props.programs}/>
-              }} />  
+              }} /> 
               <Route path="/user_programs" component={ () => {
-              return this.props.loadingUP ? <h1>Loading...</h1> : <ProgramsContainer userPrograms={this.props.userPrograms}/>
-              }} />  
+              return this.props.loadingUP ? <h1>Loading...</h1> : <CustomProgramsContainer userPrograms={this.props.userPrograms}/>
+              }} /> 
               <Route path="/exercises" component={Home}/>
+              <Route path="/new-program" component={ProgramForm}/>
              </Switch>
           </Router>
       </div>
