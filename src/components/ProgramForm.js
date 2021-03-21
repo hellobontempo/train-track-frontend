@@ -56,12 +56,12 @@ class ProgramForm extends React.Component {
     }
 
     handleDateDropdownChange = ({target}) => {
-        // const name = target.name
+        const name = target.name
         const value = parseInt(target.value)
         switch (value) {
             case 0:
                 this.setState({
-                    ...this.state,
+                    [name]: value,
                     defaultDisabled: {
                     sunday: true,
                     monday: true,
@@ -74,7 +74,7 @@ class ProgramForm extends React.Component {
             break;
             case 1:
                 this.setState({
-                    ...this.state,
+                    [name]: value,
                     defaultDisabled: {
                         ...this.state.defaultDisabled,
                     sunday: true,
@@ -89,7 +89,7 @@ class ProgramForm extends React.Component {
             break;
             case 2:
                 this.setState({
-                    ...this.state,
+                    [name]: value,
                     defaultDisabled: {
                     sunday: true,
                     monday: true,
@@ -103,7 +103,7 @@ class ProgramForm extends React.Component {
             break;
             case 3:
                 this.setState({
-                    ...this.state,
+                    [name]: value,
                     defaultDisabled: {
                     sunday: true,
                     monday: false,
@@ -117,7 +117,7 @@ class ProgramForm extends React.Component {
             break;
             case 4:
                 this.setState({
-                    ...this.state,
+                    [name]: value,
                     defaultDisabled: {
                     sunday: true,
                     monday: true,
@@ -131,7 +131,7 @@ class ProgramForm extends React.Component {
             break;
             case 5:
                 this.setState({
-                    ...this.state,
+                    [name]: value,
                     defaultDisabled: {
                     sunday: false,
                     monday: true,
@@ -145,7 +145,7 @@ class ProgramForm extends React.Component {
             break;
             case 6:
                 this.setState({
-                    ...this.state,
+                    [name]: value,
                     defaultDisabled: {
                     sunday: true,
                     monday: false,
