@@ -12,7 +12,7 @@ class UserTable extends React.Component {
     return program
   }
 
-  Display
+
   
   displayTable(){
     return (
