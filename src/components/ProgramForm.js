@@ -167,7 +167,15 @@ class ProgramForm extends React.Component {
 
     handleOnSubmit = event => {
         event.preventDefault()
-        this.props.addUserProgram(this.state)
+        const newProgram = {
+            race_date: this.state.race_date,
+            username: this.state.username,
+            first_rest_day: this.state.first_rest_day,
+            second_rest_day: this.state.second_rest_day,
+            program_id: 1,
+        }
+
+        this.props.addUserProgram(newProgram)
         this.setState({
             race_date: "",
             username: "",
