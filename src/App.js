@@ -31,7 +31,7 @@ class App extends React.Component {
               <Route path="/user_programs" component={ () => {
               return this.props.loadingUP ? <h1>Loading...</h1> : <CustomProgramsContainer userPrograms={this.props.userPrograms}/>
               }} /> 
-              <Route path="/exercises" component={Home}/>
+              {/* <Route path="/exercises" component={CREATEEXERCISELISTCOMPONENT}/> */}
               <Route path="/new-program" component={ProgramForm}/>
              </Switch>
           </Router>
