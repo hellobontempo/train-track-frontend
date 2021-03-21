@@ -1,5 +1,5 @@
 import ProgramButton from "./ProgramButton"
-import DisplayDate from "./DisplayDate"
+import DisplayDate from "./littleHelpers/DisplayDate"
 
 const UserProgramsList = props => {
 

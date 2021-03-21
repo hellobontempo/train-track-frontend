@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import ProgramTable from './table/ProgramTable';
-import DisplayDate from './DisplayDate'
+import DisplayDate from './littleHelpers/DisplayDate'
 
 class UserTable extends React.Component {
   

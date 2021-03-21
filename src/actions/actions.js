@@ -21,7 +21,7 @@ export function fetchExercises() {
   return (dispatch) => {
     fetch(`${baseURL}/exercises`)
       .then(response => response.json())
-      .then(exercises => dispatch({ type: 'FETCHEXERCISES', exercises }));
+      .then(exercises => dispatch({ type: 'FETCH_EXERCISES', exercises }));
   };
 } 
 

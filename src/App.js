@@ -14,7 +14,6 @@ class App extends React.Component {
   componentDidMount() {
     this.props.fetchPrograms()
     this.props.fetchUserPrograms()
-    this.props.fetchExercises()
   }
 
   render(){
@@ -30,6 +29,7 @@ class App extends React.Component {
               <Route path="/user_programs" component={ () => {
               return this.props.loadingUP ? <h1>Loading...</h1> : <ProgramsContainer userPrograms={this.props.userPrograms}/>
               }} />  
+              <Route path="/exercises" component={Home}/>
              </Switch>
           </Router>
       </div>
@@ -41,7 +41,7 @@ const mapStateToProps = state => {
   return {
     programs: state.programs,
     userPrograms: state.userPrograms,
-    exercises: state.exercises,
+    exercises: state.exercises, //not using right now
     loadingTP: state.loadingTP,
     loadingUP: state.loadingUP
 

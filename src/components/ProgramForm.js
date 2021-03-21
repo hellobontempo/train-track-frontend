@@ -1,6 +1,8 @@
 import React from 'react'
 import { addUserProgram } from '../actions/actions'
 import { connect } from 'react-redux'
+import Checkbox from './littleHelpers/Checkbox'
+import {fetchExercises} from '../actions/actions'
 
 class ProgramForm extends React.Component {
 
@@ -10,11 +12,7 @@ class ProgramForm extends React.Component {
         first_rest_day: 0,
         second_rest_day: 5,
         program_id: 1,
-        exercises: {
-            yoga: "yoga",
-            cycling: "cycling",
-            swimming: "swimming"
-        },
+        checkedExercises: new Map(),
         defaultDisabled: {
             sunday: true,
             monday: true,
@@ -25,23 +23,45 @@ class ProgramForm extends React.Component {
             saturday: true,
         }
     }
+    componentDidMount(){
+        this.props.fetchExercises()
+    }
+ 
+    renderCheckboxes (){
+    const checkboxes = this.props.exercises.map(exercise => {
+            return (
+                <div className="form-check form-inline">
+                <div className="form-check-input"><Checkbox name={exercise.name} checked={this.state.checkedExercises.get(exercise.name)} onChange={this.handleCheckChange} /></div>
+                <label className="form-check-label">{exercise.name}</label>
+                </div>
+            )
+        })
+    return checkboxes
+    }
+
+    handleCheckChange = event => {
+        const exercise = event.target.name
+        const isChecked = event.target.checked
+        this.setState(prevState => ({ checkedExercises: prevState.checkedExercises.set(exercise, isChecked) }));
+  }
 
     handleInputChange = (event) => {
         const target = event.target
         const value = target.value
         const name = target.name
         this.setState({
+            ...this.state,
             [name]: value
         })
     }
 
     handleDateDropdownChange = ({target}) => {
-        const name = target.name
+        // const name = target.name
         const value = parseInt(target.value)
         switch (value) {
             case 0:
                 this.setState({
-                    [name]: value,
+                    ...this.state,
                     defaultDisabled: {
                     sunday: true,
                     monday: true,
@@ -54,7 +74,7 @@ class ProgramForm extends React.Component {
             break;
             case 1:
                 this.setState({
-                    [name]: value,
+                    ...this.state,
                     defaultDisabled: {
                         ...this.state.defaultDisabled,
                     sunday: true,
@@ -69,7 +89,7 @@ class ProgramForm extends React.Component {
             break;
             case 2:
                 this.setState({
-                    [name]: value,
+                    ...this.state,
                     defaultDisabled: {
                     sunday: true,
                     monday: true,
@@ -83,7 +103,7 @@ class ProgramForm extends React.Component {
             break;
             case 3:
                 this.setState({
-                    [name]: value,
+                    ...this.state,
                     defaultDisabled: {
                     sunday: true,
                     monday: false,
@@ -97,7 +117,7 @@ class ProgramForm extends React.Component {
             break;
             case 4:
                 this.setState({
-                    [name]: value,
+                    ...this.state,
                     defaultDisabled: {
                     sunday: true,
                     monday: true,
@@ -111,7 +131,7 @@ class ProgramForm extends React.Component {
             break;
             case 5:
                 this.setState({
-                    [name]: value,
+                    ...this.state,
                     defaultDisabled: {
                     sunday: false,
                     monday: true,
@@ -125,7 +145,7 @@ class ProgramForm extends React.Component {
             break;
             case 6:
                 this.setState({
-                    [name]: value,
+                    ...this.state,
                     defaultDisabled: {
                     sunday: true,
                     monday: false,
@@ -205,41 +225,10 @@ class ProgramForm extends React.Component {
                         <option disabled={this.state.defaultDisabled.saturday} value="6">Saturday</option>
                     </select><br></br>
                     <label for="cross_train">Choose Your Preferred Cross Training Activities:</label>
-                    <div className="form-inline">
-                        <input
-                            className="form"
-                            value={this.state.exercises.yoga}
-                            onChange={this.handleInputChange}
-                            name="yoga"
-                            type="checkbox"
-                            value="yoga"
-                        /><label for="yoga">
-                            Yoga
-                        </label>
-                    </div>
-                    <div className="form-inline">   
-                        <input 
-                            className="form"
-                            value={this.state.exercises.cycling}
-                            onChange={this.handleInputChange}
-                            name="cycling"
-                            type="checkbox"
-                        /><label for="cycling">
-                            Cycling
-                        </label>
-                    </div>
-                    <div className="form-inline">   
-                        <input 
-                            className="form"
-                            value={this.state.exercises.swimming}
-                            onChange={this.handleInputChange}
-                            name="swimming"
-                            type="checkbox"
-                            value="swimming"
-                        /><label for="swimming">
-                            Swimming
-                        </label>
-                    </div>
+                    
+            
+                      {this.props.exercises ? this.renderCheckboxes() : <p>exercises coming..</p>}
+                  
                     <input 
                     className="form-control"
                     type="submit"/>
@@ -249,4 +238,15 @@ class ProgramForm extends React.Component {
     }
 }
 
-export default connect(null, { addUserProgram })(ProgramForm)
+const mapStateToProps = ({exercises}) => {
+    return {
+        exercises: exercises.filter(e => e.exercise_type === "cross_train")}
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addUserProgram: () => dispatch(addUserProgram()),
+        fetchExercises: () => dispatch(fetchExercises())
+    }
+  }
+export default connect(mapStateToProps, mapDispatchToProps)(ProgramForm)

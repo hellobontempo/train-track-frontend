@@ -2,7 +2,7 @@
 const programsReducer = ( state = {
     programs:[], 
     userPrograms:[], 
-    exericses:[],
+    exercises:[],
     loadingTP: false, 
     loadingUP: false
     }, action ) => {
