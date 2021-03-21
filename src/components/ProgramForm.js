@@ -253,7 +253,7 @@ const mapStateToProps = ({exercises}) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addUserProgram: () => dispatch(addUserProgram()),
+        addUserProgram: (newProgram) => dispatch(addUserProgram(newProgram)),
         fetchExercises: () => dispatch(fetchExercises())
     }
   }
