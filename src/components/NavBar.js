@@ -14,9 +14,10 @@ const NavBar = () => {
     <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
         <Nav.Link href="/">Home</Nav.Link>
+        <Nav.Link href="/new-program">Create Custom Program</Nav.Link>
         <Nav.Link href="/programs">Training Programs</Nav.Link>
         <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/user_programs">Custom Programs</NavDropdown.Item>
+            <NavDropdown.Item href="/user_programs">Fellow Train Tracks</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
         </NavDropdown>
