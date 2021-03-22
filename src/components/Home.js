@@ -4,7 +4,10 @@ import ProgramForm from "./ProgramForm"
 const Home = props => {
 
     return (
-        <ProgramForm/>
+        <div>
+         <ProgramForm/>
+        </div>
+  
     )
 }
 
