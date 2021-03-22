@@ -26,10 +26,10 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={Home} />  
               <Route path="/programs" component={ () => {
-              return this.props.loadingTP ? <h1>Loading...</h1> : <ProgramsContainer programs={this.props.programs}/>
+              return <ProgramsContainer programs={this.props.programs}/>
               }} /> 
               <Route path="/user_programs" component={ () => {
-              return this.props.loadingUP ? <h1>Loading...</h1> : <CustomProgramsContainer userPrograms={this.props.userPrograms}/>
+              return <CustomProgramsContainer userPrograms={this.props.userPrograms}/>
               }} /> 
               {/* <Route path="/exercises" component={CREATEEXERCISELISTCOMPONENT}/> */}
               <Route path="/new-program" component={ProgramForm}/>

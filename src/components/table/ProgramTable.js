@@ -8,6 +8,7 @@ const ProgramTable = (props) => {
   console.log(props)
   
   function week(){
+
     const totalWeeks = props.program.length_in_weeks
     let startDay = 0;
     let nextWeek;
@@ -58,7 +59,8 @@ const ProgramTable = (props) => {
 
   return (
     <Fragment>
-      {props.program ? renderTable() : <h1>Loading...</h1>}
+      {/* {props.program ? renderTable() : <h1>Loading...</h1>} */}
+      {renderTable()}
     </Fragment>
     )
 }
