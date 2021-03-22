@@ -8,6 +8,7 @@ import Home from './components/Home'
 import ProgramsContainer from './components/containers/ProgramsContainer';
 import NavBar from './components/NavBar';
 import Switch from 'react-bootstrap/esm/Switch';
+import ProgramForm from './components/ProgramForm';
 
 class App extends React.Component {
 
@@ -20,7 +21,7 @@ class App extends React.Component {
     return (
       <div className="App">
           <NavBar />
-          <Router>
+          <Router> 
             <Switch>
               <Route exact path="/" component={Home} />  
               <Route path="/programs" component={ () => {
@@ -30,6 +31,7 @@ class App extends React.Component {
               return this.props.loadingUP ? <h1>Loading...</h1> : <ProgramsContainer userPrograms={this.props.userPrograms}/>
               }} />  
               <Route path="/exercises" component={Home}/>
+              <Route path="/new-program" component={ProgramForm}/>
              </Switch>
           </Router>
       </div>
