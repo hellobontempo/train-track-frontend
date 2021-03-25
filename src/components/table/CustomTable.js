@@ -7,8 +7,6 @@ import Week from './Week';
 const CustomTable = ({program}) => {
 
   function week () {
-    console.log(program)
-    console.log(program.custom_programs)
     let startDay = 0;
     let endWeek = 7;
     let programWeeks = []
