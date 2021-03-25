@@ -10,6 +10,7 @@ import ProgramsContainer from './components/containers/ProgramsContainer';
 import NavBar from './components/NavBar';
 import Switch from 'react-bootstrap/esm/Switch';
 import ProgramForm from './components/ProgramForm';
+import GreyBlock from './components/littleHelpers/GreyBlock';
 
 class App extends React.Component {
 
@@ -35,6 +36,7 @@ class App extends React.Component {
               <Route path="/new-program" component={ProgramForm}/>
              </Switch>
           </Router>
+          <GreyBlock/>
       </div>
     )}
 }
