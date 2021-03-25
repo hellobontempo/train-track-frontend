@@ -176,14 +176,15 @@ class ProgramForm extends React.Component {
     handleOnSubmit = event => {
         event.preventDefault()
         const newProgram = {
+            user_program: {
             race_date: this.state.race_date,
             username: this.state.username,
             first_rest_day: this.state.first_rest_day,
             second_rest_day: this.state.second_rest_day,
-            exercise_ids: this.state.checkedExercises.keys(),
-            program_id: 1,
+            exercise_ids: Object.keys(this.state.checkedExercises),
+            program_id: 1,}
         }
-
+        console.log(newProgram)
         this.props.addUserProgram(newProgram)
         this.setState({
             race_date: "",
@@ -191,7 +192,7 @@ class ProgramForm extends React.Component {
             first_rest_day: 0,
             second_rest_day: 5,
             program_id: 1,
-            checkedExercises: new Map(),
+            checkedExercises: {},
             defaultDisabled: {
                 sunday: true,
                 monday: true,
