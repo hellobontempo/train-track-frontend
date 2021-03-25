@@ -6,14 +6,12 @@ import Col from "react-bootstrap/col"
 const Home = props => {
 
     return (
-        <div className="component-background">
-            {/* <Container fluid >
+        <div>
+            <Container fluid >
                 <Row>
                     <Col><img src="/images/logo-train-track.png" alt="logo"/></Col>
-                    <Col><ProgramForm/></Col>
                 </Row>
-            </Container> */}
-            <img src="/images/logo-train-track.png" alt="logo"/>
+            </Container>
         </div>
 
 
