@@ -12,7 +12,7 @@ class ProgramForm extends React.Component {
         first_rest_day: 0,
         second_rest_day: 5,
         program_id: 1,
-        checkedExercises: new Map(),
+        checkedExercises: {},
         defaultDisabled: {
             sunday: true,
             monday: true,
@@ -27,23 +27,30 @@ class ProgramForm extends React.Component {
     //     this.props.fetchExercises()
     // }
  
-    // renderCheckboxes (){
-    // const checkboxes = this.props.exercises.map(exercise => {
-    //         return (
-    //             <div className="form-check form-inline">
-    //             <div className="form-check-input"><Checkbox name={exercise.name} checked={this.state.checkedExercises.get(exercise.name)} onChange={this.handleCheckChange} /></div>
-    //             <label className="form-check-label">{exercise.name}</label>
-    //             </div>
-    //         )
-    //     })
-    // return checkboxes
-    // }
+    renderCheckboxes (){
+    const checkboxes = this.props.exercises.map(exercise => {
+            return (
+                <div className="form-check form-inline">
+                <div className="form-check-input"><Checkbox name={exercise.id} checked={this.state.checkedExercises[`${exercise.id}`]} onChange={this.handleCheckChange} /></div>
+                <label className="form-check-label">{exercise.name}</label>
+                </div>
+            )
+        })
+    return checkboxes
+    }
 
     handleCheckChange = event => {
         console.log(this.state)
         const exercise = event.target.name
         const isChecked = event.target.checked
-        this.setState(prevState => ({ checkedExercises: prevState.checkedExercises.set(exercise, isChecked) }));
+        this.setState({
+            ...this.state,
+            checkedExercises: {
+                ...this.state.checkedExercises,
+               [exercise]: isChecked
+            }
+        })
+  
   }
 
     handleInputChange = (event) => {
@@ -173,7 +180,7 @@ class ProgramForm extends React.Component {
             username: this.state.username,
             first_rest_day: this.state.first_rest_day,
             second_rest_day: this.state.second_rest_day,
-            exercise_attributes: this.state.checkedExercises,
+            exercise_ids: this.state.checkedExercises.keys(),
             program_id: 1,
         }
 
@@ -200,13 +207,14 @@ class ProgramForm extends React.Component {
         return(
             <div className="formDiv">
                 <form className="form" onSubmit={this.handleOnSubmit}>
-                    <label for="date">Enter Race Date</label>
+                    <label>Enter Race Date
                     <input 
-                    className="form-control"
+                        className="form-control"
                         name="race_date" 
                         type="date"
                         value={this.state.race_date}
                         onChange={this.handleInputChange} /><br></br>
+                    </label>
                     <label for="username">Your Name:</label>
                     <input 
                         className="form-control"
@@ -244,11 +252,11 @@ class ProgramForm extends React.Component {
                         <option disabled={this.state.defaultDisabled.friday} value="5">Friday</option>
                         <option disabled={this.state.defaultDisabled.saturday} value="6">Saturday</option>
                     </select><br></br>
-                    {/* <label for="cross_train">Choose Your Preferred Cross Training Activities:</label>
+                    <label for="cross_train">Choose Your Preferred Cross Training Activities:</label>
                     
 
                       {this.props.exercises ? this.renderCheckboxes() : <p>exercises coming..</p>}
-                   */}
+                  
 
                     <input 
                     className="form-control"
