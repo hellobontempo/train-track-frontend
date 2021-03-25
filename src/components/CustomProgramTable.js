@@ -1,7 +1,6 @@
 import React from 'react'
 import { Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import DisplayDate from './littleHelpers/DisplayDate'
 import CustomTable from './table/CustomTable';
 
 class CustomProgramTable extends React.Component {
@@ -18,7 +17,6 @@ class CustomProgramTable extends React.Component {
     return (
       <div>
         <h1>{this.props.userProgram.username}'s Schedule:</h1>
-        <h4>start date: {DisplayDate(this.props.userProgram.start_date)}</h4>
          <CustomTable program={this.props.userProgram}/>
       </div>
     )
