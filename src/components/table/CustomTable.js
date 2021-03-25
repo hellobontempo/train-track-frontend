@@ -6,11 +6,6 @@ import Week from './Week';
 
 const CustomTable = ({program}) => {
 
-  function header (){
-    const tableHeader = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] //"Week Number", 
-    return tableHeader.map(day => <th>{day}</th>)
-  }
-
   function week () {
     console.log(program)
     console.log(program.custom_programs)
@@ -41,7 +36,7 @@ const CustomTable = ({program}) => {
           <Container>
             <Table striped bordered hover>
               <thead>
-                {header()}
+                < TableHeader/>
               </thead>
               <tbody>
                   {program ? displayWeeks() : <h1>nada</h1>}
