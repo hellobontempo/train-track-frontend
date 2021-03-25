@@ -34,7 +34,7 @@ const CustomTable = ({program}) => {
   return (
         <Fragment>
           <Container>
-            <Table striped bordered hover>
+            <Table striped bordered>
               <thead>
                 < TableHeader/>
               </thead>
