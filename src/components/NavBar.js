@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 const NavBar = () => {
     return (
-    <Navbar bg="light" expand="lg">
+    <Navbar expand="lg" className="color-nav">
     <Navbar.Brand href="/">TrainTrack</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
