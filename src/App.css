@@ -32,6 +32,11 @@
   text-align: center;
 }
 
+.date-background{
+  background-color: #fd8b61c2;
+  border-radius: 25px;
+  width:auto;
+}
 body {
   background-color: #8F9AAF;
 }

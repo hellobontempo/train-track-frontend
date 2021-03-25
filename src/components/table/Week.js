@@ -11,7 +11,7 @@ class Week extends React.Component{
         let exercise = this.props.exercises.find(exercise => exercise.id === workout.exercise_id)
           return (
             <td>
-            <u>{DisplayDate(workout.workout_date)}</u>
+            <p className="date-background">{DisplayDate(workout.workout_date)}</p>
             <br></br>
             {workout.is_race_day ? 'RACE DAY!' : exercise.name}
             <br></br>
