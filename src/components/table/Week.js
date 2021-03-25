@@ -1,16 +1,26 @@
+import React from 'react'
+import { connect } from 'react-redux'
 
-const Week = ({exercises}) => {
-console.log(exercises)
 
+class Week extends React.Component{
 
-    return (
-      exercises.map(exercise => {
+    
+
+      render(){
+        console.log(this.props)
         return (
-          <td>{exercise.workout_date}</td>
-        )
-      })
-          
-    )
+          this.props.weeklyExercises.map(exercise => {
+            return (
+              <td>{exercise.workout_date}</td>
+            )
+          })
+              
+        )}
 }
 
-export default Week
+const mapStateToProps = state => {
+  return {
+    exercises: state.exercises
+  }
+}
+export default connect(mapStateToProps)(Week)

@@ -15,7 +15,7 @@ const CustomTable = ({program}) => {
     const totalDays = program.custom_programs.length
     for (let day = 1; day < totalDays + 1; day+=7){
         let weeklyExercises = program.custom_programs.slice(startDay, endWeek);
-        programWeeks.push(<Week exercises={weeklyExercises}/>)
+        programWeeks.push(<Week weeklyExercises={weeklyExercises}/>)
         startDay = endWeek 
         endWeek += 7}
 

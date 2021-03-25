@@ -16,6 +16,7 @@ class App extends React.Component {
   componentDidMount() {
     this.props.fetchPrograms()
     this.props.fetchUserPrograms()
+    this.props.fetchExercises()
   }
 
   render(){
