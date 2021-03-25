@@ -1,16 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
+import { displayDate } from '../littleHelpers/helperFunctions'
 
 class Week extends React.Component{
-
-    displayDate = (date) => {
-        const array = date.split("-")
-        const displayDate = array.slice(1).concat(array[0]).join("/")
-        return (
-            displayDate
-        )
-    }
 
     findExercises(){
       return (
@@ -19,7 +11,7 @@ class Week extends React.Component{
         let exercise = this.props.exercises.find(exercise => exercise.id === workout.exercise_id)
           return (
             <td>
-            <p className="date-background">{this.displayDate(workout.workout_date)}</p>
+            <p className="date-background">{displayDate(workout.workout_date)}</p>
             <br></br>
             {workout.is_race_day ? 'RACE DAY!' : exercise.name}
             <br></br>
