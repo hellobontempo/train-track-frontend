@@ -29,10 +29,11 @@ const CustomTable = ({program}) => {
   }
 
   function displayWeeks(){
+   return ( 
       week().map(week => {
           return (      
              <tr>{week}</tr>
-          )})
+      )}))
   }
  
   return (
