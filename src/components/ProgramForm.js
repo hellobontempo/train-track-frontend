@@ -23,23 +23,24 @@ class ProgramForm extends React.Component {
             saturday: true,
         }
     }
-    componentDidMount(){
-        this.props.fetchExercises()
-    }
- 
-    // renderCheckboxes (){
-    // const checkboxes = this.props.exercises.map(exercise => {
-    //         return (
-    //             <div className="form-check form-inline">
-    //             <div className="form-check-input"><Checkbox name={exercise.name} checked={this.state.checkedExercises.get(exercise.name)} onChange={this.handleCheckChange} /></div>
-    //             <label className="form-check-label">{exercise.name}</label>
-    //             </div>
-    //         )
-    //     })
-    // return checkboxes
+    // componentDidMount(){
+    //     this.props.fetchExercises()
     // }
+ 
+    renderCheckboxes (){
+    const checkboxes = this.props.exercises.map(exercise => {
+            return (
+                <div className="form-check form-inline">
+                <div className="form-check-input"><Checkbox name={exercise.name} checked={this.state.checkedExercises.get(exercise.name)} onChange={this.handleCheckChange} /></div>
+                <label className="form-check-label">{exercise.name}</label>
+                </div>
+            )
+        })
+    return checkboxes
+    }
 
     handleCheckChange = event => {
+        console.log(this.state)
         const exercise = event.target.name
         const isChecked = event.target.checked
         this.setState(prevState => ({ checkedExercises: prevState.checkedExercises.set(exercise, isChecked) }));
@@ -172,6 +173,7 @@ class ProgramForm extends React.Component {
             username: this.state.username,
             first_rest_day: this.state.first_rest_day,
             second_rest_day: this.state.second_rest_day,
+            exercise_attributes: this.state.checkedExercises,
             program_id: 1,
         }
 
@@ -181,7 +183,17 @@ class ProgramForm extends React.Component {
             username: "",
             first_rest_day: 0,
             second_rest_day: 5,
-            program_id: 1
+            program_id: 1,
+            checkedExercises: new Map(),
+            defaultDisabled: {
+                sunday: true,
+                monday: true,
+                tuesday: false,
+                wednesday: true,
+                thursday: true,
+                friday: false,
+                saturday: true,
+            }
         })
     }
     render(){
@@ -232,10 +244,10 @@ class ProgramForm extends React.Component {
                         <option disabled={this.state.defaultDisabled.friday} value="5">Friday</option>
                         <option disabled={this.state.defaultDisabled.saturday} value="6">Saturday</option>
                     </select><br></br>
-                    {/* <label for="cross_train">Choose Your Preferred Cross Training Activities:</label> */}
+                    <label for="cross_train">Choose Your Preferred Cross Training Activities:</label>
                     
             
-                    {/* {this.props.exercises ? this.renderCheckboxes() : <p>exercises coming..</p>} */}
+                    {this.props.exercises ? this.renderCheckboxes() : <p>exercises coming..</p>}
                   
                     <input 
                     className="form-control"
@@ -246,15 +258,16 @@ class ProgramForm extends React.Component {
     }
 }
 
-// const mapStateToProps = ({exercises}) => {
-//     return {
-//         exercises: exercises.filter(e => e.exercise_type === "cross_train")}
-// }
+const mapStateToProps = ({exercises}) => {
+    console.log(exercises)
+    return {
+        exercises: exercises.filter(e => e.exercise_type === "cross_train")}
+}
 
 const mapDispatchToProps = dispatch => {
     return {
         addUserProgram: (newProgram) => dispatch(addUserProgram(newProgram)),
-        fetchExercises: () => dispatch(fetchExercises())
+        // fetchExercises: () => dispatch(fetchExercises())
     }
   }
-export default connect(null, mapDispatchToProps)(ProgramForm)
+export default connect(mapStateToProps, mapDispatchToProps)(ProgramForm)
