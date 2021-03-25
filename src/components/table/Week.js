@@ -25,7 +25,7 @@ class Week extends React.Component{
         console.log(this.props)
         return (
               <>
-              {this.props.exercises ? this.findExercises() : <p>Loading..</p>}  
+              {this.props.exercises.length > 0 ? this.findExercises() : <p>Loading..</p>}  
               </>
         )}
 }
