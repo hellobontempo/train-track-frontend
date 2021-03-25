@@ -1,28 +1,38 @@
+import React from 'react'
+import { connect } from 'react-redux'
+import DisplayDate from '../littleHelpers/DisplayDate'
 
 
-const Week = props => {
-  function weekLength(){
-    if (props.exercises.length !== 7){
-      props.exercises.push({id:"race", name: "RACE DAY!"})
-      props.programExercises.push({exercise_id:"race", miles: null })
+class Week extends React.Component{
+
+    findExercises(){
+      return (
+        this.props.weeklyExercises.map(workout => {
+        let exercise = this.props.exercises.find(exercise => exercise.id === workout.exercise_id)
+          return (
+            <td>
+            <u>{DisplayDate(workout.workout_date)}</u>
+            <br></br>
+            {workout.is_race_day ? 'RACE DAY!' : exercise.name}
+            <br></br>
+            {workout.miles && !workout.is_race_day ? `${workout.miles} miles` : ``}
+            </td>
+          )
+      }))
     }
-    return props
-  }
 
-    return (
-        weekLength().programExercises.map(programEx => {
-          let exercise = props.exercises.find( e => e.id === programEx.exercise_id)
-            return (
-              <td> 
-                <div>
-                  {exercise.name}
-                  <br></br>
-                  {programEx.miles === null ? `` : `${programEx.miles} miles`}
-                </div>
-              </td>
-            )
-          })
-    )
+      render(){
+        console.log(this.props)
+        return (
+              <>
+              {this.props.exercises.length > 0 ? this.findExercises() : <p>Loading..</p>}  
+              </>
+        )}
 }
 
-export default Week
+const mapStateToProps = state => {
+  return {
+    exercises: state.exercises
+  }
+}
+export default connect(mapStateToProps)(Week)

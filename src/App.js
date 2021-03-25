@@ -7,8 +7,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Home from './components/Home'
 import ProgramsContainer from './components/containers/ProgramsContainer';
+import CustomProgramsContainer from './components/containers/CustomProgramsContainer';
+
 import NavBar from './components/NavBar';
 import Switch from 'react-bootstrap/esm/Switch';
+
 import ProgramForm from './components/ProgramForm';
 import GreyBlock from './components/littleHelpers/GreyBlock';
 
@@ -17,6 +20,7 @@ class App extends React.Component {
   componentDidMount() {
     this.props.fetchPrograms()
     this.props.fetchUserPrograms()
+    this.props.fetchExercises()
   }
 
   render(){
@@ -27,12 +31,18 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={Home} />  
               <Route path="/programs" component={ () => {
-              return this.props.loadingTP ? <h1>Loading...</h1> : <ProgramsContainer programs={this.props.programs}/>
-              }} />  
+              return <ProgramsContainer programs={this.props.programs}/>
+              }} /> 
               <Route path="/user_programs" component={ () => {
+              return <CustomProgramsContainer userPrograms={this.props.userPrograms}/>
+              }} /> 
+              {/* <Route path="/exercises" component={CREATEEXERCISELISTCOMPONENT}/> */}
+
               return this.props.loadingUP ? <h1>Loading...</h1> : <ProgramsContainer userPrograms={this.props.userPrograms}/>
               }} />  
               <Route path="/exercises" component={Home}/>
+              
+            
               <Route path="/new-program" component={ProgramForm}/>
              </Switch>
           </Router>

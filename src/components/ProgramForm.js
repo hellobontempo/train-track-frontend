@@ -23,9 +23,9 @@ class ProgramForm extends React.Component {
             saturday: true,
         }
     }
-    componentDidMount(){
-        this.props.fetchExercises()
-    }
+    // componentDidMount(){
+    //     this.props.fetchExercises()
+    // }
  
     // renderCheckboxes (){
     // const checkboxes = this.props.exercises.map(exercise => {
@@ -40,6 +40,7 @@ class ProgramForm extends React.Component {
     // }
 
     handleCheckChange = event => {
+        console.log(this.state)
         const exercise = event.target.name
         const isChecked = event.target.checked
         this.setState(prevState => ({ checkedExercises: prevState.checkedExercises.set(exercise, isChecked) }));
@@ -172,6 +173,7 @@ class ProgramForm extends React.Component {
             username: this.state.username,
             first_rest_day: this.state.first_rest_day,
             second_rest_day: this.state.second_rest_day,
+            exercise_attributes: this.state.checkedExercises,
             program_id: 1,
         }
 
@@ -181,7 +183,17 @@ class ProgramForm extends React.Component {
             username: "",
             first_rest_day: 0,
             second_rest_day: 5,
-            program_id: 1
+            program_id: 1,
+            checkedExercises: new Map(),
+            defaultDisabled: {
+                sunday: true,
+                monday: true,
+                tuesday: false,
+                wednesday: true,
+                thursday: true,
+                friday: false,
+                saturday: true,
+            }
         })
     }
     render(){
@@ -234,9 +246,10 @@ class ProgramForm extends React.Component {
                     </select><br></br>
                     {/* <label for="cross_train">Choose Your Preferred Cross Training Activities:</label>
                     
-            
+
                       {this.props.exercises ? this.renderCheckboxes() : <p>exercises coming..</p>}
                    */}
+
                     <input 
                     className="form-control"
                     type="submit"/>
@@ -247,6 +260,7 @@ class ProgramForm extends React.Component {
 }
 
 const mapStateToProps = ({exercises}) => {
+    console.log(exercises)
     return {
         exercises: exercises.filter(e => e.exercise_type === "cross_train")}
 }
@@ -254,7 +268,7 @@ const mapStateToProps = ({exercises}) => {
 const mapDispatchToProps = dispatch => {
     return {
         addUserProgram: (newProgram) => dispatch(addUserProgram(newProgram)),
-        fetchExercises: () => dispatch(fetchExercises())
+        // fetchExercises: () => dispatch(fetchExercises())
     }
   }
 export default connect(mapStateToProps, mapDispatchToProps)(ProgramForm)

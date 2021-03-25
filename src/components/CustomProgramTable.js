@@ -1,10 +1,10 @@
 import React from 'react'
 import { Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import ProgramTable from './table/ProgramTable';
 import DisplayDate from './littleHelpers/DisplayDate'
+import CustomTable from './table/CustomTable';
 
-class UserTable extends React.Component {
+class CustomProgramTable extends React.Component {
   
   findProgram(){
     const userProgramId = this.props.userProgram.program_id
@@ -14,12 +14,12 @@ class UserTable extends React.Component {
 
   
   displayTable(){
+    console.log(this.props)
     return (
       <div>
         <h1>{this.props.userProgram.username}'s Schedule:</h1>
         <h4>start date: {DisplayDate(this.props.userProgram.start_date)}</h4>
-        <h4>race date: {DisplayDate(this.props.userProgram.race_date)}</h4>
-         <ProgramTable custom={this.props.userProgram} program={this.findProgram()}/>
+         <CustomTable program={this.props.userProgram}/>
       </div>
     )
   }
@@ -40,4 +40,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(UserTable)
+export default connect(mapStateToProps)(CustomProgramTable)
