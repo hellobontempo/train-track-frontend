@@ -4,7 +4,6 @@ import { NavDropdown } from 'react-bootstrap'
 // import { Form } from 'react-bootstrap'
 // import { Button } from 'react-bootstrap'
 // import { FormControl} from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 const NavBar = () => {
     return (
