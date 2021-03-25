@@ -209,56 +209,56 @@ class ProgramForm extends React.Component {
             <div className="formDiv">
                 <form className="form" onSubmit={this.handleOnSubmit}>
                     <label>Enter Race Date
-                    <input 
+                        <input 
                         className="form-control"
                         name="race_date" 
                         type="date"
                         value={this.state.race_date}
-                        onChange={this.handleInputChange} /><br></br>
+                        onChange={this.handleInputChange} />
                     </label>
-                    <label for="username">Your Name:</label>
-                    <input 
+                    {` `}
+                    <label for="username">Your Name:
+                        <input
                         className="form-control"
                         name="username" 
                         type="text"
                         value={this.state.username}
-                        onChange={this.handleInputChange}/><br></br>
-                    <label for="rest-day-one-select">Select Rest Days:
+                        onChange={this.handleInputChange}/>
                     </label>
-                    <select 
-                        className="form-control"
-                        name="first_rest_day"
-                        value={this.state.first_rest_day}
-                        onChange={this.handleDateDropdownChange}>
-                        <option value="0">Sunday</option>
-                        <option value="1">Monday</option>
-                        <option value="2">Tuesday</option>
-                        <option value="3">Wednesday</option>
-                        <option value="4">Thursday</option>
-                        <option value="5">Friday</option>
-                        <option value="6">Saturday</option>
-                    </select>
-                    <p className="text-muted">Week will start on this day of the week.</p>
                     <br></br>
-                    <select 
-                        className="form-control"
-                        name="second_rest_day"
-                        value={this.state.second_rest_day}
-                        onChange={this.handleInputChange}>
-                        <option disabled={this.state.defaultDisabled.sunday} value="0">Sunday</option>
-                        <option disabled={this.state.defaultDisabled.monday} value="1">Monday</option>
-                        <option disabled={this.state.defaultDisabled.tuesday} value="2">Tuesday</option>
-                        <option disabled={this.state.defaultDisabled.wednesday} value="3">Wednesday</option>
-                        <option disabled={this.state.defaultDisabled.thursday} value="4">Thursday</option>
-                        <option disabled={this.state.defaultDisabled.friday} value="5">Friday</option>
-                        <option disabled={this.state.defaultDisabled.saturday} value="6">Saturday</option>
-                    </select><br></br>
-                    <label for="cross_train">Choose Your Preferred Cross Training Activities:</label>
-                    
-
+                    <label for="rest-day-one-select">Select Rest Days: </label> 
+                        <select 
+                            className="form-control"
+                            name="first_rest_day"
+                            value={this.state.first_rest_day}
+                            onChange={this.handleDateDropdownChange}>
+                            <option value="0">Sunday</option>
+                            <option value="1">Monday</option>
+                            <option value="2">Tuesday</option>
+                            <option value="3">Wednesday</option>
+                            <option value="4">Thursday</option>
+                            <option value="5">Friday</option>
+                            <option value="6">Saturday</option>
+                        </select>
+                    <p className="text-muted">Week will start on this day of the week.</p>
+                        <br></br>
+                        <select 
+                            className="form-control"
+                            name="second_rest_day"
+                            value={this.state.second_rest_day}
+                            onChange={this.handleInputChange}>
+                            <option disabled={this.state.defaultDisabled.sunday} value="0">Sunday</option>
+                            <option disabled={this.state.defaultDisabled.monday} value="1">Monday</option>
+                            <option disabled={this.state.defaultDisabled.tuesday} value="2">Tuesday</option>
+                            <option disabled={this.state.defaultDisabled.wednesday} value="3">Wednesday</option>
+                            <option disabled={this.state.defaultDisabled.thursday} value="4">Thursday</option>
+                            <option disabled={this.state.defaultDisabled.friday} value="5">Friday</option>
+                            <option disabled={this.state.defaultDisabled.saturday} value="6">Saturday</option>
+                        </select>   
+                    <br></br>
+                    <label for="cross_train">Choose Your Preferred Cross Training Activities:
                       {this.props.exercises ? this.renderCheckboxes() : <p>exercises coming..</p>}
-                  
-
+                    </label>
                     <input 
                     className="form-control"
                     type="submit"/>
