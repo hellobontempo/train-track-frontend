@@ -1,18 +1,27 @@
 body {
-  background-color: #c1a8cf;
+  background-color: #8F9AAF;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  /* -moz-osx-font-smoothing: grayscale; */
+  -moz-osx-font-smoothing: grayscale;
 }
 
+.component-background {
+  background-color: #8F9AAF;
+}
+
+.color-nav{
+  /* background-color: #94b9d1; */
+  background-color: #94b9d1;
+}
 .tableDiv {
   padding: 10px;
   margin: auto;
-  padding-right: 100px;
   width: 60%;
+
 }
+
 
 a {
   color: #afa3b6;

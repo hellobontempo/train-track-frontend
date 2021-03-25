@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Container } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 import TableHeader from './TableHeader';
 import Week from './Week';

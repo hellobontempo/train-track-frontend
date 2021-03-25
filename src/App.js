@@ -3,6 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import {fetchExercises, fetchPrograms, fetchUserPrograms} from './actions/actions'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Home from './components/Home'
 import ProgramsContainer from './components/containers/ProgramsContainer';
@@ -10,7 +11,10 @@ import CustomProgramsContainer from './components/containers/CustomProgramsConta
 
 import NavBar from './components/NavBar';
 import Switch from 'react-bootstrap/esm/Switch';
-import ProgramForm from './components/ProgramForm'
+
+import ProgramForm from './components/ProgramForm';
+import GreyBlock from './components/littleHelpers/GreyBlock';
+
 class App extends React.Component {
 
   componentDidMount() {
@@ -21,9 +25,9 @@ class App extends React.Component {
 
   render(){
     return (
-      <div className="App">
+      <div className="App" style={{ background: "#8F9AAF" }}>
           <NavBar />
-          <Router>
+          <Router> 
             <Switch>
               <Route exact path="/" component={Home} />  
               <Route path="/programs" component={ () => {
@@ -33,9 +37,16 @@ class App extends React.Component {
               return <CustomProgramsContainer userPrograms={this.props.userPrograms}/>
               }} /> 
               {/* <Route path="/exercises" component={CREATEEXERCISELISTCOMPONENT}/> */}
+
+              return this.props.loadingUP ? <h1>Loading...</h1> : <ProgramsContainer userPrograms={this.props.userPrograms}/>
+              }} />  
+              <Route path="/exercises" component={Home}/>
+              
+            
               <Route path="/new-program" component={ProgramForm}/>
              </Switch>
           </Router>
+          <GreyBlock/>
       </div>
     )}
 }

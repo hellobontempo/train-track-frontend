@@ -18,6 +18,7 @@ class UserTable extends React.Component {
       <div>
         <h1>{this.props.userProgram.username}'s Schedule:</h1>
         <h4>start date: {DisplayDate(this.props.userProgram.start_date)}</h4>
+        <h4>race date: {DisplayDate(this.props.userProgram.race_date)}</h4>
          <ProgramTable custom={this.props.userProgram} program={this.findProgram()}/>
       </div>
     )

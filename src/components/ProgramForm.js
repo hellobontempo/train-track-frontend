@@ -27,17 +27,17 @@ class ProgramForm extends React.Component {
     //     this.props.fetchExercises()
     // }
  
-    renderCheckboxes (){
-    const checkboxes = this.props.exercises.map(exercise => {
-            return (
-                <div className="form-check form-inline">
-                <div className="form-check-input"><Checkbox name={exercise.name} checked={this.state.checkedExercises.get(exercise.name)} onChange={this.handleCheckChange} /></div>
-                <label className="form-check-label">{exercise.name}</label>
-                </div>
-            )
-        })
-    return checkboxes
-    }
+    // renderCheckboxes (){
+    // const checkboxes = this.props.exercises.map(exercise => {
+    //         return (
+    //             <div className="form-check form-inline">
+    //             <div className="form-check-input"><Checkbox name={exercise.name} checked={this.state.checkedExercises.get(exercise.name)} onChange={this.handleCheckChange} /></div>
+    //             <label className="form-check-label">{exercise.name}</label>
+    //             </div>
+    //         )
+    //     })
+    // return checkboxes
+    // }
 
     handleCheckChange = event => {
         console.log(this.state)
@@ -244,11 +244,12 @@ class ProgramForm extends React.Component {
                         <option disabled={this.state.defaultDisabled.friday} value="5">Friday</option>
                         <option disabled={this.state.defaultDisabled.saturday} value="6">Saturday</option>
                     </select><br></br>
-                    <label for="cross_train">Choose Your Preferred Cross Training Activities:</label>
+                    {/* <label for="cross_train">Choose Your Preferred Cross Training Activities:</label>
                     
-            
-                    {this.props.exercises ? this.renderCheckboxes() : <p>exercises coming..</p>}
-                  
+
+                      {this.props.exercises ? this.renderCheckboxes() : <p>exercises coming..</p>}
+                   */}
+
                     <input 
                     className="form-control"
                     type="submit"/>

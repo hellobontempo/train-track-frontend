@@ -4,11 +4,10 @@ import { NavDropdown } from 'react-bootstrap'
 // import { Form } from 'react-bootstrap'
 // import { Button } from 'react-bootstrap'
 // import { FormControl} from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 const NavBar = () => {
     return (
-    <Navbar bg="light" expand="lg">
+    <Navbar expand="lg" className="color-nav">
     <Navbar.Brand href="/">TrainTrack</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
@@ -19,7 +18,7 @@ const NavBar = () => {
         <NavDropdown title="Dropdown" id="basic-nav-dropdown">
             <NavDropdown.Item href="/user_programs">Fellow Train Tracks</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+            {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
         </NavDropdown>
         </Nav>
         {/* <Form inline>
