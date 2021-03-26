@@ -179,9 +179,9 @@ class ProgramForm extends React.Component {
             user_program: {
             race_date: this.state.race_date,
             username: this.state.username,
-            first_rest_day: this.state.first_rest_day,
-            second_rest_day: this.state.second_rest_day,
-            exercise_ids: Object.keys(this.state.checkedExercises),
+            // first_rest_day: this.state.first_rest_day,
+            // second_rest_day: this.state.second_rest_day,
+            preferred_exercise_ids: Object.keys(this.state.checkedExercises),
             program_id: 1,}
         }
         console.log(newProgram)

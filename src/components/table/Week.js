@@ -7,7 +7,6 @@ class Week extends React.Component{
     findExercises(){
       return (
         this.props.weeklyExercises.map(workout => {
-          console.log(workout.workout_date)
         let exercise = this.props.exercises.find(exercise => exercise.id === workout.exercise_id)
           return (
             <td>
