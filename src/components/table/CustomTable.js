@@ -6,17 +6,38 @@ import Week from './Week';
 
 const CustomTable = ({program}) => {
 
+  const dateArray = program.start_date.split("-").map( n => parseInt(n))
+  const startDate = new Date(dateArray[0], dateArray[1]-1, dateArray[2]) //.getDay()
+
+
+  function setDates() {
+    let daysBeforeProgram = []
+    let date = startDate
+    date.setDate(date.getDate() -1)
+    let i = startDate.getDay()
+    do {
+      daysBeforeProgram = [...daysBeforeProgram, {date: date.toISOString().split("T")[0]}]
+      date.setDate(date.getDate() -1);
+      i -= 1;
+    }while (i > -1);
+    console.log(daysBeforeProgram.reverse())
+    return daysBeforeProgram.reverse()
+  }
+
+
   function week () {
     let startDay = 0;
     let endWeek = 7;
     let programWeeks = []
-    const totalDays = program.custom_programs.length
-    for (let day = 1; day < totalDays + 1; day+=7){
-        let weeklyExercises = program.custom_programs.slice(startDay, endWeek);
+    const addedDays = setDates().concat(program.custom_programs)
+    const totalTableCells = addedDays.length 
+    for (let day = 1; day < totalTableCells + 1; day+=7){
+        let weeklyExercises = addedDays.slice(startDay, endWeek);
         programWeeks.push(<Week weeklyExercises={weeklyExercises}/>)
         startDay = endWeek 
-        endWeek += 7}
-
+        endWeek += 7
+    }
+    console.log(programWeeks)
     return programWeeks
 
   }
