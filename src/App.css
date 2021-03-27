@@ -38,6 +38,10 @@
   width: auto;
 }
 
+.table-icon{
+  width: 50%
+}
+
 .component-background {
   background-color: #8F9AAF;
 }

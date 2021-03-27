@@ -20,7 +20,7 @@ class Week extends React.Component{
             <td>
             <p className="date-background">{displayDate(this.returnDate(workout))}</p>
             <br></br>
-            {workout.date ? '*' : this.returnExerciseName(workout, exercise)}
+            {workout.date ? <img className="table-icon" src="/images/train-icon-transparent.png" alt="train-icon"/> : this.returnExerciseName(workout, exercise)}
             <br></br>
             {workout.miles && !workout.is_race_day ? `${workout.miles} miles` : ``}
             </td>
