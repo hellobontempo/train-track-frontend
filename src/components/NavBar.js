@@ -8,15 +8,24 @@ import { NavDropdown } from 'react-bootstrap'
 const NavBar = () => {
     return (
     <Navbar expand="lg" className="color-nav">
-    <Navbar.Brand href="/">TrainTrack</Navbar.Brand>
+    <Navbar.Brand href="/">
+      <img
+        alt="train-icon-logo"
+        src="/images/train-icon-transparent.png"
+        height="30"
+        className="d-inline-block align-top"
+      />{' '}
+      TrainTrack
+    </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
         <Nav.Link href="/">Home</Nav.Link>
         <Nav.Link href="/new-program">Create Custom Program</Nav.Link>
-        <Nav.Link href="/programs">Training Programs</Nav.Link>
-        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/user_programs">Fellow Train Tracks</NavDropdown.Item>
+        <Nav.Link href="/user_programs">Fellow Train Tracks</Nav.Link>
+        <NavDropdown title="Training Programs" id="basic-nav-dropdown">
+            <NavDropdown.Item href="/programs">All Programs</NavDropdown.Item>
+            <NavDropdown.Item href="/programs">All Programs</NavDropdown.Item>
             <NavDropdown.Divider />
             {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
         </NavDropdown>
