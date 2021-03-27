@@ -4,12 +4,12 @@ import { displayDate } from '../littleHelpers/helperFunctions'
 
 class Week extends React.Component{
 
-    returnDate(element){
-      return element.date ? element.date : element.workout_date
+    returnDate(workout){
+      return workout.date ? workout.date : workout.workout_date
     }
 
-    returnExerciseName(element){
-      return element.is_race_day ? 'RACE DAY!' : element.name
+    returnExerciseName(workout, exercise){
+      return workout.is_race_day ? 'RACE DAY!' : exercise.name
     }
 
     findExercises(){
@@ -20,7 +20,7 @@ class Week extends React.Component{
             <td>
             <p className="date-background">{displayDate(this.returnDate(workout))}</p>
             <br></br>
-            {workout.date ? '*' : this.returnExerciseName(workout)}
+            {workout.date ? '*' : this.returnExerciseName(workout, exercise)}
             <br></br>
             {workout.miles && !workout.is_race_day ? `${workout.miles} miles` : ``}
             </td>
