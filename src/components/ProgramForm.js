@@ -2,24 +2,19 @@ import React from 'react'
 import { addUserProgram } from '../actions/actions'
 import { connect } from 'react-redux'
 import Checkbox from './littleHelpers/Checkbox'
-import {fetchExercises} from '../actions/actions'
+import { Col, Button, Row } from 'react-bootstrap'
 
 class ProgramForm extends React.Component {
 
     state = {
         race_date: "",
         username: "",
-        first_rest_day: 0,
-        second_rest_day: 5,
         program_id: 1,
         checkedExercises: {},
     }
-    // componentDidMount(){
-    //     this.props.fetchExercises()
-    // }
  
     renderCheckboxes (){
-    const checkboxes = this.props.exercises.map(exercise => {
+    return this.props.exercises.map(exercise => {
             return (
                 <div className="form-check form-inline">
                 <div className="form-check-input"><Checkbox name={exercise.id} checked={this.state.checkedExercises[`${exercise.id}`]} onChange={this.handleCheckChange} /></div>
@@ -27,11 +22,9 @@ class ProgramForm extends React.Component {
                 </div>
             )
         })
-    return checkboxes
     }
 
     handleCheckChange = event => {
-        console.log(this.state)
         const exercise = event.target.name
         const isChecked = event.target.checked
         this.setState({
@@ -41,8 +34,28 @@ class ProgramForm extends React.Component {
                [exercise]: isChecked
             }
         })
+        console.log(this.state)
+    }
+    
   
-  }
+    handleSelectAll = (event) => {
+        let ids = this.props.exercises.map(exercise => exercise.id);
+        let allChecked = {} ;
+        let isChecked;
+        if (event.target.innerHTML === "Select All"){
+            isChecked = true;
+            event.target.innerHTML = "Unselect All";
+        }else {
+            isChecked = false;
+            event.target.innerHTML = "Select All";
+        };
+        ids.map(id => allChecked[id] = isChecked);
+        this.setState({
+            ...this.state, 
+            checkedExercises: allChecked
+            })
+    }
+
 
     handleInputChange = (event) => {
         const target = event.target
@@ -52,7 +65,10 @@ class ProgramForm extends React.Component {
             ...this.state,
             [name]: value
         })
+        console.log(this.state)
     }
+
+
 
     handleOnSubmit = event => {
         event.preventDefault()
@@ -63,42 +79,49 @@ class ProgramForm extends React.Component {
             preferred_exercise_ids: Object.keys(this.state.checkedExercises),
             program_id: 1,}
         }
-        console.log(newProgram)
         this.props.addUserProgram(newProgram)
         this.setState({
             race_date: "",
             username: "",
-            first_rest_day: 0,
-            second_rest_day: 5,
             program_id: 1,
             checkedExercises: {},
         })
     }
+
     render(){
         return(
             <div className="formDiv">
                 <form className="form" onSubmit={this.handleOnSubmit}>
-                    <label>Enter Race Date
+                <Row>
+                    <Col>
+                    <label className="form-inline">Enter Race Date:</label>
                         <input 
                         className="form-control"
                         name="race_date" 
                         type="date"
                         value={this.state.race_date}
                         onChange={this.handleInputChange} />
-                    </label>
-                    {` `}
-                    <label for="username">Your Name:
+                    
+                    </Col>
+                    <Col>
+                    <label className="form-inline">Your Name:</label>
                         <input
                         className="form-control"
                         name="username" 
                         type="text"
                         value={this.state.username}
                         onChange={this.handleInputChange}/>
-                    </label>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
                     <br></br>
-                    <label for="cross_train">Choose Your Preferred Cross Training Activities:
-                      {this.props.exercises ? this.renderCheckboxes() : <p>exercises coming..</p>}
-                    </label>
+                    <label className="form-inline">Choose Your Preferred Cross Training Activities:</label>
+                    </Col>
+                </Row>
+                    <Button className="float-left" variant="dark" onClick={this.handleSelectAll} size="sm">Select All</Button>
+                    <br></br><br></br>
+                    <p>{this.props.exercises ? this.renderCheckboxes() : <p>exercises coming..</p>}</p> 
                     <input 
                     className="form-control"
                     type="submit"/>
