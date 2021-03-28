@@ -6,14 +6,15 @@ import Week from './Week';
 
 const CustomTable = ({program}) => {
 
-  // const startDate = dateStringToObject(program.start_date)
-  // const endDate = dateStringToObject(program.race_date)
-
-  // const dateArrayStart = program.start_date.split("-").map( n => parseInt(n))
-  // const startDate = new Date(dateArray[0], dateArray[1]-1, dateArray[2]) 
-
-  // const dateArrayStart = program.race_date.split("-").map( n => parseInt(n))
+  const startDate = dateStringToObject(program.start_date)
+  const endDate = dateStringToObject(program.race_date)
   const startIndex = startDate.getDay() 
+  const endIndex = endDate.getDay() 
+
+  function dateStringToObject(date){
+    const dateArray = date.split("-").map( n => parseInt(n))
+    return new Date(dateArray[0], dateArray[1]-1, dateArray[2]) 
+  }
 
   function createDaysBeforeProgram() {
     let daysBeforeProgram = []
@@ -24,22 +25,23 @@ const CustomTable = ({program}) => {
       daysBeforeProgram = [...daysBeforeProgram, {date: date.toISOString().split("T")[0]}]
       date.setDate(date.getDate() -1);
       i -= 1;
-    } while (i > -1);
+    } while (i > 0);
     return daysBeforeProgram.reverse()
   }
 
-  // function createDaysAfterProgram() {
-  //   let daysAfterProgram = []
-  //   let date = startDate
-  //   date.setDate(date.getDate() - 1)
-  //   let i = startDate.getDay()
-  //   do {
-  //     daysAfterProgram = [...daysAfterProgram, {date: date.toISOString().split("T")[0]}]
-  //     date.setDate(date.getDate() -1);
-  //     i -= 1;
-  //   } while (i > -1);
-  //   return daysAfterProgram.reverse()
-  // }
+  function createDaysAfterProgram() {
+    let daysAfterProgram = []
+    let date = endDate
+    date.setDate(date.getDate() + 1)
+    let i = endDate.getDay()
+    do {
+      daysAfterProgram = [...daysAfterProgram, {date: date.toISOString().split("T")[0]}]
+      date.setDate(date.getDate() + 1);
+      i += 1;
+    } while (i <= 6);
+    console.log(daysAfterProgram)
+    return daysAfterProgram
+  }
 
 
   function week () {
@@ -48,7 +50,7 @@ const CustomTable = ({program}) => {
     let programWeeks = [];
     let daysForTable = program.custom_programs
     if (startIndex !== 0) {
-      daysForTable = createDaysBeforeProgram().concat(daysForTable)
+      daysForTable = createDaysBeforeProgram().concat(daysForTable).concat(createDaysAfterProgram())
     }
 
     const totalTableCells = daysForTable.length 
