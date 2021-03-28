@@ -11,7 +11,7 @@ const CustomTable = ({program}) => {
   const startIndex = startDate.getDay() 
 
 
-  function setDates() {
+  function createDaysBeforeProgram() {
     let daysBeforeProgram = []
     let date = startDate
     date.setDate(date.getDate() - 1)
@@ -29,9 +29,9 @@ const CustomTable = ({program}) => {
     let startDay = 0;
     let endWeek = 7;
     let programWeeks = [];
-    let daysForTable = []
+    let daysForTable = program.custom_programs
     if (startIndex !== 0) {
-      daysForTable = setDates().concat(program.custom_programs)
+      daysForTable = createDaysBeforeProgram().concat(daysForTable)
     }
 
     const totalTableCells = daysForTable.length 
