@@ -6,16 +6,20 @@ import Week from './Week';
 
 const CustomTable = ({program}) => {
 
-  const dateArray = program.start_date.split("-").map( n => parseInt(n))
-  const startDate = new Date(dateArray[0], dateArray[1]-1, dateArray[2]) 
-  const startIndex = startDate.getDay() 
+  // const startDate = dateStringToObject(program.start_date)
+  // const endDate = dateStringToObject(program.race_date)
 
+  // const dateArrayStart = program.start_date.split("-").map( n => parseInt(n))
+  // const startDate = new Date(dateArray[0], dateArray[1]-1, dateArray[2]) 
+
+  // const dateArrayStart = program.race_date.split("-").map( n => parseInt(n))
+  const startIndex = startDate.getDay() 
 
   function createDaysBeforeProgram() {
     let daysBeforeProgram = []
     let date = startDate
+    let i = startIndex
     date.setDate(date.getDate() - 1)
-    let i = startDate.getDay()
     do {
       daysBeforeProgram = [...daysBeforeProgram, {date: date.toISOString().split("T")[0]}]
       date.setDate(date.getDate() -1);
@@ -23,6 +27,19 @@ const CustomTable = ({program}) => {
     } while (i > -1);
     return daysBeforeProgram.reverse()
   }
+
+  // function createDaysAfterProgram() {
+  //   let daysAfterProgram = []
+  //   let date = startDate
+  //   date.setDate(date.getDate() - 1)
+  //   let i = startDate.getDay()
+  //   do {
+  //     daysAfterProgram = [...daysAfterProgram, {date: date.toISOString().split("T")[0]}]
+  //     date.setDate(date.getDate() -1);
+  //     i -= 1;
+  //   } while (i > -1);
+  //   return daysAfterProgram.reverse()
+  // }
 
 
   function week () {
