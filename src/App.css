@@ -45,6 +45,10 @@
   width: 10%
 }
 
+table {
+  table-layout: fixed;
+  width: auto;
+}
 .component-background {
   background-color: #8F9AAF;
 }

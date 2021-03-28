@@ -1,11 +1,11 @@
 import { Fragment } from "react"
 
 
-const TableHeader = props => {
+const TableHeader = () => {
 
 
     function header (){
-        const tableHeader = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] //"Week Number", 
+        const tableHeader = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
         return tableHeader.map(day => <th>{day}</th>)
       }
 
