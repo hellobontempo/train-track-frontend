@@ -12,6 +12,7 @@ class ProgramForm extends React.Component {
         length_in_weeks: "",
         program_id: 1,
         checkedExercises: {},
+        selectAllButton: "Select All"
     }
  
     renderCheckboxes (){
@@ -43,17 +44,19 @@ class ProgramForm extends React.Component {
         let ids = this.props.exercises.map(exercise => exercise.id);
         let allChecked = {} ;
         let isChecked;
+        let buttonText;
         if (event.target.innerHTML === "Select All"){
             isChecked = true;
-            event.target.innerHTML = "Unselect All";
+            buttonText = "Unselect All";
         }else {
             isChecked = false;
-            event.target.innerHTML = "Select All";
+            buttonText = "Select All";
         };
         ids.map(id => allChecked[id] = isChecked);
         this.setState({
             ...this.state, 
-            checkedExercises: allChecked
+            checkedExercises: allChecked,
+            selectAllButton: buttonText
             })
     }
 
@@ -88,6 +91,7 @@ class ProgramForm extends React.Component {
             length_in_weeks: "",
             program_id: 1,
             checkedExercises: {},
+            selectAllButton: "Select All"
         })
     }
 
@@ -122,7 +126,7 @@ class ProgramForm extends React.Component {
                     <label className="form-inline">Choose Your Preferred Cross Training Activities:</label>
                     </Col>
                 </Row>
-                    <Button className="float-left" variant="dark" onClick={this.handleSelectAll} size="sm">Select All</Button>
+                    <Button className="float-left" variant="dark" onClick={this.handleSelectAll} size="sm">{this.state.selectAllButton}</Button>
                     <br></br><br></br>
                     <p>{this.props.exercises ? this.renderCheckboxes() : <p>exercises coming..</p>}</p> 
                     <input 
