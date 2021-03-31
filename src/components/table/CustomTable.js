@@ -33,12 +33,12 @@ const CustomTable = ({program}) => {
     let daysAfterProgram = []
     let date = endDate
     date.setDate(date.getDate() + 1)
-    let i = endDate.getDay()
+    let i = endIndex
     do {
       daysAfterProgram = [...daysAfterProgram, {date: date.toISOString().split("T")[0]}]
       date.setDate(date.getDate() + 1);
       i += 1;
-    } while (i <= 6);
+    } while (i < 6);
     console.log(daysAfterProgram)
     return daysAfterProgram
   }
