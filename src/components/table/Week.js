@@ -6,22 +6,16 @@ import EditWorkoutButton from './EditWorkoutButton'
 
 
 class Week extends React.Component{
-
+  
 
     returnDate(workout){
       return workout.date ? workout.date : workout.workout_date
     }
 
     returnExerciseName(workout, exercise){
-      return workout.is_race_day ? 'RACE DAY!' : (<Button id={workout.id} value={exercise.exercise_type} variant="dark" onClick={this.handleOnClick}>{exercise.name}</Button> )
+      return workout.is_race_day ? 'RACE DAY!' : <EditWorkoutButton workout={workout} exercise={exercise}/>
     }
 
-
-    handleOnClick = event => {
-      if (event.target.value == "cross_train"){
-       return <EditWorkoutButton/>
-      }
-    }
 
     findExercises(){
       return (
