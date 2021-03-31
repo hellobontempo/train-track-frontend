@@ -35,7 +35,6 @@ const CustomTable = ({program}) => {
       date.setDate(date.getDate() + 1);
       i += 1;
     } while (i < 6);
-    console.log(daysAfterProgram)
     return daysAfterProgram
   }
 
@@ -76,7 +75,7 @@ const CustomTable = ({program}) => {
                 < TableHeader/>
               </thead>
               <tbody>
-                  {program ? displayWeeks() : <h1>nada</h1>}
+                  {program ? displayWeeks() : <h1>Loading...</h1>}
               </tbody>
             </Table>
             </Container>
