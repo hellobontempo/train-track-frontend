@@ -3,7 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import {fetchExercises, fetchPrograms, fetchUserPrograms} from './actions/actions'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 import Home from './components/Home'
 import ProgramsContainer from './components/containers/ProgramsContainer';
