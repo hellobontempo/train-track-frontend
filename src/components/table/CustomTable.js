@@ -39,7 +39,7 @@ const CustomTable = ({program}) => {
   }
 
 
-  function week () {
+  function createWeeks () {
     let startDay = 0;
     let endWeek = 7;
     let programWeeks = [];
@@ -61,7 +61,7 @@ const CustomTable = ({program}) => {
 
   function displayWeeks(){
    return ( 
-      week().map(week => {
+      createWeeks().map(week => {
           return (      
              <tr>{week}</tr>
       )}))
