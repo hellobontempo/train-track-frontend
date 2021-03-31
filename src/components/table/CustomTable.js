@@ -70,11 +70,7 @@ const CustomTable = ({program}) => {
   return (
         <Fragment>
           <Container>
-            <Table>
-            striped 
-            bordered
-            scrollY
-            maxHeight="200px">
+            <Table striped bordered>
               <thead>
                 < TableHeader/>
               </thead>
