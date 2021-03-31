@@ -4,7 +4,6 @@ import Table from 'react-bootstrap/Table';
 import TableHeader from './TableHeader';
 import Week from './Week';
 import { dateStringToObject } from '../littleHelpers/helperFunctions'
-import { MDBDataTable } from 'mdbreact';
 
 const CustomTable = ({program}) => {
 
@@ -71,8 +70,7 @@ const CustomTable = ({program}) => {
   return (
         <Fragment>
           <Container>
-            {/* <Table  */}
-            <MDBDataTable>
+            <Table>
             striped 
             bordered
             scrollY
@@ -83,8 +81,7 @@ const CustomTable = ({program}) => {
               <tbody>
                   {program ? displayWeeks() : <h1>Loading...</h1>}
               </tbody>
-            {/* </Table> */}
-            </MDBDataTable>
+            </Table>
             </Container>
         </Fragment>
   
