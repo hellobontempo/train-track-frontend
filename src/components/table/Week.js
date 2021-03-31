@@ -2,6 +2,7 @@ import { Button } from 'react-bootstrap'
 import React from 'react'
 import { connect } from 'react-redux'
 import { displayDate } from '../littleHelpers/helperFunctions'
+import EditWorkoutButton from './EditWorkoutButton'
 
 
 class Week extends React.Component{
@@ -18,7 +19,7 @@ class Week extends React.Component{
 
     handleOnClick = event => {
       if (event.target.value == "cross_train"){
-       alert("Cross Train!") //create edit modal
+       return <EditWorkoutButton/>
       }
     }
 
