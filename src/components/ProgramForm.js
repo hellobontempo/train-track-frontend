@@ -81,7 +81,7 @@ class ProgramForm extends React.Component {
             race_date: this.state.race_date,
             username: this.state.username,
             preferred_exercise_ids: Object.keys(this.state.checkedExercises),
-            length_in_weeks: 6, 
+            length_in_weeks: this.state.length_in_weeks, 
             program_id: 1,}
         }
         this.props.addUserProgram(newProgram)
@@ -120,12 +120,25 @@ class ProgramForm extends React.Component {
                         onChange={this.handleInputChange}/>
                     </Col>
                 </Row>
+                <br></br>
                 <Row>
                     <Col>
-                    <br></br>
-                    <label className="form-inline">Choose Your Preferred Cross Training Activities:</label>
+                    <label className="form-inline">How many weeks you got?</label>
+                        <input
+                        className="form-control"
+                        name="length_in_weeks" 
+                        type="number"
+                        min="4" 
+                        max="12"
+                        value={this.state.length_in_weeks}
+                        onChange={this.handleInputChange}/>
                     </Col>
+                    <Col></Col>
                 </Row>
+                    <Col>
+                        <br></br>
+                        <label className="form-inline">Choose Your Preferred Cross Training Activities:</label>
+                    </Col>
                     <Button className="float-left" variant="dark" onClick={this.handleSelectAll} size="sm">{this.state.selectAllButton}</Button>
                     <br></br><br></br>
                     <p>{this.props.exercises ? this.renderCheckboxes() : <p>exercises coming..</p>}</p> 
