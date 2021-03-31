@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
 import TableHeader from './TableHeader';
 import Week from './Week';
+import { dateStringToObject } from '../littleHelpers/helperFunctions'
 
 const CustomTable = ({program}) => {
 
@@ -10,11 +11,6 @@ const CustomTable = ({program}) => {
   const endDate = dateStringToObject(program.race_date)
   const startIndex = startDate.getDay() 
   const endIndex = endDate.getDay() 
-
-  function dateStringToObject(date){
-    const dateArray = date.split("-").map( n => parseInt(n))
-    return new Date(dateArray[0], dateArray[1]-1, dateArray[2]) 
-  }
 
   function createDaysBeforeProgram() {
     let daysBeforeProgram = []
