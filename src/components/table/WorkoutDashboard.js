@@ -3,20 +3,28 @@ import React from 'react'
 
 class WorkoutDashboard extends React.Component {
 
+  state = {
+    show: false
+  }
+
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
 
   render(){
     const {workout, exercise} = this.props
     return(
       <>
-      <Button id={workout.id} value={exercise.exercise_type} variant="dark" onClick={(event) => this.handleOnClick(event)}>{exercise.name}</Button>
+      <Button id={workout.id} value={exercise.exercise_type} variant="dark" onClick={this.showModal}>{exercise.name}</Button>
       </>
-    )}
+    )};
 
 
-  handleOnClick(event){
-      console.log(event.target.id)
-      console.log(event.target.value)
-    }
+
 }
 
 export default WorkoutDashboard
