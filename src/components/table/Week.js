@@ -2,7 +2,7 @@ import { Button } from 'react-bootstrap'
 import React from 'react'
 import { connect } from 'react-redux'
 import { displayDate } from '../littleHelpers/helperFunctions'
-import EditWorkoutButton from './EditWorkoutButton'
+import WorkoutDashboard from './WorkoutDashboard'
 
 
 class Week extends React.Component{
@@ -13,7 +13,7 @@ class Week extends React.Component{
     }
 
     returnExerciseName(workout, exercise){
-      return workout.is_race_day ? 'RACE DAY!' : <EditWorkoutButton workout={workout} exercise={exercise}/>
+      return workout.is_race_day ? 'RACE DAY!' : <WorkoutDashboard workout={workout} exercise={exercise}/>
     }
 
 
