@@ -12,14 +12,14 @@ class Week extends React.Component{
     }
 
     returnExerciseName(workout, exercise){
-      return workout.is_race_day ? 'RACE DAY!' : exercise.name 
+      return workout.is_race_day ? 'RACE DAY!' : (<Button id={workout.id} value={exercise.exercise_type} variant="dark" onClick={this.handleOnClick}>{exercise.name}</Button> )
     }
 
-    handleOnClick = event => {
-      //create modal 
-      console.log(event.target.innerHTML)
-      
 
+    handleOnClick = event => {
+      if (event.target.value == "cross_train"){
+       alert("Cross Train!") //create edit modal
+      }
     }
 
     findExercises(){
@@ -30,7 +30,7 @@ class Week extends React.Component{
             <td>
             <p className="date-background">{displayDate(this.returnDate(workout))}</p>
             <br></br>
-            {workout.date ? <img className="table-icon" src="/images/train-icon-transparent.png" alt="train-icon"/> : <Button variant="dark" onClick={this.handleOnClick}>{this.returnExerciseName(workout, exercise)}</Button> }
+            {workout.date ? <img className="table-icon" src="/images/train-icon-transparent.png" alt="train-icon"/> : this.returnExerciseName(workout, exercise) }
             <br></br>
             {workout.miles && !workout.is_race_day ? `${workout.miles} miles` : ``}
             </td>

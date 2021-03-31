@@ -39,3 +39,18 @@ export const addUserProgram = newProgram => {
   }
 }
 
+export const editUserProgram = id => {
+  return dispatch => {
+    fetch(`${baseURL}/custom_programs/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify(id),
+      headers: { 
+        'Content-Type': 'application/json',
+        'Accepts': 'application/json'}
+    })
+    .then(resp => resp.json())
+    // .then(newProgram => dispatch({ type: 'ADD_USER_PROGRAM', payload: newProgram }))
+    .then(renderEdit => console.log(renderEdit))
+  }
+}
+
