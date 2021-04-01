@@ -123,7 +123,7 @@ class ProgramForm extends React.Component {
                 <br></br>
                 <Row>
                     <Col>
-                    <label className="form-inline">How many weeks you got?</label>
+                    <label className="form-inline">How many weeks do you want to train?</label>
                         <input
                         className="form-control"
                         name="length_in_weeks" 
