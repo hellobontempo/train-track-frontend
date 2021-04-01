@@ -1,4 +1,3 @@
-
 const programsReducer = ( state = {
     programs:[], 
     userPrograms:[], 

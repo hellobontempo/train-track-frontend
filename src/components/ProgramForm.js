@@ -130,7 +130,7 @@ class ProgramForm extends React.Component {
                         name="length_in_weeks" 
                         type="number"
                         min="4" 
-                        max="12"
+                        max="24"
                         value={this.state.length_in_weeks}
                         onChange={this.handleInputChange}/>
                     </Col>

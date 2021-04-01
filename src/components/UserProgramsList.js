@@ -2,7 +2,6 @@ import ProgramButton from "./ProgramButton"
 import { displayDate } from './littleHelpers/helperFunctions'
 
 const UserProgramsList = props => {
-
     return (
         <div className="formDiv">
             <h2>Custom Programs</h2>
