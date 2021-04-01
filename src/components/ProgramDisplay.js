@@ -1,16 +1,20 @@
 import { Container } from "react-bootstrap"
 
-const ProgramDisplay = (props) => {
-    console.log(props)
+const ProgramDisplay = ({program}) => {
 
-   
+    function renderProgram(){
+        return (
+            <div className="formDiv">
+                <h2>{program.title}</h2>
+                <hr></hr>
+                <p>Total Miles: {program.race_mileage}</p>
+            </div>
+        )
+    }
     return(
-
-        <div className="formDiv">
-            <h2>{props.program.title}</h2>
-            <hr></hr>
-            <p>Total Miles: {props.program.race_mileage}</p>
-        </div>
+        <>
+        {program ? renderProgram() : <h1>Loading...</h1>}
+        </>
     )
 }
 

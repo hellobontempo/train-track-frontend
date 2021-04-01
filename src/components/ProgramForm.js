@@ -133,7 +133,9 @@ class ProgramForm extends React.Component {
                         value={this.state.length_in_weeks}
                         onChange={this.handleInputChange}/>
                     </Col>
-                    <Col></Col>
+                    <Col>
+                    
+                    </Col>
                 </Row>
                     <Col>
                         <br></br>
