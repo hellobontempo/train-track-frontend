@@ -1,7 +1,6 @@
 import Button from "react-bootstrap/Button"
 
 const ProgramButton = (props) => {
-console.log(props.buttonText)
     return (
         <>
         <br></br>

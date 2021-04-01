@@ -17,11 +17,13 @@ import GreyBlock from './components/littleHelpers/GreyBlock';
 
 class App extends React.Component {
 
+
   componentDidMount() {
     this.props.fetchPrograms()
     this.props.fetchUserPrograms()
     this.props.fetchExercises()
   }
+
 
   render(){
     return (
