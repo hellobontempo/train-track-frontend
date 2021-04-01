@@ -19,7 +19,7 @@ class ProgramForm extends React.Component {
     return this.props.exercises.map(exercise => {
             return (
                 <div className="form-check form-inline">
-                <div className="form-check-input"><Checkbox name={exercise.id} checked={this.state.checkedExercises[`${exercise.id}`]} onChange={this.handleCheckChange} /></div>
+                <Checkbox className="form-check-input" key={`exercise-${exercise.id}`} name={exercise.id} checked={this.state.checkedExercises[`${exercise.id}`]} onChange={this.handleCheckChange} />
                 <label className="form-check-label">{exercise.name}</label>
                 </div>
             )
@@ -143,7 +143,7 @@ class ProgramForm extends React.Component {
                     </Col>
                     <Button className="float-left" variant="dark" onClick={this.handleSelectAll} size="sm">{this.state.selectAllButton}</Button>
                     <br></br><br></br>
-                    <p>{this.props.exercises ? this.renderCheckboxes() : <p>exercises coming..</p>}</p> 
+                    {this.props.exercises ? this.renderCheckboxes() : <p>exercises coming..</p>}
                     <input 
                     className="form-control"
                     type="submit"/>
