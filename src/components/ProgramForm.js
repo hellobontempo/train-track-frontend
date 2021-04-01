@@ -10,7 +10,7 @@ class ProgramForm extends React.Component {
         race_date: "",
         username: "",
         length_in_weeks: "",
-        program_id: "",
+        program_id: 1,
         checkedExercises: {},
         selectAllButton: "Select All"
     }
@@ -84,6 +84,7 @@ class ProgramForm extends React.Component {
             length_in_weeks: this.state.length_in_weeks, 
             program_id: this.state.program_id,}
         }
+        console.log(this.state)
         this.props.addUserProgram(newProgram)
         this.setState({
             race_date: "",
