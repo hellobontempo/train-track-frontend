@@ -25,7 +25,7 @@ export function fetchExercises() {
   };
 } 
 
-export const addUserProgram = newProgram => {
+export const addUserProgram = newProgram => { 
   return dispatch => {
     fetch(`${baseURL}/user_programs`, {
       method: 'POST',
