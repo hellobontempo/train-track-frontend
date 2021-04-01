@@ -10,7 +10,7 @@ class ProgramForm extends React.Component {
         race_date: "",
         username: "",
         length_in_weeks: "",
-        program_id: 1,
+        program_id: "",
         checkedExercises: {},
         selectAllButton: "Select All"
     }
@@ -82,14 +82,14 @@ class ProgramForm extends React.Component {
             username: this.state.username,
             preferred_exercise_ids: Object.keys(this.state.checkedExercises),
             length_in_weeks: this.state.length_in_weeks, 
-            program_id: 1,}
+            program_id: this.state.program_id,}
         }
         this.props.addUserProgram(newProgram)
         this.setState({
             race_date: "",
             username: "",
             length_in_weeks: "",
-            program_id: 1,
+            program_id: "",
             checkedExercises: {},
             selectAllButton: "Select All"
         })
@@ -134,7 +134,15 @@ class ProgramForm extends React.Component {
                         onChange={this.handleInputChange}/>
                     </Col>
                     <Col>
-                    
+                    <label className="form-inline">Choose a race:</label>
+                        <select
+                        className="form-control"
+                        name="program_id" 
+                        value={this.state.program_id}
+                        onChange={this.handleInputChange}>
+                        <option value="1">Half Marathon</option>
+                        <option value="2">Full Marathon</option>
+                        </select>
                     </Col>
                 </Row>
                     <Col>
