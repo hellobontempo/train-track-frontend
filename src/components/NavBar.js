@@ -25,7 +25,6 @@ const NavBar = () => {
         <Nav.Link href="/user_programs">Fellow Train Tracks</Nav.Link>
         <NavDropdown title="Training Programs" id="basic-nav-dropdown">
             <NavDropdown.Item href="/programs">All Programs</NavDropdown.Item>
-            <NavDropdown.Item href="/programs">All Programs</NavDropdown.Item>
             <NavDropdown.Divider />
             {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
         </NavDropdown>
