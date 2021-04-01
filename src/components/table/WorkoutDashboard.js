@@ -21,7 +21,6 @@ class WorkoutDashboard extends React.Component {
   };
 
   handleChange = (e) => {
-    console.log(e.target.value)
     this.setState({
       formSelect: e.target.value
     })
@@ -36,7 +35,6 @@ class WorkoutDashboard extends React.Component {
 
 
   render(){
-    console.log("Dashboard Props",this.props)
     const {workout, exercise} = this.props
     return(
       <>
@@ -49,7 +47,7 @@ class WorkoutDashboard extends React.Component {
             <form onSubmit={this.handleSubmit}>
             <Row>
             <Col>
-              <select onChange={this.handleChange} className="form-control">
+              <select onChange={this.handleChange} value={this.state.formSelect} className="form-control">
                 {this.props.exercises.map(exercise => {
                   return <option value={exercise.id}>{exercise.name}</option>
                 })}

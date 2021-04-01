@@ -34,6 +34,11 @@ const programsReducer = ( state = {
                 ...state,
                 userPrograms: [...state.userPrograms, action.payload],
             }
+        case 'UPDATE_USER_PROGRAM':
+            return {
+                ...state,
+                userPrograms: [...state.userPrograms],
+            }
         case 'FETCH_EXERCISES':
             return {
                 ...state,

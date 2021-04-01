@@ -53,8 +53,7 @@ export const editUserProgram = (exerciseId, customProgramId) => {
         'Accepts': 'application/json'}
     })
     .then(resp => resp.json())
-    // .then(newProgram => dispatch({ type: 'ADD_USER_PROGRAM', payload: newProgram }))
-    .then(renderEdit => console.log(renderEdit))
+    .then(updatedProgram => dispatch({type: 'UPDATE_USER_PROGRAM', payload: updatedProgram}))
   }
 }
 
