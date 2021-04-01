@@ -10,7 +10,7 @@ class ProgramForm extends React.Component {
         race_date: "",
         username: "",
         length_in_weeks: "",
-        program_id: 1,
+        program_id: "1",
         checkedExercises: {},
         selectAllButton: "Select All"
     }
@@ -90,7 +90,7 @@ class ProgramForm extends React.Component {
             race_date: "",
             username: "",
             length_in_weeks: "",
-            program_id: "",
+            program_id: "1",
             checkedExercises: {},
             selectAllButton: "Select All"
         })
