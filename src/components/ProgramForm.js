@@ -163,7 +163,6 @@ class ProgramForm extends React.Component {
 }
 
 const mapStateToProps = ({exercises}) => {
-    console.log(exercises)
     return {
         exercises: exercises.filter(e => e.exercise_type === "cross_train")}
 }
