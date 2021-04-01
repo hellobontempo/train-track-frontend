@@ -18,7 +18,7 @@ class ProgramForm extends React.Component {
     renderCheckboxes (){
     return this.props.exercises.map(exercise => {
             return (
-                <div className="form-check form-inline">
+                <div key={`checkbox-exercise-div-${exercise.id}`} className="form-check form-inline">
                 <Checkbox className="form-check-input" key={`exercise-${exercise.id}`} name={exercise.id} checked={this.state.checkedExercises[`${exercise.id}`]} onChange={this.handleCheckChange} />
                 <label className="form-check-label">{exercise.name}</label>
                 </div>
