@@ -7,7 +7,9 @@ import { editUserProgram } from '../../actions/actions'
 class WorkoutDashboard extends React.Component {
 
   state = {
-    show: false
+    show: false,
+    formSelect: "",
+    customProgramId: this.props.workout.id
   }
 
   showModal = () => {
@@ -18,31 +20,46 @@ class WorkoutDashboard extends React.Component {
     this.setState({ show: false });
   };
 
+  handleChange = (e) => {
+    console.log(e.target.value)
+    this.setState({
+      formSelect: e.target.value
+    })
+  }
+  handleSubmit = (e) => {
+    e.preventDefault()
+    this.props.editUserProgram(this.state.formSelect, this.state.customProgramId)
+    this.setState({
+      formSelect: ""
+    })
+  }
+
+
   render(){
-    console.log(this.props)
+    console.log("Dashboard Props",this.props)
     const {workout, exercise} = this.props
     return(
       <>
-      <Button id={workout.id} value={exercise.exercise_type} variant="dark" onClick={this.showModal}>{exercise.name}</Button>
+      <Button variant="dark" onClick={this.showModal}>{exercise.name}</Button>
       <Modal show={this.state.show} onHide={this.hideModal} animation={false}> 
         <Modal.Header>
           <Modal.Title>Edit <u>{exercise.name}</u> on {displayDate(workout.workout_date)}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form>
+            <form onSubmit={this.handleSubmit}>
             <Row>
             <Col>
-              <select className="form-control">
+              <select onChange={this.handleChange} className="form-control">
                 {this.props.exercises.map(exercise => {
-                  return <option>{exercise.name}</option>
+                  return <option value={exercise.id}>{exercise.name}</option>
                 })}
               </select>
             </Col>
             <Col>
-              <input className="form-control" type="submit">Change Exercise</input>
+              <input className="form-control" type="submit" value="Edit Exercise"/>
             </Col>
             </Row>
-          </form>
+            </form>
         </Modal.Body> 
         <Modal.Footer>
           <Button variant="secondary" onClick={this.hideModal}>

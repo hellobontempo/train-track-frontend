@@ -39,11 +39,15 @@ export const addUserProgram = newProgram => {
   }
 }
 
-export const editUserProgram = id => {
+export const editUserProgram = (exerciseId, customProgramId) => {
+  console.log("Made it!", exerciseId, customProgramId)
+  let configObj = {
+    exercise_id: exerciseId
+  }
   return dispatch => {
-    fetch(`${baseURL}/custom_programs/${id}`, {
+    fetch(`${baseURL}/custom_programs/${customProgramId}`, {
       method: 'PATCH',
-      body: JSON.stringify(id),
+      body: JSON.stringify(configObj),
       headers: { 
         'Content-Type': 'application/json',
         'Accepts': 'application/json'}
