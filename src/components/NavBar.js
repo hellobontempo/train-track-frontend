@@ -24,9 +24,10 @@ const NavBar = () => {
         <Nav.Link href="/new-program">Create Custom Program</Nav.Link>
         <Nav.Link href="/user_programs">Fellow Train Tracks</Nav.Link>
         <NavDropdown title="Training Programs" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/programs">All Programs</NavDropdown.Item>
+            <NavDropdown.Item href="/programs/1">Half Marathon</NavDropdown.Item>
+            <NavDropdown.Item href="/programs/2">Full Marathon</NavDropdown.Item>
             <NavDropdown.Divider />
-            {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
+            <NavDropdown.Item href="/programs">All Programs</NavDropdown.Item>
         </NavDropdown>
         </Nav>
         {/* <Form inline>
