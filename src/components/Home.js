@@ -1,6 +1,6 @@
-import Container from "react-bootstrap/container"
-import Row from "react-bootstrap/row"
-import Col from "react-bootstrap/col"
+import { Container } from "react-bootstrap"
+import { Row } from "react-bootstrap"
+import { Col } from "react-bootstrap"
 
 const Home = props => {
 
