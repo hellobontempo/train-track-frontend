@@ -39,3 +39,22 @@ export const addUserProgram = newProgram => {
   }
 }
 
+export const editUserProgram = (exerciseId, customProgramId) => {
+  console.log("Made it!", exerciseId, customProgramId)
+  let configObj = {
+    exercise_id: exerciseId
+  }
+  return dispatch => {
+    fetch(`${baseURL}/custom_programs/${customProgramId}`, {
+      method: 'PATCH',
+      body: JSON.stringify(configObj),
+      headers: { 
+        'Content-Type': 'application/json',
+        'Accepts': 'application/json'}
+    })
+    .then(resp => resp.json())
+    // .then(updatedProgram => console.log(updatedProgram))
+    .then(updatedProgram => dispatch({type: 'UPDATE_USER_PROGRAM', payload: updatedProgram}))
+  }
+}
+
