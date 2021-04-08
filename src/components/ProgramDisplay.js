@@ -5,7 +5,7 @@ const ProgramDisplay = ({program}) => {
             <div className="formDiv">
                 <h2>{program.title}</h2>
                 <hr></hr>
-                <p>Total Miles: {program.race_mileage}</p>
+                <p>Total Miles: {program.race_mileage}</p>           
             </div>
         )
     }
