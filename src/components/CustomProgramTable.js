@@ -2,6 +2,7 @@ import React from 'react'
 import { Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import CustomTable from './table/CustomTable';
+import ProgramDisplay from './ProgramDisplay'
 
 class CustomProgramTable extends React.Component {
   
@@ -17,9 +18,8 @@ class CustomProgramTable extends React.Component {
     return (
       <div>
         <h1>{this.props.userProgram.username}'s Schedule:</h1>
-        <p>{this.findProgram().title}</p>
-        <p>{this.findProgram().description}</p>
-         <CustomTable program={this.props.userProgram}/>
+        <ProgramDisplay program={this.findProgram()}/>
+        <CustomTable program={this.props.userProgram}/>
       </div>
     )
   }
