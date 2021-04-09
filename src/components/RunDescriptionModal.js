@@ -1,4 +1,4 @@
-import { Button, Col, Modal, Row } from 'react-bootstrap'
+import { Button, Modal } from 'react-bootstrap'
 import React from 'react'
 import ProgramDisplay from './ProgramDisplay'
 
