@@ -17,6 +17,7 @@ class CustomProgramTable extends React.Component {
     return (
       <div>
         <h1>{this.props.userProgram.username}'s Schedule:</h1>
+        <p>{this.findProgram().title}</p>
          <CustomTable program={this.props.userProgram}/>
       </div>
     )
