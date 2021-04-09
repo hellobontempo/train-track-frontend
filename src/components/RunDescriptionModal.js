@@ -1,6 +1,5 @@
 import { Button, Col, Modal, Row } from 'react-bootstrap'
 import React from 'react'
-import { displayDate } from '../littleHelpers/helperFunctions'
 import ProgramDisplay from './ProgramDisplay'
 
 class RunDescriptionModal extends React.Component {
