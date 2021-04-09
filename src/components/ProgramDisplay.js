@@ -6,7 +6,7 @@ const ProgramDisplay = ({program}) => {
                 <h2>{program.title}</h2>
                 <hr></hr>
                 <p>Total Miles: {program.race_mileage}</p>           
-                <p>Total Miles: {program.description}</p>           
+                <p>{program.description}</p>           
             </div>
         )
     }
