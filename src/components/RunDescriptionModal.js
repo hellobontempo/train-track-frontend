@@ -49,9 +49,6 @@ class RunDescriptionModal extends React.Component {
 
 }
 
-const mapStateToProps = ({exercises}) => {
-  return {
-      exercises}
-}
 
-export default connect(mapStateToProps, {editUserProgram})(RunDescriptionModal)
+
+export default RunDescriptionModal
