@@ -25,7 +25,7 @@ class PopupModal extends React.Component {
           <Modal.Title>Your Program Has Been Created!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-           <Link href="/user_programs">View Custom Training Programs</Link>
+           <center><Link href="/user_programs">View Custom Training Programs</Link></center>
         </Modal.Body> 
         <Modal.Footer>
           <Button variant="secondary" onClick={this.hideModal}>
