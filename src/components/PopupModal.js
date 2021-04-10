@@ -1,6 +1,5 @@
-import { Button, Modal } from 'react-bootstrap'
+import { Button, Modal, Nav } from 'react-bootstrap'
 import React from 'react'
-import { Link } from 'react-router-dom';
 
 class PopupModal extends React.Component {
 
@@ -25,7 +24,7 @@ class PopupModal extends React.Component {
           <Modal.Title>Your Program Has Been Created!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-           <center><Link href="/user_programs">View Custom Training Programs</Link></center>
+           <center><Nav.Link href="/user_programs">View Custom Training Programs</Nav.Link></center>
         </Modal.Body> 
         <Modal.Footer>
           <Button variant="secondary" onClick={this.hideModal}>
