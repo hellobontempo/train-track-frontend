@@ -65,7 +65,7 @@ table {
 }
 
 a {
-  color: #afa3b6;
+  color: #5c4d64;
   padding: 1em 1.5em;
   text-decoration: none;
 }
@@ -75,11 +75,11 @@ a:hover {
 }
 
 a:active {
-  color: rgb(175, 167, 167);
+  color: #5c4d64;
 }
 
 a:visited {
-  color: #ccc;
+  color: #6f5d79;
 }
 
 .formDiv {

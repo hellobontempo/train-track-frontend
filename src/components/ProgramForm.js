@@ -3,6 +3,7 @@ import { addUserProgram } from '../actions/actions'
 import { connect } from 'react-redux'
 import Checkbox from './littleHelpers/Checkbox'
 import { Col, Button, Row } from 'react-bootstrap'
+import PopupModal from './PopupModal'
 
 class ProgramForm extends React.Component {
 
@@ -12,7 +13,8 @@ class ProgramForm extends React.Component {
         length_in_weeks: "",
         program_id: "1",
         checkedExercises: {},
-        selectAllButton: "Select All"
+        selectAllButton: "Select All",
+        renderPopup: false
     }
  
     renderCheckboxes (){
@@ -84,8 +86,10 @@ class ProgramForm extends React.Component {
             length_in_weeks: this.state.length_in_weeks, 
             program_id: this.state.program_id,}
         }
-        console.log(this.state)
         this.props.addUserProgram(newProgram)
+        setTimeout(function() { //Start the timer
+            this.setState({renderPopup: true}) //After 1 second, set render to true
+        }.bind(this), 1000)
         this.setState({
             race_date: "",
             username: "",
@@ -97,8 +101,10 @@ class ProgramForm extends React.Component {
     }
 
     render(){
+        console.log(this.state.renderPopup)
         return(
             <div className="formDiv">
+                {this.state.renderPopup ? <PopupModal/> : ""}
                 <form className="form" onSubmit={this.handleOnSubmit}>
                 <Row>
                     <Col>
