@@ -6,7 +6,8 @@ const ProgramDisplay = ({program}) => {
             <br></br>
                 <h2>{program.title}</h2>
                 <hr></hr>
-                <h3>Total Miles: {program.race_mileage}</h3>           
+                <h3>Total Miles: {program.race_mileage}</h3>
+                <p>Recommended Run Routine: </p>         
                 {program.description.split("-").map( e => <p>{e}</p>)}         
             </>
         )
