@@ -18,8 +18,11 @@ class CustomProgramTable extends React.Component {
     console.log(this.props)
     return (
       <div>
+        <br></br>
         <h1>{this.props.userProgram.username}'s Schedule:</h1>
+        <br></br>
         <RunDescriptionModal program={this.findProgram()}/>
+        <br></br>
         <CustomTable program={this.props.userProgram}/>
       </div>
     )
