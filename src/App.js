@@ -5,11 +5,11 @@ import {fetchExercises, fetchPrograms, fetchUserPrograms} from './actions/action
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import Home from './components/Home'
+import Home from './components/navigation/Home'
 import ProgramsContainer from './components/containers/ProgramsContainer';
 import CustomProgramsContainer from './components/containers/CustomProgramsContainer';
 
-import NavBar from './components/NavBar';
+import NavBar from './components/navigation/NavBar';
 import Switch from 'react-bootstrap/esm/Switch';
 
 import ProgramForm from './components/ProgramForm';
