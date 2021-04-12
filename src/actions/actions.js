@@ -36,6 +36,7 @@ export const addUserProgram = newProgram => {
     })
     .then(resp => resp.json())
     .then(newProgram => dispatch({ type: 'ADD_USER_PROGRAM', payload: newProgram }))
+    .catch(error => console.log(error))
   }
 }
 
