@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { userSignUp } from '../../actions/actions'
+import { userSignup } from '../../actions/actions'
 
 
 class Signup extends React.Component {
@@ -10,8 +10,7 @@ class Signup extends React.Component {
     state = {
         name: "",
         email: "",
-        password: "",
-
+        password: ""
     }
 
     handleInputChange = (e) =>{
@@ -19,11 +18,20 @@ class Signup extends React.Component {
             [e.target.name]: e.target.value
         })
     }
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+        const newUser = {
+            user: this.state}
+        console.log(newUser)
+       this.props.userSignup(newUser)
+    }
+
     render(){
         return (
             <div className="formDiv">
             <div className="formDiv">
-                <Form>
+                <Form onSubmit={this.handleSubmit}>
                     <Form.Group>
                         <Form.Label>Name:</Form.Label>
                         <Form.Control 
@@ -71,4 +79,4 @@ class Signup extends React.Component {
 }
 
 
-export default connect(null, {userSignUp})(Signup)
+export default connect(null, {userSignup})(Signup)

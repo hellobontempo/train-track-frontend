@@ -1,18 +1,15 @@
 const baseURL = 'http://localhost:3000'
 // const baseURL = 'https://afternoon-tundra-58524.herokuapp.com'
 
-export const userSignUp = newUser => {
+export const userSignup = newUser => {
   return (dispatch)=>{
     console.log("what do we have here", newUser)
     fetch(`${baseURL}/signup`, {
         method: 'POST',
-        headers: {
           body: JSON.stringify(newUser),
           headers: { 
             'Content-Type': 'application/json',
             'Accepts': 'application/json'}
-        // Authorization: `Bearer <token>`
-        }
       }) 
   }
 }
@@ -48,7 +45,8 @@ export const addUserProgram = newProgram => {
       body: JSON.stringify(newProgram),
       headers: { 
         'Content-Type': 'application/json',
-        'Accepts': 'application/json'}
+        'Accepts': 'application/json',
+        Authorization: `Bearer <token>`}
     })
     .then(resp => resp.json())
     .then(newProgram => dispatch({ type: 'ADD_USER_PROGRAM', payload: newProgram }))
@@ -65,7 +63,8 @@ export const editUserProgram = (exerciseId, customProgramId) => {
       body: JSON.stringify(configObj),
       headers: { 
         'Content-Type': 'application/json',
-        'Accepts': 'application/json'}
+        'Accepts': 'application/json',
+        Authorization: `Bearer <token>`}
     })
     .then(resp => resp.json())
     .then(updatedProgram => dispatch({type: 'UPDATE_USER_PROGRAM', payload: updatedProgram}))
