@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Home from './components/navigation/Home'
 import ProgramsContainer from './components/containers/ProgramsContainer';
 import CustomProgramsContainer from './components/containers/CustomProgramsContainer';
+import Signup from './components/navigation/Signup';
 
 import NavBar from './components/navigation/NavBar';
 import Switch from 'react-bootstrap/esm/Switch';
@@ -30,6 +31,7 @@ class App extends React.Component {
           <Router> 
             <Switch>
               <Route exact path="/" component={Home} />  
+              <Route exact path="/signup" component={Signup} />  
               <Route path="/programs" component={ () => {
               return <ProgramsContainer programs={this.props.programs}/>
               }} /> 
