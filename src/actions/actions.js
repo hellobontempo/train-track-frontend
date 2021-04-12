@@ -4,6 +4,16 @@ const baseURL = 'http://localhost:3000'
 export const userSignUp = newUser => {
   return (dispatch)=>{
     console.log("what do we have here", newUser)
+    fetch(`${baseURL}/signup`, {
+        method: 'POST',
+        headers: {
+          body: JSON.stringify(newUser),
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accepts': 'application/json'}
+        // Authorization: `Bearer <token>`
+        }
+      }) 
   }
 }
 export function fetchPrograms() {
@@ -46,7 +56,6 @@ export const addUserProgram = newProgram => {
 }
 
 export const editUserProgram = (exerciseId, customProgramId) => {
-  console.log("Made it!", exerciseId, customProgramId)
   let configObj = {
     exercise_id: exerciseId
   }
