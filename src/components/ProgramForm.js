@@ -89,7 +89,7 @@ class ProgramForm extends React.Component {
         this.props.addUserProgram(newProgram)
         setTimeout(function() { //Start the timer
             this.setState({renderPopup: true}) //After 1 second, set render to true
-        }.bind(this), 1000)
+        }.bind(this), 500)
         this.setState({
             race_date: "",
             username: "",
@@ -101,7 +101,6 @@ class ProgramForm extends React.Component {
     }
 
     render(){
-        console.log(this.state.renderPopup)
         return(
             <div className="formDiv">
                 {this.state.renderPopup ? <PopupModal/> : ""}
