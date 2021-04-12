@@ -26,7 +26,6 @@ class Signup extends React.Component {
                     type="email"
                     value={this.state.email}
                     onChange={this.handleInputChange} />
-                    onChange={this.handleInputChange} />
                     <input 
                     className="form-control"
                     name="password" 
@@ -39,3 +38,6 @@ class Signup extends React.Component {
         )
     }
 }
+
+
+export default Signup
