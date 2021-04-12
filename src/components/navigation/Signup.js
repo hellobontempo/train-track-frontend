@@ -32,7 +32,10 @@ class Signup extends React.Component {
                     type="password"
                     value={this.state.password}
                     onChange={this.handleInputChange} />
-                    <input type="submit" value="Sign Up"/>
+                    <input 
+                    className="form-control"
+                    type="submit" 
+                    value="Sign Up"/>
                 </form>
             </div>
         )
