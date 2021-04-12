@@ -1,6 +1,11 @@
 const baseURL = 'http://localhost:3000'
 // const baseURL = 'https://afternoon-tundra-58524.herokuapp.com'
 
+export const userSignUp = newUser => {
+  return (dispatch)=>{
+    console.log("what do we have here", newUser)
+  }
+}
 export function fetchPrograms() {
   return (dispatch) => {
     dispatch({ type: 'LOADING_TRAINING_PROGRAMS' });
@@ -54,7 +59,6 @@ export const editUserProgram = (exerciseId, customProgramId) => {
         'Accepts': 'application/json'}
     })
     .then(resp => resp.json())
-    // .then(updatedProgram => console.log(updatedProgram))
     .then(updatedProgram => dispatch({type: 'UPDATE_USER_PROGRAM', payload: updatedProgram}))
   }
 }

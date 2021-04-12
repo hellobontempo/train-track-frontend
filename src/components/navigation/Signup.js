@@ -1,5 +1,7 @@
 import React from 'react'
 import { Form } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { userSignUp } from '../../actions/actions'
 
 
 class Signup extends React.Component {
@@ -69,4 +71,4 @@ class Signup extends React.Component {
 }
 
 
-export default Signup
+export default connect(null, {userSignUp})(Signup)
