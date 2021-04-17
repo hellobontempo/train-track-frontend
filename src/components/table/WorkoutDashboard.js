@@ -1,6 +1,6 @@
 import { Button, Col, Modal, Row } from "react-bootstrap";
 import React from "react";
-import { displayDate } from "../littleHelpers/helperFunctions";
+import { displayDate } from "../utils/helperFunctions";
 import { connect } from "react-redux";
 import { editUserProgram } from "../../actions/actions";
 

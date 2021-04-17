@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import TableHeader from "./TableHeader";
 import Week from "./Week";
-import { dateStringToObject } from "../littleHelpers/helperFunctions";
+import { dateStringToObject } from "../utils/helperFunctions";
 
 const CustomTable = ({ program }) => {
   const startDate = dateStringToObject(program.start_date);

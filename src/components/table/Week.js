@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { displayDate } from "../littleHelpers/helperFunctions";
+import { displayDate } from "../utils/helperFunctions";
 import WorkoutDashboard from "./WorkoutDashboard";
 
 class Week extends React.Component {
