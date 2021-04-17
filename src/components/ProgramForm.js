@@ -7,6 +7,7 @@ import PopupModal from './PopupModal'
 
 class ProgramForm extends React.Component {
 
+    
     state = {
         race_date: "",
         username: "",
@@ -101,7 +102,7 @@ class ProgramForm extends React.Component {
     }
 
     render(){
-        console.log(this.state.renderPopup)
+        const { exercises } = this.props
         return(
             <div className="formDiv">
                 {this.state.renderPopup ? <PopupModal/> : ""}
@@ -158,7 +159,7 @@ class ProgramForm extends React.Component {
                     </Col>
                     <Button className="float-left" variant="dark" onClick={this.handleSelectAll} size="sm">{this.state.selectAllButton}</Button>
                     <br></br><br></br>
-                    {this.props.exercises ? this.renderCheckboxes() : <p>exercises coming..</p>}
+                    {exercises ? this.renderCheckboxes() : <p>exercises coming..</p>}
                     <input 
                     className="form-control"
                     type="submit"/>

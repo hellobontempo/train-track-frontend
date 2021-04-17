@@ -29,7 +29,9 @@ class CustomProgramTable extends React.Component {
     )
   }
   render(){
-    console.log(this.props)
+    const {userProgram, program} = this.props
+    console.log(userProgram)
+    console.log(program)
     return (
         <Container>
         {this.props.userProgram ? this.displayTable() : <h1>Loading...</h1>}
