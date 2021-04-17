@@ -5,7 +5,7 @@ import RunDescriptionModal from './RunDescriptionModal';
 import CustomTable from './table/CustomTable';
 
 
-class CustomProgramTable extends React.Component {
+class CustomProgramDisplay extends React.Component {
   
   findProgram(){
     const userProgramId = this.props.userProgram.program_id
@@ -45,4 +45,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(CustomProgramTable)
+export default connect(mapStateToProps)(CustomProgramDisplay)
