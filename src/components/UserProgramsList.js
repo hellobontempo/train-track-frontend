@@ -1,5 +1,5 @@
 import ProgramButton from "./ProgramButton";
-import { displayDate } from "./littleHelpers/helperFunctions";
+import { displayDate } from "./utils/helperFunctions";
 
 const UserProgramsList = (props) => {
   return (
