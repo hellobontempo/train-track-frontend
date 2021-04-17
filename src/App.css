@@ -1,5 +1,5 @@
 .App-body {
-  background-color: #8F9AAF;
+  background-color: #8f9aaf;
 }
 
 .App {
@@ -11,7 +11,6 @@
   pointer-events: none;
 }
 
-
 .App-header {
   min-height: 100vh;
   display: flex;
@@ -22,9 +21,8 @@
 }
 
 .App-link {
-  color: #8F9AAF;
+  color: #8f9aaf;
 }
-
 
 .block {
   display: block;
@@ -32,17 +30,17 @@
   text-align: center;
 }
 
-.date-background{
+.date-background {
   background-color: #fd8b61c2;
   border-radius: 25px;
   width: auto;
 }
 
-.table-icon{
-  width: 50%
+.table-icon {
+  width: 50%;
 }
-.navbar-icon{
-  width: 10%
+.navbar-icon {
+  width: 10%;
 }
 
 table {
@@ -50,10 +48,10 @@ table {
   width: auto;
 }
 .component-background {
-  background-color: #8F9AAF;
+  background-color: #8f9aaf;
 }
 
-.color-nav{
+.color-nav {
   /* background-color: #94b9d1; */
   background-color: #94b9d1;
 }
@@ -61,7 +59,6 @@ table {
   padding: 10px;
   margin: auto;
   width: 60%;
-
 }
 
 a {
