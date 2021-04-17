@@ -2,6 +2,9 @@
 #security
 .env
 
+# Ignore all HTML files:
+*.html
+
 # dependencies
 /node_modules
 /.pnp
