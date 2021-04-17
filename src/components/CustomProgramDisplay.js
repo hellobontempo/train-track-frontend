@@ -12,7 +12,7 @@ class CustomProgramDisplay extends React.Component {
   }
 
   displayTable() {
-    const {userProgram} = this.props
+    const { userProgram } = this.props;
     return (
       <div>
         <br></br>
