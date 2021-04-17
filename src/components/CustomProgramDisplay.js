@@ -30,7 +30,6 @@ class CustomProgramDisplay extends React.Component {
     );
   }
   render() {
-    console.log(this.props);
     return (
       <Container>
         {this.props.userProgram ? this.displayTable() : <h1>Loading...</h1>}
