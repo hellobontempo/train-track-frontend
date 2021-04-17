@@ -7,7 +7,7 @@ import { editUserProgram } from "../../actions/actions";
 class WorkoutDashboard extends React.Component {
   state = {
     show: false,
-    formSelect: "",
+    formSelect: this.props.exercise.name,
     customProgramId: this.props.workout.id,
   };
 

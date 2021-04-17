@@ -12,11 +12,11 @@ class CustomProgramDisplay extends React.Component {
   }
 
   displayTable() {
-    console.log(this.props);
+    const {userProgram} = this.props
     return (
       <div>
         <br></br>
-        <h1>{this.props.userProgram.username}'s Schedule:</h1>
+        <h1>{userProgram.username}'s Schedule:</h1>
         <br></br>
         <RunDescriptionModal program={this.findProgram()} />
         <br></br>
@@ -25,7 +25,7 @@ class CustomProgramDisplay extends React.Component {
           <i>Click any workout to edit</i>
         </h3>
         <br></br>
-        <CustomTable program={this.props.userProgram} />
+        <CustomTable program={userProgram} />
       </div>
     );
   }
