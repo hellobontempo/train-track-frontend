@@ -20,7 +20,7 @@ class RunDescriptionModal extends React.Component {
   render(){
     return(
       <>
-      <Button variant="dark" onClick={this.showModal}>Training Program Details</Button>
+      <Button variant="dark" onClick={this.showModal}>Training Program Tips</Button>
       <Modal show={this.state.show} onHide={this.hideModal} animation={false} closeButton> 
         <Modal.Header>
           <Modal.Title>Training Tips</Modal.Title>
