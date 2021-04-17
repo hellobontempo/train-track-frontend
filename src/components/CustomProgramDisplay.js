@@ -24,6 +24,8 @@ class CustomProgramDisplay extends React.Component {
         <RunDescriptionModal program={this.findProgram()}/>
         <br></br>
         <br></br>
+        <h3><i>Click any workout to edit</i></h3>
+        <br></br>
         <CustomTable program={this.props.userProgram}/>
       </div>
     )
