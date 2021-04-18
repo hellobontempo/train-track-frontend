@@ -32,7 +32,9 @@ class App extends React.Component {
         <NavBar />
         <Router>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/">
+              <Home />
+            </Route>
             <Route
               path="/programs"
               component={() => {
@@ -50,7 +52,9 @@ class App extends React.Component {
               }}
             />
 
-            <Route path="/new-program" component={ProgramForm} />
+            <Route path="/new-program">
+              <ProgramForm />
+            </Route>
           </Switch>
         </Router>
         <GreyBlock />
