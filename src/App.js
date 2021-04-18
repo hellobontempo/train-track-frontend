@@ -31,7 +31,9 @@ class App extends React.Component {
           <Router> 
             <Switch>
               <Route exact path="/" component={Home} />  
-              <Route exact path="/signup" component={Signup} />  
+              <Route exact path="/signup">
+                <Signup/>  
+              </Route> 
               <Route path="/programs" component={ () => {
               return <ProgramsContainer programs={this.props.programs}/>
               }} /> 
@@ -39,7 +41,7 @@ class App extends React.Component {
               return <CustomProgramsContainer userPrograms={this.props.userPrograms}/>
               }} /> 
 
-              
+
             
               <Route path="/new-program" component={ProgramForm}/>
              </Switch>
