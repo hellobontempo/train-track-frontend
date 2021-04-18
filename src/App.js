@@ -28,7 +28,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App" style={{ background: "#8F9AAF" }}>
+      <div className="App" style={{ background: "#8F9AAF", flex: 1 }}>
         <NavBar />
         <Router>
           <Switch>

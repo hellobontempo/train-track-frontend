@@ -74,7 +74,7 @@ const CustomTable = ({ program }) => {
 
   return (
     <Fragment>
-      <Container style={{ flex: 1 }}>
+      <Container>
         <Table striped bordered>
           <Thead>
             <TableHeader />
