@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Container } from "react-bootstrap";
 // import Table from "react-bootstrap/Table";
 import TableHeader from "./TableHeader";
-import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
+import { Table, Thead, Tbody, Tr } from "react-super-responsive-table";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 import Week from "./Week";
 import { dateStringToObject } from "../utils/helperFunctions";
