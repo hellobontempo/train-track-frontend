@@ -3,7 +3,6 @@ const baseURL = 'http://localhost:3000'
 
 export const userSignup = newUser => {
   return (dispatch)=>{
-    console.log("what do we have here", newUser)
     fetch(`${baseURL}/signup`, {
         method: 'POST',
           body: JSON.stringify(newUser),
@@ -11,6 +10,8 @@ export const userSignup = newUser => {
             'Content-Type': 'application/json',
             'Accepts': 'application/json'}
       }) 
+    .then( r => r.json())
+    .then( user => console.log(user))
   }
 }
 export function fetchPrograms() {
