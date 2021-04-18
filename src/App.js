@@ -35,12 +35,9 @@ class App extends React.Component {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route
-              path="/programs"
-              component={() => {
-                return <ProgramsContainer programs={this.props.programs} />;
-              }}
-            />
+            <Route path="/programs">
+              <ProgramsContainer programs={this.props.programs} />
+            </Route>
             <Route
               path="/user_programs"
               component={() => {
