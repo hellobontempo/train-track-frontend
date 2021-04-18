@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { displayDate } from "../utils/helperFunctions";
 import WorkoutDashboard from "./WorkoutDashboard";
+import { Td } from "react-super-responsive-table";
+import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 
 class Week extends React.Component {
   returnDate(workout) {
@@ -22,7 +24,7 @@ class Week extends React.Component {
         (exercise) => exercise.id === workout.exercise_id
       );
       return (
-        <td>
+        <Td>
           <p className="date-background">
             {displayDate(this.returnDate(workout))}
           </p>
@@ -40,7 +42,7 @@ class Week extends React.Component {
           {workout.miles && !workout.is_race_day
             ? `${workout.miles} miles`
             : ``}
-        </td>
+        </Td>
       );
     });
   }

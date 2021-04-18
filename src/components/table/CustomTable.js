@@ -1,7 +1,9 @@
 import React, { Fragment } from "react";
 import { Container } from "react-bootstrap";
-import Table from "react-bootstrap/Table";
+// import Table from "react-bootstrap/Table";
 import TableHeader from "./TableHeader";
+import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
+import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 import Week from "./Week";
 import { dateStringToObject } from "../utils/helperFunctions";
 
@@ -66,7 +68,7 @@ const CustomTable = ({ program }) => {
 
   function displayWeeks() {
     return createWeeks().map((week) => {
-      return <tr>{week}</tr>;
+      return <Tr>{week}</Tr>;
     });
   }
 
@@ -74,10 +76,10 @@ const CustomTable = ({ program }) => {
     <Fragment>
       <Container style={{ flex: 1 }}>
         <Table striped bordered>
-          <thead>
+          <Thead>
             <TableHeader />
-          </thead>
-          <tbody>{program ? displayWeeks() : <h1>Loading...</h1>}</tbody>
+          </Thead>
+          <Tbody>{program ? displayWeeks() : <h1>Loading...</h1>}</Tbody>
         </Table>
       </Container>
     </Fragment>

@@ -1,4 +1,6 @@
 import { Fragment } from "react";
+import { Th } from "react-super-responsive-table";
+import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 
 const TableHeader = () => {
   function header() {
@@ -11,7 +13,7 @@ const TableHeader = () => {
       "Friday",
       "Saturday",
     ];
-    return tableHeader.map((day) => <th>{day}</th>);
+    return tableHeader.map((day) => <Th>{day}</Th>);
   }
 
   return <Fragment>{header()}</Fragment>;
