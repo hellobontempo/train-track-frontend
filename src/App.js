@@ -38,17 +38,9 @@ class App extends React.Component {
             <Route path="/programs">
               <ProgramsContainer programs={this.props.programs} />
             </Route>
-            <Route
-              path="/user_programs"
-              component={() => {
-                return (
-                  <CustomProgramsContainer
-                    userPrograms={this.props.userPrograms}
-                  />
-                );
-              }}
-            />
-
+            <Route path="/user_programs">
+              <CustomProgramsContainer userPrograms={this.props.userPrograms} />
+            </Route>
             <Route path="/new-program">
               <ProgramForm />
             </Route>
