@@ -44,7 +44,7 @@ function Signup (props) {
                         value={values.name}
                         onChange={handleInputChange} />
                          <Form.Text className="text-muted">
-                        User whatever name you like.
+                        Use whatever name you like.
                         </Form.Text>
                     </Form.Group>
                     
