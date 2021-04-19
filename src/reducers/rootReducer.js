@@ -1,4 +1,4 @@
-const programsReducer = ( state = {
+const rootReducer = ( state = {
     programs:[], 
     userPrograms:[], 
     exercises:[],
@@ -52,4 +52,4 @@ const programsReducer = ( state = {
     }
 }
 
-export default programsReducer
+export default rootReducer

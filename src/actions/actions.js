@@ -9,7 +9,7 @@ export const userSignup = newUser => {
           headers: { 
             'Content-Type': 'application/json',
             'Accepts': 'application/json'}
-      }) 
+      })  
     .then( r => r.json())
     .then( user => console.log(user))
   }
