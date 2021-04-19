@@ -3,7 +3,9 @@ const rootReducer = ( state = {
     userPrograms:[], 
     exercises:[],
     loadingTP: false, 
-    loadingUP: false
+    loadingUP: false,
+    loggedIn: false,
+    currentUser: null
     }, action ) => {
     switch (action.type) {
         case 'LOADING_TRAINING_PROGRAMS':
@@ -46,6 +48,12 @@ const rootReducer = ( state = {
             return {
                 ...state,
                 exercises: action.exercises
+            }
+        case 'CREATE_USER':
+            return {
+                ...state,
+                currentUser: action.user,
+                loggedIn: true
             }
         default:
             return state

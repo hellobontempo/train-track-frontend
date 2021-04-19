@@ -11,9 +11,16 @@ export const newUser = userData => {
             'Accepts': 'application/json'}
       })  
     .then( r => r.json())
-    .then( user => console.log(user))
+    .then( user => {
+      if ( !!user.error ){
+        console.log(user.error)
+      } else {
+        dispatch({ type: 'CREATE_USER', user: userData })
+      }
+    })
   }
 }
+
 export function fetchPrograms() {
   return (dispatch) => {
     dispatch({ type: 'LOADING_TRAINING_PROGRAMS' });
