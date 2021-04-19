@@ -15,7 +15,8 @@ export const newUser = userData => {
       if ( !!user.error ){
         dispatch({ type: 'ERROR_MESSAGE', message: user.error, variant: 'danger'})
       } else {
-        dispatch({ type: 'CREATE_USER', user: userData })
+        console.log(user)
+        dispatch({ type: 'CREATE_USER', user: userData, variant: 'success' })
       }
     })
   }

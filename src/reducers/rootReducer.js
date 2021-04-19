@@ -57,7 +57,11 @@ const rootReducer = ( state = {
             return {
                 ...state,
                 currentUser: action.user,
-                loggedIn: true
+                loggedIn: true,
+                alert: {
+                    message: "Account successfully created!",
+                    variant: action.variant
+                }
             }
         case 'ERROR_MESSAGE':
             return {
