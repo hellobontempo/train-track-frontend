@@ -5,7 +5,11 @@ const rootReducer = ( state = {
     loadingTP: false, 
     loadingUP: false,
     loggedIn: false,
-    currentUser: null
+    currentUser: null,
+    alert: {
+        message: '',
+        variant: ''
+    }
     }, action ) => {
     switch (action.type) {
         case 'LOADING_TRAINING_PROGRAMS':
@@ -55,6 +59,13 @@ const rootReducer = ( state = {
                 currentUser: action.user,
                 loggedIn: true
             }
+        case 'ERROR_MESSAGE':
+            return {
+                ...state,
+                alert: {
+                message: action.message,
+                variant: action.variant
+            }}
         default:
             return state
     }

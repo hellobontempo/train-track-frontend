@@ -13,7 +13,7 @@ export const newUser = userData => {
     .then( r => r.json())
     .then( user => {
       if ( !!user.error ){
-        console.log(user.error)
+        dispatch({ type: 'ERROR_MESSAGE', message: user.error, variant: 'danger'})
       } else {
         dispatch({ type: 'CREATE_USER', user: userData })
       }
