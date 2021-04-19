@@ -1,12 +1,10 @@
-// import React, { useState } from 'react'
 import { Alert } from "react-bootstrap";
+import { sentenceCase } from "sentence-case";
 
 export default function AlertMessage (props) {
-    // const [show, setShow] = useState(true);
-    console.log("props", props)
     return (
         <Alert variant={props.variant}>
-          {props.message}
+          {sentenceCase(props.message)}
         </Alert>
     )
 }
