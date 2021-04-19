@@ -1,11 +1,11 @@
 const baseURL = 'http://localhost:3000'
 // const baseURL = 'https://afternoon-tundra-58524.herokuapp.com'
 
-export const userSignup = newUser => {
+export const newUser = userData => {
   return (dispatch)=>{
     fetch(`${baseURL}/signup`, {
         method: 'POST',
-          body: JSON.stringify(newUser),
+          body: JSON.stringify(userData),
           headers: { 
             'Content-Type': 'application/json',
             'Accepts': 'application/json'}

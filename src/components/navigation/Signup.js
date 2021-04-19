@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Form } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { userSignup } from '../../actions/actions'
+import { newUser } from '../../actions/actions'
 
 
 function Signup (props) {
@@ -25,7 +25,7 @@ function Signup (props) {
         setSubmitted(true);
         const newUser = {
             user: values}
-       props.userSignup(newUser)
+       props.newUser(newUser)
     }
 
     
@@ -82,4 +82,4 @@ function Signup (props) {
 
 
 
-export default connect(null, {userSignup})(Signup)
+export default connect(null, {newUser})(Signup)
