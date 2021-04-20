@@ -14,11 +14,10 @@ export const newUser = userData => {
     .then( r => r.json())
     .then( user => {
       if ( !!user.error ){
-        console.log(user)
         dispatch({ type: 'ERROR_MESSAGE', message: user.error, variant: 'danger' })
       } else {
-        console.log(user)
-        dispatch({ type: 'CREATE_USER', user: userData, variant: 'success' })
+
+        dispatch({ type: 'CREATE_USER', message: user.message, user: user, variant: 'success' })
       }
     })
   }
@@ -73,7 +72,10 @@ export const addUserProgram = (newProgram, jwt) => {
   return dispatch => {
     fetch(`${baseURL}/user_programs`, configObj)
     .then(resp => resp.json())
-    .then(newProgram => dispatch({ type: 'ADD_USER_PROGRAM', payload: newProgram }))
+    .then(programData => {
+      console.log(programData)
+      !!programData.message ? dispatch({ type: 'ERROR_MESSAGE', message: [programData.message], variant: 'secondary' }) : dispatch({ type: 'ADD_USER_PROGRAM', payload: programData })
+    })
   }
 }
 

@@ -15,6 +15,7 @@ import Switch from 'react-bootstrap/esm/Switch';
 
 import ProgramForm from './components/ProgramForm';
 import GreyBlock from './components/littleHelpers/GreyBlock';
+import AlertMessage from './components/littleHelpers/AlertMessage';
 
 class App extends React.Component {
 
@@ -25,9 +26,12 @@ class App extends React.Component {
   }
 
   render(){
+    console.log(this.props)
+    const { alert } = this.props
     return (
       <div className="App" style={{ background: "#8F9AAF" }}>
           <NavBar />
+          { this.props.alert.message !== "" ? <AlertMessage message={alert.message} variant={alert.variant}/> : ""}
           <Router> 
             <Switch>
               <Route exact path="/" component={Home} />  
@@ -40,8 +44,6 @@ class App extends React.Component {
               <Route path="/user_programs" component={ () => {
               return <CustomProgramsContainer userPrograms={this.props.userPrograms}/>
               }} /> 
-
-
             
               <Route path="/new-program" component={ProgramForm}/>
              </Switch>
@@ -58,7 +60,8 @@ const mapStateToProps = state => {
     userPrograms: state.userPrograms,
     exercises: state.exercises, //not using right now
     loadingTP: state.loadingTP,
-    loadingUP: state.loadingUP
+    loadingUP: state.loadingUP,
+    alert: state.alert
 
   }
 }

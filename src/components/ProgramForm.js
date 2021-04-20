@@ -88,9 +88,9 @@ class ProgramForm extends React.Component {
             program_id: this.state.program_id,}
         }
         this.props.addUserProgram(newProgram)
-        setTimeout(function() { //Start the timer
-            this.setState({renderPopup: true}) //After 1 second, set render to true
-        }.bind(this), 1000)
+        // setTimeout(function() { //Start the timer
+        //     this.setState({renderPopup: true}) //After 1 second, set render to true
+        // }.bind(this), 1000)
         this.setState({
             race_date: "",
             username: "",
