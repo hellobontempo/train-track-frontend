@@ -26,7 +26,6 @@ class App extends React.Component {
   }
 
   render(){
-    console.log(this.props)
     const { alert } = this.props
     return (
       <div className="App" style={{ background: "#8F9AAF" }}>

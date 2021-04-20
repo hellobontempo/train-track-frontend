@@ -61,6 +61,7 @@ export const fetchExercises = (jwt) => {
 } 
 
 export const addUserProgram = (newProgram, jwt) => {
+  console.log(jwt)
   const configObj = {
     method: 'POST',
     body: JSON.stringify(newProgram),
@@ -73,7 +74,7 @@ export const addUserProgram = (newProgram, jwt) => {
     fetch(`${baseURL}/user_programs`, configObj)
     .then(resp => resp.json())
     .then(programData => {
-      !!programData.message ? dispatch({ type: 'ERROR_MESSAGE', message: [programData.message], variant: 'secondary' }) : dispatch({ type: 'ADD_USER_PROGRAM', payload: programData })
+      !!programData.message ? dispatch({ type: 'ERROR_MESSAGE', message: programData.message, variant: 'secondary' }) : dispatch({ type: 'ADD_USER_PROGRAM', payload: programData })
     })
   }
 }
