@@ -16,7 +16,7 @@ export const newUser = userData => {
       if ( !!user.error ){
         dispatch({ type: 'ERROR_MESSAGE', message: user.error, variant: 'danger' })
       } else {
-
+        sessionStorage.setItem('accessToken', user.jwt)
         dispatch({ type: 'CREATE_USER', message: user.message, user: user, variant: 'success' })
       }
     })
@@ -73,7 +73,6 @@ export const addUserProgram = (newProgram, jwt) => {
     fetch(`${baseURL}/user_programs`, configObj)
     .then(resp => resp.json())
     .then(programData => {
-      console.log(programData)
       !!programData.message ? dispatch({ type: 'ERROR_MESSAGE', message: [programData.message], variant: 'secondary' }) : dispatch({ type: 'ADD_USER_PROGRAM', payload: programData })
     })
   }
