@@ -2,11 +2,9 @@ import React, { useState } from 'react'
 import { Form } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { newUser } from '../../actions/actions'
-import AlertMessage from '../littleHelpers/AlertMessage';
 
 
 function Signup (props) {
-    const [showMessage, setMessage] = useState(false);
     const [values, setValues] = useState({
         name: '',
         email: '',
@@ -23,7 +21,6 @@ function Signup (props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setMessage(true);
         const newUser = {
             user: values}
        props.newUser(newUser)
@@ -32,7 +29,6 @@ function Signup (props) {
     
         return (
             <div className="formDiv">
-                {showMessage && <AlertMessage message={props.alert.message} variant={props.alert.variant}/> }
             <div className="formDiv">
                 <Form onSubmit={handleSubmit}>
                     <Form.Group>
