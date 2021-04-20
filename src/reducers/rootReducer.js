@@ -4,6 +4,7 @@ const rootReducer = ( state = {
     exercises:[],
     loadingTP: false, 
     loadingUP: false,
+    loadingLogIn: false,
     loggedIn: false,
     currentUser: null,
     alert: {
@@ -53,9 +54,15 @@ const rootReducer = ( state = {
                 ...state,
                 exercises: action.exercises
             }
+        case 'LOADING_LOGIN':
+            return {
+                ...state,
+                loadingLogIn: true
+            }
         case 'CREATE_USER':
             return {
                 ...state,
+                loadingLogIn: false,
                 currentUser: action.user,
                 loggedIn: true,
                 alert: {
@@ -66,6 +73,7 @@ const rootReducer = ( state = {
         case 'ERROR_MESSAGE':
             return {
                 ...state,
+                loadingLogIn: false,
                 alert: {
                 message: action.message,
                 variant: action.variant

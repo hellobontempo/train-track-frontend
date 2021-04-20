@@ -3,6 +3,7 @@ const baseURL = 'http://localhost:3000'
 
 export const newUser = userData => {
   return (dispatch)=>{
+    dispatch({ type: 'LOADING_LOGIN' })  
     fetch(`${baseURL}/signup`, {
         method: 'POST',
           body: JSON.stringify(userData),
@@ -13,7 +14,8 @@ export const newUser = userData => {
     .then( r => r.json())
     .then( user => {
       if ( !!user.error ){
-        dispatch({ type: 'ERROR_MESSAGE', message: user.error, variant: 'danger'})
+        console.log(user)
+        dispatch({ type: 'ERROR_MESSAGE', message: user.error, variant: 'danger' })
       } else {
         console.log(user)
         dispatch({ type: 'CREATE_USER', user: userData, variant: 'success' })
