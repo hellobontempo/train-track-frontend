@@ -22,24 +22,36 @@ export const newUser = userData => {
   }
 }
 
-export function fetchPrograms() {
+export const fetchPrograms = (jwt) => {
+  const configObj = {
+    method: 'GET',
+    headers: {
+        'Authorization': `Bearer ${ jwt }`
+    }
+}
   return (dispatch) => {
     dispatch({ type: 'LOADING_TRAINING_PROGRAMS' });
-    fetch(`${baseURL}/programs`)
+    fetch(`${baseURL}/programs`, configObj)
       .then(response => response.json())
       .then(programs => dispatch({ type: 'FETCH_TRAINING_PROGRAMS', programs }));
   };
 } 
 
-export function fetchUserPrograms() {
+export const fetchUserPrograms = (jwt) => {
+  const configObj = {
+    method: 'GET',
+    headers: {
+        'Authorization': `Bearer ${ jwt }`
+    }
+}
   return (dispatch) => {
     dispatch({ type: 'LOADING_USER_PROGRAMS' });
-    fetch(`${baseURL}/user_programs`)
+    fetch(`${baseURL}/user_programs`, configObj)
       .then(response => response.json())
       .then(userPrograms => dispatch({ type: 'FETCH_USER_PROGRAMS', userPrograms }));
   };
 } 
-export function fetchExercises() {
+export const fetchExercises = (jwt) => {
   return (dispatch) => {
     fetch(`${baseURL}/exercises`)
       .then(response => response.json())
@@ -47,34 +59,36 @@ export function fetchExercises() {
   };
 } 
 
-export const addUserProgram = newProgram => { 
+export const addUserProgram = (newProgram, jwt) => {
+  const configObj = {
+    method: 'POST',
+    body: JSON.stringify(newProgram),
+    headers: { 
+      'Content-Type': 'application/json',
+      'Accepts': 'application/json',
+      Authorization: `Bearer ${ jwt }`}
+  } 
   return dispatch => {
-    fetch(`${baseURL}/user_programs`, {
-      method: 'POST',
-      body: JSON.stringify(newProgram),
-      headers: { 
-        'Content-Type': 'application/json',
-        'Accepts': 'application/json',
-        Authorization: `Bearer <token>`}
-    })
+    fetch(`${baseURL}/user_programs`, configObj)
     .then(resp => resp.json())
     .then(newProgram => dispatch({ type: 'ADD_USER_PROGRAM', payload: newProgram }))
   }
 }
 
-export const editUserProgram = (exerciseId, customProgramId) => {
-  let configObj = {
+export const editUserProgram = (exerciseId, customProgramId, jwt) => {
+  const exercise = {
     exercise_id: exerciseId
   }
+  const configObj = {
+    method: 'PATCH',
+    body: JSON.stringify(exercise),
+    headers: { 
+      'Content-Type': 'application/json',
+      'Accepts': 'application/json',
+      Authorization: `Bearer ${ jwt }`}
+  }
   return dispatch => {
-    fetch(`${baseURL}/custom_programs/${customProgramId}`, {
-      method: 'PATCH',
-      body: JSON.stringify(configObj),
-      headers: { 
-        'Content-Type': 'application/json',
-        'Accepts': 'application/json',
-        Authorization: `Bearer <token>`}
-    })
+    fetch(`${baseURL}/custom_programs/${customProgramId}`, configObj)
     .then(resp => resp.json())
     .then(updatedProgram => dispatch({type: 'UPDATE_USER_PROGRAM', payload: updatedProgram}))
   }
