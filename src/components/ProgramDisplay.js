@@ -1,3 +1,6 @@
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 const ProgramDisplay = ({program}) => {
 
     function renderProgram(){
@@ -14,7 +17,7 @@ const ProgramDisplay = ({program}) => {
     }
     return(
         <>
-        {program ? renderProgram() : <h1>Loading...</h1>}
+        {program ? renderProgram() : <Loader type="TailSpin" color="#FD8A61" height={50} width={50} />}
         </>
     )
 }

@@ -4,6 +4,8 @@ import Table from 'react-bootstrap/Table';
 import TableHeader from './TableHeader';
 import Week from './Week';
 import { dateStringToObject } from '../littleHelpers/helperFunctions'
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const CustomTable = ({program}) => {
 
@@ -75,7 +77,7 @@ const CustomTable = ({program}) => {
                 < TableHeader/>
               </thead>
               <tbody>
-                  {program ? displayWeeks() : <h1>Loading...</h1>}
+                  {program ? displayWeeks() : <Loader type="TailSpin" color="#FD8A61" height={50} width={50} />}
               </tbody>
             </Table>
             </Container>

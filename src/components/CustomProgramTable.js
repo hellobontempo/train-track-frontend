@@ -3,6 +3,8 @@ import { Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import RunDescriptionModal from './RunDescriptionModal';
 import CustomTable from './table/CustomTable';
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 
 class CustomProgramTable extends React.Component {
@@ -34,7 +36,7 @@ class CustomProgramTable extends React.Component {
     console.log(program)
     return (
         <Container>
-        {this.props.userProgram ? this.displayTable() : <h1>Loading...</h1>}
+        {this.props.userProgram ? this.displayTable() : <Loader type="TailSpin" color="#FD8A61" height={50} width={50} />}
         </Container>
       )
   }

@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { displayDate } from '../littleHelpers/helperFunctions'
 import WorkoutDashboard from './WorkoutDashboard'
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 
 class Week extends React.Component{
@@ -36,7 +38,7 @@ class Week extends React.Component{
         console.log(this.props)
         return (
               <>
-              {this.props.exercises.length > 0 ? this.findExercises() : <p>Loading..</p>}  
+              {this.props.exercises.length > 0 ? this.findExercises() : <Loader type="TailSpin" color="#FD8A61" height={50} width={50} />}  
               </>
         )}
 }
