@@ -5,7 +5,7 @@ export const newUser = userData => {
   return (dispatch)=>{
     dispatch({ type: 'LOADING_LOGIN' })  
     fetch(`${baseURL}/signup`, {
-        method: 'POST',
+          method: 'POST',
           body: JSON.stringify(userData),
           headers: { 
             'Content-Type': 'application/json',
@@ -16,8 +16,8 @@ export const newUser = userData => {
       if ( !!user.error ){
         dispatch({ type: 'ERROR_MESSAGE', message: user.error, variant: 'danger' })
       } else {
-        sessionStorage.setItem('accessToken', user.jwt)
-        dispatch({ type: 'CREATE_USER', message: user.message, user: user, variant: 'success' })
+        localStorage.setItem('accessToken', user.jwt)
+        dispatch({ type: 'CREATE_USER', message: user.message, user: user.user, variant: 'success' })
       }
     })
   }
@@ -37,9 +37,12 @@ export const login = userData => {
     .then(resp => resp.json())
     .then (data => {
       console.log(data)
+      if ( !!data.error ){
+        dispatch({ type: 'ERROR_MESSAGE', message: data.error, variant: 'danger'})
+      }else{
       localStorage.setItem('token', data.jwt)
-      dispatch({type: 'CREATE_USER', message: [`Welcome ${data.name}`], user: data.user, variant: 'success'})
-    })
+      dispatch({type: 'CREATE_USER', message: data.message, user: data.user, variant: 'success'})
+    }})
   }
 }
 
@@ -80,8 +83,8 @@ export const fetchExercises = (jwt) => {
   };
 } 
 
-export const addUserProgram = (newProgram, jwt) => {
-  console.log(jwt)
+export const addUserProgram = (newProgram) => {
+  const jwt = localStorage.token
   const configObj = {
     method: 'POST',
     body: JSON.stringify(newProgram),

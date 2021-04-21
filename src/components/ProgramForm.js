@@ -10,7 +10,6 @@ class ProgramForm extends React.Component {
     
     state = {
         race_date: "",
-        username: "",
         length_in_weeks: "",
         program_id: "1",
         checkedExercises: {},
@@ -82,7 +81,6 @@ class ProgramForm extends React.Component {
         const newProgram = {
             user_program: {
             race_date: this.state.race_date,
-            username: this.state.username,
             preferred_exercise_ids: Object.keys(this.state.checkedExercises),
             length_in_weeks: this.state.length_in_weeks, 
             program_id: this.state.program_id,}
@@ -93,7 +91,6 @@ class ProgramForm extends React.Component {
         // }.bind(this), 1000)
         this.setState({
             race_date: "",
-            username: "",
             length_in_weeks: "",
             program_id: "1",
             checkedExercises: {},
@@ -118,15 +115,6 @@ class ProgramForm extends React.Component {
                         onChange={this.handleInputChange} />
                     
                     </Col>
-                    <Col>
-                    <label className="form-inline">Your Name:</label>
-                        <input
-                        className="form-control"
-                        name="username" 
-                        type="text"
-                        value={this.state.username}
-                        onChange={this.handleInputChange}/>
-                    </Col>
                 </Row>
                 <br></br>
                 <Row>
@@ -141,6 +129,9 @@ class ProgramForm extends React.Component {
                         value={this.state.length_in_weeks}
                         onChange={this.handleInputChange}/>
                     </Col>
+                </Row>
+                <br></br>
+                <Row>
                     <Col>
                     <label className="form-inline">Choose a race:</label>
                         <select
@@ -156,10 +147,11 @@ class ProgramForm extends React.Component {
                     <Col>
                         <br></br>
                         <label className="form-inline">Choose Your Preferred Cross Training Activities:</label>
-                    </Col>
+                    
                     <Button className="float-left" variant="dark" onClick={this.handleSelectAll} size="sm">{this.state.selectAllButton}</Button>
                     <br></br><br></br>
                     {exercises ? this.renderCheckboxes() : <p>exercises coming..</p>}
+                    </Col>
                     <input 
                     className="form-control"
                     type="submit"/>

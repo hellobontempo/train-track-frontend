@@ -9,7 +9,7 @@ function AlertMessage (props) {
     return (
         <Alert variant={props.variant}>
           {props.loading ? <Loader type="TailSpin" color="#FD8A61" height={50} width={50} /> : props.message.map(m => {
-            return <li>{m}</li>
+            return <ui>{m}</ui>
           })}          
         </Alert>
     )
