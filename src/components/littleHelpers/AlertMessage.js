@@ -4,13 +4,15 @@ import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 function AlertMessage (props) {
-  console.log(props.loading)
-  console.log("message", props.message)
+
+  function renderMessage(){
+    return (
+      props.message.length === 1 ? <ul>{props.message}</ul> : props.message.map(m => <li>{m}</li>)
+    )
+  }
     return (
         <Alert variant={props.variant}>
-          {props.loading ? <Loader type="TailSpin" color="#FD8A61" height={50} width={50} /> : props.message.map(m => {
-            return <ui>{m}</ui>
-          })}          
+          {props.loading ? <Loader type="TailSpin" color="#FD8A61" height={50} width={50} /> : renderMessage()}          
         </Alert>
     )
 }

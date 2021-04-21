@@ -30,7 +30,7 @@ class App extends React.Component {
     const { alert } = this.props
     return (
       <div className="App" style={{ background: "#8F9AAF" }}>
-          <NavBar />
+          <NavBar loggedIn={this.props.loggedIn}/>
           { this.props.alert.message !== "" ? <AlertMessage message={alert.message} variant={alert.variant}/> : ""}
           <Router> 
             <Switch>
@@ -64,7 +64,8 @@ const mapStateToProps = state => {
     exercises: state.exercises, //not using right now
     loadingTP: state.loadingTP,
     loadingUP: state.loadingUP,
-    alert: state.alert
+    alert: state.alert,
+    loggedIn: state.loggedIn
 
   }
 }

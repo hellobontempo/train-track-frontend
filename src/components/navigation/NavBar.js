@@ -3,7 +3,8 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 // import { Button } from 'react-bootstrap'
 // import { FormControl} from 'react-bootstrap'
 
-const NavBar = () => {
+const NavBar = (props) => {
+  console.log(props)
     return (
     <Navbar expand="lg" className="color-nav">
     <Navbar.Brand href="/">
@@ -19,8 +20,8 @@ const NavBar = () => {
     <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
         <Nav.Link href="/">Home</Nav.Link>
-        <Nav.Link href="/signup">Sign Up</Nav.Link>
-        <Nav.Link href="/login">Login</Nav.Link>
+        {props.loggedIn ? <Nav.Link href="/signup">Log Out</Nav.Link> : <Nav.Link href="/signup">Sign Up</Nav.Link>}
+        {props.loggedIn ? "" : <Nav.Link href="/login">Login</Nav.Link> }
         <Nav.Link href="/new-program">Create Custom Program</Nav.Link>
         <Nav.Link href="/user_programs">Fellow Train Tracks</Nav.Link>
         <NavDropdown title="Training Programs" id="basic-nav-dropdown">
