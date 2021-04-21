@@ -16,6 +16,7 @@ import Switch from 'react-bootstrap/esm/Switch';
 import ProgramForm from './components/ProgramForm';
 import GreyBlock from './components/littleHelpers/GreyBlock';
 import AlertMessage from './components/littleHelpers/AlertMessage';
+import Login from './components/navigation/Login';
 
 class App extends React.Component {
 
@@ -36,6 +37,9 @@ class App extends React.Component {
               <Route exact path="/" component={Home} />  
               <Route exact path="/signup">
                 <Signup/>  
+              </Route> 
+              <Route exact path="/login">
+                <Login/>
               </Route> 
               <Route path="/programs" component={ () => {
               return <ProgramsContainer programs={this.props.programs}/>

@@ -9,7 +9,7 @@ export const newUser = userData => {
           body: JSON.stringify(userData),
           headers: { 
             'Content-Type': 'application/json',
-            'Accepts': 'application/json'}
+            'Accept': 'application/json'}
       })  
     .then( r => r.json())
     .then( user => {
@@ -19,6 +19,26 @@ export const newUser = userData => {
         sessionStorage.setItem('accessToken', user.jwt)
         dispatch({ type: 'CREATE_USER', message: user.message, user: user, variant: 'success' })
       }
+    })
+  }
+}
+
+export const login = userData => {
+  return (dispatch) =>{
+    dispatch({ type: 'LOADING_LOGIN' }) 
+    fetch(`${baseURL}/login`, {
+      method: 'POST',
+      body: JSON.stringify(userData),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    .then(resp => resp.json())
+    .then (data => {
+      console.log(data)
+      localStorage.setItem('token', data.jwt)
+      dispatch({type: 'CREATE_USER', message: [`Welcome ${data.name}`], user: data.user, variant: 'success'})
     })
   }
 }
@@ -67,7 +87,7 @@ export const addUserProgram = (newProgram, jwt) => {
     body: JSON.stringify(newProgram),
     headers: { 
       'Content-Type': 'application/json',
-      'Accepts': 'application/json',
+      'Accept': 'application/json',
       Authorization: `Bearer ${ jwt }`}
   } 
   return dispatch => {
@@ -88,7 +108,7 @@ export const editUserProgram = (exerciseId, customProgramId, jwt) => {
     body: JSON.stringify(exercise),
     headers: { 
       'Content-Type': 'application/json',
-      'Accepts': 'application/json',
+      'Accept': 'application/json',
       Authorization: `Bearer ${ jwt }`}
   }
   return dispatch => {
