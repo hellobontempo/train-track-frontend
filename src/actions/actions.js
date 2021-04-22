@@ -1,6 +1,29 @@
 const baseURL = 'http://localhost:3000'
 // const baseURL = 'https://afternoon-tundra-58524.herokuapp.com'
 
+export const autoLogin = () => {
+  return (dispatch) => {
+    const token = localStorage.getItem('token')
+    if(token) {
+      fetch(`${baseURL}/auto_login`, {
+        meathod: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${ token }`
+        }})
+        .then(resp => resp.json())
+        .then(user => {
+          if ( !!user.error ){
+            dispatch({ type: 'ERROR_MESSAGE', message: user.error, variant: 'danger' })
+          } else {
+            localStorage.setItem('accessToken', user.jwt)
+            dispatch({ type: 'CREATE_USER', message: [`${user.name} is logged in`], user: user.user, variant: 'info' })
+          }
+        })
+      }
+    }
+}
 export const newUser = userData => {
   return (dispatch)=>{
     dispatch({ type: 'LOADING_LOGIN' })  

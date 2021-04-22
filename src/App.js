@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react'
 import { connect } from 'react-redux';
-import {fetchExercises, fetchPrograms, fetchUserPrograms} from './actions/actions'
+import {autoLogin, fetchExercises, fetchPrograms, fetchUserPrograms} from './actions/actions'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -24,8 +24,12 @@ class App extends React.Component {
     this.props.fetchPrograms()
     this.props.fetchUserPrograms()
     this.props.fetchExercises()
+   
   }
-  
+
+  componentDidUpdate(){
+    this.props.autoLogin()
+  }
   render(){
     const { alert } = this.props
     return (
@@ -74,7 +78,8 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchPrograms: () => dispatch(fetchPrograms()),
     fetchUserPrograms: () => dispatch(fetchUserPrograms()),
-    fetchExercises: () => dispatch(fetchExercises())
+    fetchExercises: () => dispatch(fetchExercises()),
+    autoLogin: () => dispatch(autoLogin())
   }
 }
 
