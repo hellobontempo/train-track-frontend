@@ -25,7 +25,9 @@ export const autoLogin = () => {
 }
 
 export const logout = () => {
-  return (dispatch) => dispatch({ type: 'LOGOUT_USER', message: ["Goodbye!"], variant: 'info'})
+  return (dispatch) => {
+  localStorage.removeItem('token')
+  dispatch({ type: 'LOGOUT_USER', message: ["Goodbye!"], variant: 'info'})}
 }
 export const newUser = userData => {
   return (dispatch)=>{
