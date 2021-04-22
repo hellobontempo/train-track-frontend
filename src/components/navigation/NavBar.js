@@ -4,7 +4,6 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 // import { FormControl} from 'react-bootstrap'
 
 const NavBar = (props) => {
-  console.log(props)
     return (
     <Navbar expand="lg" className="color-nav">
     <Navbar.Brand href="/">

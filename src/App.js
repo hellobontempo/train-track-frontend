@@ -25,7 +25,7 @@ class App extends React.Component {
     this.props.fetchUserPrograms()
     this.props.fetchExercises()
   }
-
+  
   render(){
     const { alert } = this.props
     return (
