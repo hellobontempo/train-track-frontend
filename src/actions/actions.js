@@ -15,14 +15,17 @@ export const autoLogin = () => {
         .then(resp => resp.json())
         .then(user => {
           if ( !!user.error ){
-            dispatch({ type: 'ERROR_MESSAGE', message: user.error, variant: 'danger' })
+            dispatch({ type: 'ERROR_MESSAGE', message: user.error, variant: 'info' })
           } else {
-            localStorage.setItem('accessToken', user.jwt)
-            dispatch({ type: 'CREATE_USER', message: [`${user.name} is logged in`], user: user.user, variant: 'info' })
+            dispatch({ type: 'CREATE_USER', message: [], user: user.user })
           }
         })
       }
     }
+}
+
+export const logout = () => {
+  return (dispatch) => dispatch({ type: 'LOGOUT_USER', message: ["Goodbye!"], variant: 'info'})
 }
 export const newUser = userData => {
   return (dispatch)=>{

@@ -4,6 +4,10 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 // import { FormControl} from 'react-bootstrap'
 
 const NavBar = (props) => {
+
+  const handleLogOut = e => {
+    props.logout()
+  }
     return (
     <Navbar expand="lg" className="color-nav">
     <Navbar.Brand href="/">
@@ -19,7 +23,7 @@ const NavBar = (props) => {
     <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
         <Nav.Link href="/">Home</Nav.Link>
-        {props.loggedIn ? <Nav.Link href="/signup">Log Out</Nav.Link> : <Nav.Link href="/signup">Sign Up</Nav.Link>}
+        {props.loggedIn ? <Nav.Link onClick={handleLogOut}>Log Out</Nav.Link> : <Nav.Link href="/signup">Sign Up</Nav.Link>}
         {props.loggedIn ? "" : <Nav.Link href="/login">Login</Nav.Link> }
         <Nav.Link href="/new-program">Create Custom Program</Nav.Link>
         <Nav.Link href="/user_programs">Fellow Train Tracks</Nav.Link>

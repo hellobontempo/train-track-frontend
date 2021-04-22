@@ -70,6 +70,16 @@ const rootReducer = ( state = {
                     variant: action.variant
                 }
             }
+        case 'LOGOUT_USER':
+            return {
+                ...state,
+                currentUser: null,
+                loggedIn: false,
+                alert: {
+                message: action.message,
+                variant: action.variant}
+            }
+
         case 'ERROR_MESSAGE':
             return {
                 ...state,

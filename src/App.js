@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react'
 import { connect } from 'react-redux';
-import {autoLogin, fetchExercises, fetchPrograms, fetchUserPrograms} from './actions/actions'
+import {autoLogin, fetchExercises, fetchPrograms, fetchUserPrograms, logout} from './actions/actions'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -34,7 +34,7 @@ class App extends React.Component {
     const { alert } = this.props
     return (
       <div className="App" style={{ background: "#8F9AAF" }}>
-          <NavBar loggedIn={this.props.loggedIn}/>
+          <NavBar loggedIn={this.props.loggedIn} logout={this.props.logout}/>
           { this.props.alert.message !== "" ? <AlertMessage message={alert.message} variant={alert.variant}/> : ""}
           <Router> 
             <Switch>
@@ -79,7 +79,8 @@ const mapDispatchToProps = dispatch => {
     fetchPrograms: () => dispatch(fetchPrograms()),
     fetchUserPrograms: () => dispatch(fetchUserPrograms()),
     fetchExercises: () => dispatch(fetchExercises()),
-    autoLogin: () => dispatch(autoLogin())
+    autoLogin: () => dispatch(autoLogin()),
+    logout: () => dispatch(logout())
   }
 }
 
