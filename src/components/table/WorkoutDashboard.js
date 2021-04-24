@@ -42,10 +42,8 @@ const WorkoutDashboard = (props) => {
                   onChange={handleChange}
                   value={formSelect}
                   className="form-control"
+                  placeholder="Select Exercise"
                 >
-                  <option value="" selected disabled hidden>
-                    Select Exercise:
-                  </option>
                   {props.exercises.map((exercise) => {
                     return <option value={exercise.id}>{exercise.name}</option>;
                   })}
