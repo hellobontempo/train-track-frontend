@@ -37,13 +37,14 @@ const WorkoutDashboard = (props) => {
         <Modal.Body>
           <form onSubmit={handleSubmit}>
             <Row>
-              <Col>
+              <Col xs="auto">
                 <select
                   onChange={handleChange}
                   value={formSelect}
                   className="form-control"
                   placeholder="Select Exercise"
                 >
+                  <option>Select Exercise</option>
                   {props.exercises.map((exercise) => {
                     return <option value={exercise.id}>{exercise.name}</option>;
                   })}
