@@ -8,7 +8,6 @@ const WorkoutDashboard = (props) => {
   const { workout, exercise } = props;
   const [show, setShow] = useState(false);
   const [formSelect, setFormSelect] = useState(exercise.name);
-  const [customProgramId, setCustomProgramId] = useState(workout.id);
 
   const toggleModal = () => {
     setShow(!show);
@@ -20,7 +19,7 @@ const WorkoutDashboard = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.editUserProgram(formSelect, customProgramId);
+    props.editUserProgram(formSelect, workout.id);
     setFormSelect("");
   };
 
