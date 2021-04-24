@@ -20,7 +20,7 @@ const WorkoutDashboard = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     props.editUserProgram(formSelect, workout.id);
-    setFormSelect("");
+    setFormSelect(formSelect);
   };
 
   return (
@@ -43,6 +43,9 @@ const WorkoutDashboard = (props) => {
                   value={formSelect}
                   className="form-control"
                 >
+                  <option value="" selected disabled hidden>
+                    Select Exercise:
+                  </option>
                   {props.exercises.map((exercise) => {
                     return <option value={exercise.id}>{exercise.name}</option>;
                   })}
