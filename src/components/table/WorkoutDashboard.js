@@ -52,6 +52,7 @@ const WorkoutDashboard = (props) => {
               </Col>
               <Col>
                 <input
+                  aria-label="submit"
                   className="form-control"
                   type="submit"
                   value="Edit Exercise"

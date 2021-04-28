@@ -9,6 +9,7 @@ const ProgramButton = (props) => {
         className="block"
         variant="dark"
         href={`${props.url}/${props.program.id}`}
+        aria-label={`view ${props.buttonText}`}
       >
         {props.buttonText}
       </Button>

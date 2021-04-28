@@ -115,8 +115,11 @@ class ProgramForm extends React.Component {
         <form className="form" onSubmit={this.handleOnSubmit}>
           <Row>
             <Col>
-              <label className="form-inline">Enter Race Date:</label>
+              <label htmlFor="race date" className="form-inline">
+                Enter Race Date:
+              </label>
               <input
+                aria-label="race date"
                 className="form-control"
                 name="race_date"
                 type="date"
@@ -125,8 +128,11 @@ class ProgramForm extends React.Component {
               />
             </Col>
             <Col>
-              <label className="form-inline">Your Name:</label>
+              <label htmlFor="username" className="form-inline">
+                Your Name:
+              </label>
               <input
+                id="username"
                 className="form-control"
                 name="username"
                 type="text"
@@ -138,10 +144,11 @@ class ProgramForm extends React.Component {
           <br></br>
           <Row>
             <Col>
-              <label className="form-inline">
+              <label htmlFor="training length" className="form-inline">
                 How many weeks do you want to train?
               </label>
               <input
+                id="training length"
                 className="form-control"
                 name="length_in_weeks"
                 type="number"
@@ -185,7 +192,7 @@ class ProgramForm extends React.Component {
           ) : (
             <p>exercises coming..</p>
           )}
-          <input className="form-control" type="submit" />
+          <input className="form-control" aria-label="submit" type="submit" />
         </form>
       </div>
     );
