@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import DocumentTitle from "react-document-title";
 import { connect } from "react-redux";
 import RunDescriptionModal from "./RunDescriptionModal";
 import CustomTable from "./table/CustomTable";
