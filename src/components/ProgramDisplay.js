@@ -1,3 +1,5 @@
+import DocumentTitle from "react-document-title";
+
 const ProgramDisplay = ({ program }) => {
   function renderProgram() {
     return (
