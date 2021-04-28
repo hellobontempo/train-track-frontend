@@ -14,7 +14,7 @@ class CustomProgramDisplay extends React.Component {
   displayTable() {
     const { userProgram } = this.props;
     return (
-      <div>
+      <DocumentTitle title={`${userProgram.username} Custom Training`}>
         <br></br>
         <h1>{userProgram.username}'s Schedule:</h1>
         <br></br>
@@ -26,7 +26,7 @@ class CustomProgramDisplay extends React.Component {
         </h6>
         <br></br>
         <CustomTable program={userProgram} />
-      </div>
+      </DocumentTitle>
     );
   }
   render() {

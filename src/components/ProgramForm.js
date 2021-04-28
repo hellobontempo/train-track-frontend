@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Checkbox from "./littleHelpers/Checkbox";
 import { Col, Button, Row } from "react-bootstrap";
 import PopupModal from "./PopupModal";
+import DocumentTitle from "react-document-title";
 
 class ProgramForm extends React.Component {
   state = {
@@ -110,91 +111,93 @@ class ProgramForm extends React.Component {
 
   render() {
     return (
-      <div className="formDiv">
-        {this.state.renderPopup ? <PopupModal /> : ""}
-        <form className="form" onSubmit={this.handleOnSubmit}>
-          <Row>
-            <Col>
-              <label htmlFor="race date" className="form-inline">
-                Enter Race Date:
-              </label>
-              <input
-                aria-label="race date"
-                className="form-control"
-                name="race_date"
-                type="date"
-                value={this.state.race_date}
-                onChange={this.handleInputChange}
-              />
-            </Col>
-            <Col>
-              <label htmlFor="username" className="form-inline">
-                Your Name:
-              </label>
-              <input
-                id="username"
-                className="form-control"
-                name="username"
-                type="text"
-                value={this.state.username}
-                onChange={this.handleInputChange}
-              />
-            </Col>
-          </Row>
-          <br></br>
-          <Row>
-            <Col>
-              <label htmlFor="training length" className="form-inline">
-                How many weeks do you want to train?
-              </label>
-              <input
-                id="training length"
-                className="form-control"
-                name="length_in_weeks"
-                type="number"
-                min="4"
-                max="24"
-                value={this.state.length_in_weeks}
-                onChange={this.handleInputChange}
-              />
-            </Col>
-            <Col>
-              <label className="form-inline">Choose a race:</label>
-              <select
-                className="form-control"
-                name="program_id"
-                value={this.state.program_id}
-                onChange={this.handleInputChange}
-              >
-                <option value="1">Half Marathon</option>
-                <option value="2">Full Marathon</option>
-              </select>
-            </Col>
-          </Row>
-          <Col>
+      <DocumentTitle title="Create a Program Form">
+        <div className="formDiv">
+          {this.state.renderPopup ? <PopupModal /> : ""}
+          <form className="form" onSubmit={this.handleOnSubmit}>
+            <Row>
+              <Col>
+                <label htmlFor="race date" className="form-inline">
+                  Enter Race Date:
+                </label>
+                <input
+                  aria-label="race date"
+                  className="form-control"
+                  name="race_date"
+                  type="date"
+                  value={this.state.race_date}
+                  onChange={this.handleInputChange}
+                />
+              </Col>
+              <Col>
+                <label htmlFor="username" className="form-inline">
+                  Your Name:
+                </label>
+                <input
+                  id="username"
+                  className="form-control"
+                  name="username"
+                  type="text"
+                  value={this.state.username}
+                  onChange={this.handleInputChange}
+                />
+              </Col>
+            </Row>
             <br></br>
-            <label className="form-inline">
-              Choose Your Preferred Cross Training Activities:
-            </label>
-          </Col>
-          <Button
-            className="float-left"
-            variant="dark"
-            onClick={this.handleSelectAll}
-            size="sm"
-          >
-            {this.state.selectAllButton}
-          </Button>
-          <br></br>
-          <br></br>
-          {this.props.exercises ? (
-            this.renderCheckboxes()
-          ) : (
-            <p>exercises coming..</p>
-          )}
-          <input className="form-control" aria-label="submit" type="submit" />
-        </form>
-      </div>
+            <Row>
+              <Col>
+                <label htmlFor="training length" className="form-inline">
+                  How many weeks do you want to train?
+                </label>
+                <input
+                  id="training length"
+                  className="form-control"
+                  name="length_in_weeks"
+                  type="number"
+                  min="4"
+                  max="24"
+                  value={this.state.length_in_weeks}
+                  onChange={this.handleInputChange}
+                />
+              </Col>
+              <Col>
+                <label className="form-inline">Choose a race:</label>
+                <select
+                  className="form-control"
+                  name="program_id"
+                  value={this.state.program_id}
+                  onChange={this.handleInputChange}
+                >
+                  <option value="1">Half Marathon</option>
+                  <option value="2">Full Marathon</option>
+                </select>
+              </Col>
+            </Row>
+            <Col>
+              <br></br>
+              <label className="form-inline">
+                Choose Your Preferred Cross Training Activities:
+              </label>
+            </Col>
+            <Button
+              className="float-left"
+              variant="dark"
+              onClick={this.handleSelectAll}
+              size="sm"
+            >
+              {this.state.selectAllButton}
+            </Button>
+            <br></br>
+            <br></br>
+            {this.props.exercises ? (
+              this.renderCheckboxes()
+            ) : (
+              <p>exercises coming..</p>
+            )}
+            <input className="form-control" aria-label="submit" type="submit" />
+          </form>
+        </div>
+      </DocumentTitle>
     );
   }
 }

@@ -18,6 +18,7 @@ import Switch from "react-bootstrap/esm/Switch";
 
 import ProgramForm from "./components/ProgramForm";
 import GreyBlock from "./components/littleHelpers/GreyBlock";
+import DocumentTitle from "react-document-title";
 
 class App extends React.Component {
   componentDidMount() {
@@ -29,24 +30,28 @@ class App extends React.Component {
   render() {
     return (
       <div className="App" style={{ background: "#8F9AAF", flex: 1 }}>
-        <NavBar />
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/programs">
-              <ProgramsContainer programs={this.props.programs} />
-            </Route>
-            <Route path="/user_programs">
-              <CustomProgramsContainer userPrograms={this.props.userPrograms} />
-            </Route>
-            <Route path="/new-program">
-              <ProgramForm />
-            </Route>
-          </Switch>
-        </Router>
-        <GreyBlock />
+        <DocumentTitle title="Train Track">
+          <NavBar />
+          <Router>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/programs">
+                <ProgramsContainer programs={this.props.programs} />
+              </Route>
+              <Route path="/user_programs">
+                <CustomProgramsContainer
+                  userPrograms={this.props.userPrograms}
+                />
+              </Route>
+              <Route path="/new-program">
+                <ProgramForm />
+              </Route>
+            </Switch>
+          </Router>
+          <GreyBlock />
+        </DocumentTitle>
       </div>
     );
   }
