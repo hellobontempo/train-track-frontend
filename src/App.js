@@ -31,26 +31,28 @@ class App extends React.Component {
     return (
       <div className="App" style={{ background: "#8F9AAF", flex: 1 }}>
         <DocumentTitle title="Train Track">
-          <NavBar />
-          <Router>
-            <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route path="/programs">
-                <ProgramsContainer programs={this.props.programs} />
-              </Route>
-              <Route path="/user_programs">
-                <CustomProgramsContainer
-                  userPrograms={this.props.userPrograms}
-                />
-              </Route>
-              <Route path="/new-program">
-                <ProgramForm />
-              </Route>
-            </Switch>
-          </Router>
-          <GreyBlock />
+          <>
+            <NavBar />
+            <Router>
+              <Switch>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                <Route path="/programs">
+                  <ProgramsContainer programs={this.props.programs} />
+                </Route>
+                <Route path="/user_programs">
+                  <CustomProgramsContainer
+                    userPrograms={this.props.userPrograms}
+                  />
+                </Route>
+                <Route path="/new-program">
+                  <ProgramForm />
+                </Route>
+              </Switch>
+            </Router>
+            <GreyBlock />
+          </>
         </DocumentTitle>
       </div>
     );
