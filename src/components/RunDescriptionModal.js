@@ -21,12 +21,7 @@ class RunDescriptionModal extends React.Component {
         <Button variant="dark" onClick={this.showModal}>
           Training Program Tips
         </Button>
-        <Modal
-          show={this.state.show}
-          onHide={this.hideModal}
-          animation={false}
-          closeButton
-        >
+        <Modal show={this.state.show} onHide={this.hideModal} animation={false}>
           <Modal.Header>
             <Modal.Title>Training Tips</Modal.Title>
           </Modal.Header>

@@ -1,4 +1,5 @@
-const baseURL = "https://afternoon-tundra-58524.herokuapp.com";
+// const baseURL = "https://afternoon-tundra-58524.herokuapp.com";
+const baseURL = "http://localhost:3000";
 
 export function fetchPrograms() {
   return (dispatch) => {
@@ -52,7 +53,6 @@ export const addUserProgram = (newProgram) => {
 };
 
 export const editUserProgram = (exerciseId, customProgramId) => {
-  console.log("Made it!", exerciseId, customProgramId);
   let configObj = {
     exercise_id: exerciseId,
   };

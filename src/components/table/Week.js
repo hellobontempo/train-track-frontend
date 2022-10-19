@@ -19,12 +19,12 @@ class Week extends React.Component {
   }
 
   findExercises() {
-    return this.props.weeklyExercises.map((workout) => {
+    return this.props.weeklyExercises.map((workout, i) => {
       let exercise = this.props.exercises.find(
         (exercise) => exercise.id === workout.exercise_id
       );
       return (
-        <Td>
+        <Td key={`workout-${i}`}>
           <p className="date-background">
             {displayDate(this.returnDate(workout))}
           </p>

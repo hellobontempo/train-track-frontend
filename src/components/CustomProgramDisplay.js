@@ -15,19 +15,23 @@ class CustomProgramDisplay extends React.Component {
   displayTable() {
     const { userProgram } = this.props;
     return (
-      <DocumentTitle title={`${userProgram.username} Custom Training`}>
-        <br></br>
-        <h1>{userProgram.username}'s Schedule:</h1>
-        <br></br>
-        <RunDescriptionModal program={this.findProgram()} />
-        <br></br>
-        <br></br>
-        <h6>
-          <i>Click any workout to edit</i>
-        </h6>
-        <br></br>
-        <CustomTable program={userProgram} />
-      </DocumentTitle>
+      <>
+        <DocumentTitle title={`${userProgram.username} Custom Training`}>
+          <>
+            <br></br>
+            <h1>{userProgram.username}'s Schedule:</h1>
+            <br></br>
+            <RunDescriptionModal program={this.findProgram()} />
+            <br></br>
+            <br></br>
+            <h6>
+              <i>Click any workout to edit</i>
+            </h6>
+            <br></br>
+            <CustomTable program={userProgram} />
+          </>
+        </DocumentTitle>
+      </>
     );
   }
   render() {

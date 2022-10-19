@@ -4,7 +4,6 @@ import ProgramDisplay from "../ProgramDisplay";
 import ProgramsList from "../ProgramsList";
 
 const ProgramsContainer = (props) => {
-  console.log("programs container", props);
   return (
     <div>
       <Switch>

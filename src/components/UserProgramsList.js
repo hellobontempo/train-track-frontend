@@ -8,16 +8,14 @@ const UserProgramsList = (props) => {
       <hr></hr>
       {props.userPrograms.map((program) => {
         return (
-          <>
-            <ProgramButton
-              key={`user-programs-${program.username}`}
-              program={program}
-              url={props.url}
-              buttonText={`${program.username} is racing on -- ${displayDate(
-                program.race_date
-              )}`}
-            />
-          </>
+          <ProgramButton
+            key={`user-programs-${program.username}`}
+            program={program}
+            url={props.url}
+            buttonText={`${program.username} is racing on -- ${displayDate(
+              program.race_date
+            )}`}
+          />
         );
       })}
     </div>

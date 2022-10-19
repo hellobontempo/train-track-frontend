@@ -29,7 +29,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App" style={{ background: "#8F9AAF", flex: 1 }}>
+      <div className="App">
         <DocumentTitle title="Train Track">
           <>
             <NavBar />
@@ -51,6 +51,7 @@ class App extends React.Component {
                 </Route>
               </Switch>
             </Router>
+            <GreyBlock />
             <GreyBlock />
           </>
         </DocumentTitle>

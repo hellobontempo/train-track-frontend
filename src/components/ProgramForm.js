@@ -5,7 +5,7 @@ import Checkbox from "./littleHelpers/Checkbox";
 import { Col, Button, Row } from "react-bootstrap";
 import PopupModal from "./PopupModal";
 import DocumentTitle from "react-document-title";
-
+import { differenceInWeeks } from "date-fns";
 class ProgramForm extends React.Component {
   state = {
     race_date: "",
@@ -15,6 +15,7 @@ class ProgramForm extends React.Component {
     checkedExercises: {},
     selectAllButton: "Select All",
     renderPopup: false,
+    disableSelectWeeks: true,
   };
 
   renderCheckboxes() {
@@ -31,7 +32,9 @@ class ProgramForm extends React.Component {
             checked={this.state.checkedExercises[`${exercise.id}`]}
             onChange={this.handleCheckChange}
           />
-          <label className="form-check-label">{exercise.name}</label>
+          <label className="has-padding-left form-check-label">
+            {exercise.name}
+          </label>
         </div>
       );
     });
@@ -47,7 +50,16 @@ class ProgramForm extends React.Component {
         [exercise]: isChecked,
       },
     });
-    console.log(this.state);
+  };
+
+  calculateWeeks = () => {
+    const today = new Date();
+    const raceDate = new Date(this.state.race_date);
+    const weeks = differenceInWeeks(raceDate, today);
+    this.setState({
+      ...this.state,
+      length_in_weeks: weeks,
+    });
   };
 
   handleSelectAll = (event) => {
@@ -70,15 +82,18 @@ class ProgramForm extends React.Component {
     });
   };
 
-  handleInputChange = (event) => {
-    const target = event.target;
+  handleInputChange = ({ target }) => {
     const value = target.value;
     const name = target.name;
     this.setState({
       ...this.state,
       [name]: value,
     });
-    console.log(this.state);
+    if (this.state.race_date !== "") {
+      this.setState({
+        disableSelectWeeks: false,
+      });
+    }
   };
 
   handleOnSubmit = (event) => {
@@ -115,20 +130,7 @@ class ProgramForm extends React.Component {
         <div className="formDiv">
           {this.state.renderPopup ? <PopupModal /> : ""}
           <form className="form" onSubmit={this.handleOnSubmit}>
-            <Row>
-              <Col>
-                <label htmlFor="race date" className="form-inline">
-                  Enter Race Date:
-                </label>
-                <input
-                  aria-label="race date"
-                  className="form-control"
-                  name="race_date"
-                  type="date"
-                  value={this.state.race_date}
-                  onChange={this.handleInputChange}
-                />
-              </Col>
+            <Row className="has-padding-bottom">
               <Col>
                 <label htmlFor="username" className="form-inline">
                   Your Name:
@@ -143,25 +145,22 @@ class ProgramForm extends React.Component {
                 />
               </Col>
             </Row>
-            <br></br>
-            <Row>
+            <Row className="has-padding-bottom">
               <Col>
-                <label htmlFor="training length" className="form-inline">
-                  How many weeks do you want to train?
+                <label htmlFor="race date" className="form-inline">
+                  Enter Race Date:
                 </label>
                 <input
-                  id="training length"
+                  aria-label="race date"
                   className="form-control"
-                  name="length_in_weeks"
-                  type="number"
-                  min="4"
-                  max="24"
-                  value={this.state.length_in_weeks}
+                  name="race_date"
+                  type="date"
+                  value={this.state.race_date}
                   onChange={this.handleInputChange}
                 />
               </Col>
               <Col>
-                <label className="form-inline">Choose a race:</label>
+                <label className="form-inline">Select race length:</label>
                 <select
                   className="form-control"
                   name="program_id"
@@ -173,28 +172,69 @@ class ProgramForm extends React.Component {
                 </select>
               </Col>
             </Row>
-            <Col>
-              <br></br>
-              <label className="form-inline">
-                Choose Your Preferred Cross Training Activities:
-              </label>
-            </Col>
-            <Button
-              className="float-left"
-              variant="dark"
-              onClick={this.handleSelectAll}
-              size="sm"
-            >
-              {this.state.selectAllButton}
-            </Button>
-            <br></br>
-            <br></br>
+            <Row className="has-padding-bottom">
+              <Col>
+                <label htmlFor="training length" className="form-inline">
+                  How many weeks do you want to train?
+                </label>
+                <div className="is-nowrap">
+                  <Button
+                    disabled={this.state.disableSelectWeeks}
+                    className="float-left"
+                    variant="dark"
+                    onClick={this.calculateWeeks}
+                    size="sm"
+                  >
+                    Click to start training this week!
+                  </Button>
+                  <input
+                    disabled={this.state.disableSelectWeeks}
+                    id="training length"
+                    className="form-control is-half-width"
+                    name="length_in_weeks"
+                    type="number"
+                    min="4"
+                    max="24"
+                    value={this.state.length_in_weeks}
+                    onChange={this.handleInputChange}
+                  />
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <label className="form-inline">
+                  Choose Your Preferred Cross Training Activities:
+                </label>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Button
+                  className="float-left"
+                  variant="dark"
+                  onClick={this.handleSelectAll}
+                  size="sm"
+                >
+                  {this.state.selectAllButton}
+                </Button>
+              </Col>
+            </Row>
             {this.props.exercises ? (
               this.renderCheckboxes()
             ) : (
               <p>exercises coming..</p>
             )}
-            <input className="form-control" aria-label="submit" type="submit" />
+            <div className="has-padding-top">
+              <Button
+                variant="light"
+                className="form-control"
+                aria-label="submit"
+                type="submit"
+              >
+                Generate custom training program!
+              </Button>
+            </div>
           </form>
         </div>
       </DocumentTitle>

@@ -1,8 +1,7 @@
 import React, { Fragment } from "react";
 import { Container } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
-import TableHeader from "./TableHeader";
-import { Thead, Tbody, Tr } from "react-super-responsive-table";
+import { Thead, Tbody, Tr, Th } from "react-super-responsive-table";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 import Week from "./Week";
 import { dateStringToObject } from "../utils/helperFunctions";
@@ -12,6 +11,15 @@ const CustomTable = ({ program }) => {
   const endDate = dateStringToObject(program.race_date);
   const startIndex = startDate.getDay();
   const endIndex = endDate.getDay();
+  const calendarWeekdays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
   function createDaysBeforeProgram() {
     let daysBeforeProgram = [];
@@ -67,8 +75,8 @@ const CustomTable = ({ program }) => {
   }
 
   function displayWeeks() {
-    return createWeeks().map((week) => {
-      return <Tr>{week}</Tr>;
+    return createWeeks().map((week, i) => {
+      return <Tr key={`week-${i}`}>{week}</Tr>;
     });
   }
 
@@ -77,7 +85,11 @@ const CustomTable = ({ program }) => {
       <Container>
         <Table striped bordered>
           <Thead>
-            <TableHeader />
+            <Tr>
+              {calendarWeekdays.map((day, i) => (
+                <Th key={day}>{day}</Th>
+              ))}
+            </Tr>
           </Thead>
           <Tbody>{program ? displayWeeks() : <h1>Loading...</h1>}</Tbody>
         </Table>

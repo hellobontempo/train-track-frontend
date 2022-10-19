@@ -19,7 +19,7 @@ const NavBar = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/new-program">Create Custom Program</Nav.Link>
+          <Nav.Link href="/new-program">Create Custom Schedule</Nav.Link>
           <Nav.Link href="/user_programs">Fellow Train Tracks</Nav.Link>
           <NavDropdown title="Training Programs" id="basic-nav-dropdown">
             <NavDropdown.Item href="/programs/1">

@@ -17,12 +17,7 @@ class PopupModal extends React.Component {
   render() {
     return (
       <>
-        <Modal
-          show={this.state.show}
-          onHide={this.hideModal}
-          animation={true}
-          closeButton
-        >
+        <Modal show={this.state.show} onHide={this.hideModal} animation={true}>
           <Modal.Header>
             <Modal.Title>Your Program Has Been Created!</Modal.Title>
           </Modal.Header>

@@ -45,8 +45,12 @@ const WorkoutDashboard = (props) => {
                   placeholder="Select Exercise"
                 >
                   <option>Select Exercise</option>
-                  {props.exercises.map((exercise) => {
-                    return <option value={exercise.id}>{exercise.name}</option>;
+                  {props.exercises.map((exercise, i) => {
+                    return (
+                      <option key={i} value={exercise.id}>
+                        {exercise.name}
+                      </option>
+                    );
                   })}
                 </select>
               </Col>
